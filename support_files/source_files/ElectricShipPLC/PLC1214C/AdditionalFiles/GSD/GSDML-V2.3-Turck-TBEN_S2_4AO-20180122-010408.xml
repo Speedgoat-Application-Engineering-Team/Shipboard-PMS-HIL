@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--                                                                             -->
+<!--   Company:          Hans Turck GmbH & Co. KG                                -->
+<!--   Device:           TBEN-S2-4AO                                             -->
+<!--   Date Time:        2018-01-22 12:47                                        -->
+<!--   Gateway database: V1.00.2400, Rev. 6718                                   -->
+<!--   Device database:  V1.00.2400, Rev. 6715                                   -->
+<!--   Generator:        V1.6.0.0                                                -->
+<!--   Author:           Michael Horstmann                                       -->
+<!--                                                                             -->
+<!--   Copyright (c) 2002-2018 Hans Turck GmbH & Co. KG                          -->
+<!--                                                                             -->
+<!--                                                                             -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-V2.3.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x013D" DeviceID="0x6210">
+      <InfoText TextId="gPxtId_40" />
+      <VendorName Value="Turck" />
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="I/O" ProductFamily="Turck" />
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem ID="DAP_TBEN_S2_4AO" PhysicalSlots="0..6" ModuleIdentNumber="0x62100001" MinDeviceInterval="32" ImplementationType="Turck" DNS_CompatibleName="turck-tben-s2-4ao" AddressAssignment="DCP;LOCAL" NameOfStationNotTransferable="false" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" PowerOnToCommReady="400" DeviceAccessSupported="false" PNIO_Version="V2.2">
+          <ModuleInfo CategoryRef="gHcCat_dap">
+            <Name TextId="gPngHc_DAP_TBEN_S2_4AO_Name" />
+            <InfoText TextId="gPxtId_4" />
+            <VendorName Value="Turck" />
+            <OrderNumber Value="6814028" />
+            <HardwareRelease Value="HW 1" />
+            <SoftwareRelease Value="SW V 1.4.8" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="txtX1" />
+            <SubslotItem SubslotNumber="32769" TextId="txtX1P1" />
+            <SubslotItem SubslotNumber="32770" TextId="txtX1P2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="1024" MaxOutputLength="1024" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="dPngGmo_voltage" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_current" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_Diagnostics" AllowedInSlots="5" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_Module_status" AllowedInSlots="6" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="SUB_TBEN_S2_4AO" SubmoduleIdentNumber="0x00001000" Writeable_IM_Records="1 2 3 4">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="2" TransferSequence="1">
+                  <Name TextId="gTId_510" />
+                  <Const Data="0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_FieldbusFaultActionMode2" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="2" DefaultValue="0" AllowedValues="0 2" TextId="gTId_389_46" Changeable="false" Visible="false" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="gTId_393_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="2" DefaultValue="0" AllowedValues="0..1" TextId="gTId_400_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="4" DefaultValue="0" AllowedValues="0..1" TextId="gTId_397_46" />
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem Index="28672" Length="2" TransferSequence="2">
+                  <Name TextId="gTId_276" />
+                  <Const Data="0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="0" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="gTId_458_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="0" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="gTId_460_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="0" BitOffset="2" DefaultValue="0" AllowedValues="0..1" TextId="gTId_459_46" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="7" DefaultValue="0" AllowedValues="0..1" TextId="gTId_461_46" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo CategoryRef="gHcCat_dap_submod">
+                <Name TextId="gPxtId_11" />
+                <InfoText TextId="gPxtId_41" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem SubslotNumber="32768" TextId="gPxtId_35" ID="PN_IO_TBEN_S2_4AO" SubmoduleIdentNumber="0x00001001" SupportedRT_Classes="RT_CLASS_1" NetworkComponentDiagnosisSupported="true" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" DCP_HelloSupported="true">
+              <ApplicationRelations>
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem SubslotNumber="32769" TextId="gPxtId_36" ID="Port1_TBEN_S2_4AO" SubmoduleIdentNumber="0x00001002" MAUTypes="16" SupportsRingportConfig="true" IsDefaultRingport="true" LinkStateDiagnosisCapability="Up+Down" />
+            <PortSubmoduleItem SubslotNumber="32770" TextId="gPxtId_37" ID="Port2_TBEN_S2_4AO" SubmoduleIdentNumber="0x00001002" MAUTypes="16" SupportsRingportConfig="true" IsDefaultRingport="true" LinkStateDiagnosisCapability="Up+Down" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="GraRef_TBEN_S2_4AO" />
+          </Graphics>
+          <SlotList>
+            <SlotItem SlotNumber="1" TextId="gTId_647" />
+            <SlotItem SlotNumber="2" TextId="gTId_648" />
+            <SlotItem SlotNumber="3" TextId="gTId_649" />
+            <SlotItem SlotNumber="4" TextId="gTId_650" />
+            <SlotItem SlotNumber="5" TextId="gTId_551" />
+            <SlotItem SlotNumber="6" TextId="gTId_552" />
+          </SlotList>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="dPngGmo_current" ModuleIdentNumber="0x00002182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_current" />
+            <InfoText TextId="dPngGmo_current" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="current-VirtSubMod1" SubmoduleIdentNumber="0x01002181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Output>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269160_94137" />
+                </Output>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x10,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_4aiui15" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="1" AllowedValues="0..1" TextId="dTId_136753_94137" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_IRA" DataType="BitArea" ByteOffset="2" BitOffset="0" BitLength="4" DefaultValue="0" AllowedValues="0..1" TextId="dTId_698748_94137" />
+                  <Ref ValueItemTarget="gPrmSub_AIU_FMT" DataType="BitArea" ByteOffset="1" BitOffset="2" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_403453_94137" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94137" />
+                  <Ref ValueItemTarget="gPrmSub_S2_ORM" DataType="Bit" ByteOffset="1" BitOffset="4" DefaultValue="0" AllowedValues="0..1" TextId="dTId_698747_94137" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94137" />
+                  <Ref ValueItemTarget="gPrmSub_S2_FFB" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="3" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698740_94137" />
+                  <Ref DataType="Integer16" ByteOffset="4" BitOffset="0" DefaultValue="0" AllowedValues="-32768..32767" TextId="dTId_448681_94137" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_current" />
+                <InfoText TextId="dPngGmo_current" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_Diagnostics" ModuleIdentNumber="0x00100000">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_Diagnostics" />
+            <InfoText TextId="dPngGmo_Diagnostics" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="Diagnostics-VirtSubMod1" SubmoduleIdentNumber="0x00100000" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="0" TextId="dTId_698288_94139Ch0" />
+                    <BitDataItem BitOffset="1" TextId="dTId_140681_94139Ch0" />
+                  </DataItem>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="0" TextId="dTId_698288_94139Ch1" />
+                    <BitDataItem BitOffset="1" TextId="dTId_140681_94139Ch1" />
+                  </DataItem>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="0" TextId="dTId_698288_94139Ch2" />
+                    <BitDataItem BitOffset="1" TextId="dTId_140681_94139Ch2" />
+                  </DataItem>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="0" TextId="dTId_698288_94139Ch3" />
+                    <BitDataItem BitOffset="1" TextId="dTId_140681_94139Ch3" />
+                  </DataItem>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_Diagnostics" />
+                <InfoText TextId="dPngGmo_Diagnostics" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_Module_status" ModuleIdentNumber="0x00080000">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_Module_status" />
+            <InfoText TextId="dPngGmo_Module_status" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="Module_status-VirtSubMod1" SubmoduleIdentNumber="0x00080000" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" UseAsBits="true" TextId="dTId_698783">
+                    <BitDataItem BitOffset="14" TextId="dTId_698792_94141" />
+                    <BitDataItem BitOffset="9" TextId="dTId_698796_94141" />
+                    <BitDataItem BitOffset="7" TextId="dTId_698797_94141" />
+                    <BitDataItem BitOffset="0" TextId="dTId_698795_94141" />
+                    <BitDataItem BitOffset="10" TextId="dTId_699139_94141" />
+                    <BitDataItem BitOffset="1" TextId="dTId_700470_94141" />
+                  </DataItem>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_Module_status" />
+                <InfoText TextId="dPngGmo_Module_status" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_voltage" ModuleIdentNumber="0x00002182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_voltage" />
+            <InfoText TextId="dPngGmo_voltage" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="voltage-VirtSubMod1" SubmoduleIdentNumber="0x00002181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Output>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269160_94137" />
+                </Output>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_4aiui15" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..1" TextId="dTId_136753_94137" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_URA_AO" DataType="BitArea" ByteOffset="2" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..4" TextId="dTId_698749_94137" />
+                  <Ref ValueItemTarget="gPrmSub_AIU_FMT" DataType="BitArea" ByteOffset="1" BitOffset="2" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_403453_94137" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94137" />
+                  <Ref ValueItemTarget="gPrmSub_S2_ORM" DataType="Bit" ByteOffset="1" BitOffset="4" DefaultValue="0" AllowedValues="0..1" TextId="dTId_698747_94137" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94137" />
+                  <Ref ValueItemTarget="gPrmSub_S2_FFB" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="3" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698740_94137" />
+                  <Ref DataType="Integer16" ByteOffset="4" BitOffset="0" DefaultValue="0" AllowedValues="-32768..32767" TextId="dTId_448681_94137" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_voltage" />
+                <InfoText TextId="dPngGmo_voltage" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <ValueList>
+        <ValueItem ID="PrmSlotParam">
+          <Assignments>
+            <Assign Content="0" TextId="txtAktivieren" />
+            <Assign Content="1" TextId="txtDeaktivieren" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_4aiui15">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_697391" />
+            <Assign Content="1" TextId="dTId_697392" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_AIU_FMT">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_403454" />
+            <Assign Content="1" TextId="dTId_501170" />
+            <Assign Content="2" TextId="dTId_403456" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_FieldbusFaultActionMode2">
+          <Assignments>
+            <Assign Content="0" TextId="gTId_384" />
+            <Assign Content="2" TextId="gTId_386" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_NO_YES">
+          <Assignments>
+            <Assign Content="0" TextId="gTId_463" />
+            <Assign Content="1" TextId="gTId_462" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_FFB">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698761" />
+            <Assign Content="1" TextId="dTId_507726" />
+            <Assign Content="2" TextId="dTId_448508" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_IRA">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_403450" />
+            <Assign Content="1" TextId="dTId_403451" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_ORM">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698253" />
+            <Assign Content="1" TextId="dTId_698762" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_URA_AO">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_697304" />
+            <Assign Content="1" TextId="dTId_697303" />
+            <Assign Content="2" TextId="dTId_698764" />
+            <Assign Content="3" TextId="dTId_698765" />
+            <Assign Content="4" TextId="dTId_698766" />
+          </Assignments>
+        </ValueItem>
+      </ValueList>
+      <ChannelDiagList>
+        <ChannelDiagItem ErrorType="16">
+          <Name TextId="gPxtId_15" />
+          <Help TextId="gPxtId_16" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="21">
+          <Name TextId="gPxtId_21" />
+          <Help TextId="gPxtId_22" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="22">
+          <Name TextId="gPxtId_23" />
+          <Help TextId="gPxtId_24" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="23">
+          <Name TextId="gPxtId_25" />
+          <Help TextId="gPxtId_26" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="24">
+          <Name TextId="gPxtId_27" />
+          <Help TextId="gPxtId_28" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="25">
+          <Name TextId="gPxtId_17" />
+          <Help TextId="gPxtId_20" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="26">
+          <Name TextId="gPxtId_29" />
+          <Help TextId="gPxtId_30" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="28">
+          <Name TextId="gPxtId_31" />
+          <Help TextId="gPxtId_32" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="29">
+          <Name TextId="gPxtId_33" />
+          <Help TextId="gPxtId_34" />
+        </ChannelDiagItem>
+      </ChannelDiagList>
+      <GraphicsList>
+        <GraphicItem ID="GraRef_TBEN_S2_4AO" GraphicFile="GSDML-013D-6210-TBEN_S2_4AO" />
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem ID="gHcCat_dap" TextId="gPngHc_dap" />
+        <CategoryItem ID="gHcCat_dap_submod" TextId="gPxtId_4" />
+      </CategoryList>
+      <ExternalTextList>
+        <!--  *********************  Englisch  *********************  -->
+        <PrimaryLanguage>
+          <!-- Primary language english -->
+          <Text TextId="txtX1" Value="X1" />
+          <Text TextId="txtX1P1" Value="X1 P1" />
+          <Text TextId="txtX1P2" Value="X1 P2" />
+          <Text TextId="txtSlotParam" Value="module parameterization" />
+          <Text TextId="txtAktivieren" Value="activate" />
+          <Text TextId="txtDeaktivieren" Value="deactivate" />
+          <Text TextId="dPngGmo_current" Value="current" />
+          <Text TextId="dPngGmo_Diagnostics" Value="Diagnostics" />
+          <Text TextId="dPngGmo_Module_status" Value="Module status" />
+          <Text TextId="dPngGmo_voltage" Value="voltage" />
+          <Text TextId="dTId_136753_94137" Value="Operation mode" />
+          <Text TextId="dTId_136826" Value="Station parameter" />
+          <Text TextId="dTId_139084_94137" Value="Deactivate diagnostics" />
+          <Text TextId="dTId_140681_94139Ch0" Value="Wire break Ch0" />
+          <Text TextId="dTId_140681_94139Ch1" Value="Wire break Ch1" />
+          <Text TextId="dTId_140681_94139Ch2" Value="Wire break Ch2" />
+          <Text TextId="dTId_140681_94139Ch3" Value="Wire break Ch3" />
+          <Text TextId="dTId_269160_94137" Value="Output value" />
+          <Text TextId="dTId_403450" Value="0...20 mA" />
+          <Text TextId="dTId_403451" Value="4...20 mA" />
+          <Text TextId="dTId_403453_94137" Value="Data representation" />
+          <Text TextId="dTId_403454" Value="standard" />
+          <Text TextId="dTId_403456" Value="extended range" />
+          <Text TextId="dTId_448508" Value="keep current value" />
+          <Text TextId="dTId_448681_94137" Value="Substitute value" />
+          <Text TextId="dTId_481590_94137" Value="Deactivate channel" />
+          <Text TextId="dTId_501170" Value="NE43" />
+          <Text TextId="dTId_507726" Value="substitute value" />
+          <Text TextId="dTId_697303" Value="0...10 V" />
+          <Text TextId="dTId_697304" Value="-10...+10 V" />
+          <Text TextId="dTId_697391" Value="voltage" />
+          <Text TextId="dTId_697392" Value="current" />
+          <Text TextId="dTId_698253" Value="automatic" />
+          <Text TextId="dTId_698288_94139Ch0" Value="Overload Ch0" />
+          <Text TextId="dTId_698288_94139Ch1" Value="Overload Ch1" />
+          <Text TextId="dTId_698288_94139Ch2" Value="Overload Ch2" />
+          <Text TextId="dTId_698288_94139Ch3" Value="Overload Ch3" />
+          <Text TextId="dTId_698740_94137" Value="Output on fieldbus error" />
+          <Text TextId="dTId_698747_94137" Value="Output recovery mode" />
+          <Text TextId="dTId_698748_94137" Value="Current range" />
+          <Text TextId="dTId_698749_94137" Value="Voltage range" />
+          <Text TextId="dTId_698761" Value="default value" />
+          <Text TextId="dTId_698762" Value="manual" />
+          <Text TextId="dTId_698764" Value="2...10 V" />
+          <Text TextId="dTId_698765" Value="0...5 V" />
+          <Text TextId="dTId_698766" Value="1...5 V" />
+          <Text TextId="dTId_698782" Value="Diagnostic channel" />
+          <Text TextId="dTId_698783" Value="Module state" />
+          <Text TextId="dTId_698792_94141" Value="I/O-ASSISTANT Force Mode active" />
+          <Text TextId="dTId_698795_94141" Value="Module diagnostics available" />
+          <Text TextId="dTId_698796_94141" Value="Undervoltage V1" />
+          <Text TextId="dTId_698797_94141" Value="Undervoltage V2" />
+          <Text TextId="dTId_699139_94141" Value="Internal error" />
+          <Text TextId="dTId_700470_94141" Value="ARGEE program active" />
+          <Text TextId="gPngHc_dap" Value="TBEN-S" />
+          <Text TextId="gPngHc_DAP_TBEN_S2_4AO_Name" Value="TBEN-S2-4AO" />
+          <Text TextId="gPxtId_11" Value="DAP v3.1" />
+          <Text TextId="gPxtId_15" Value="parameterization error" />
+          <Text TextId="gPxtId_16" Value="After validity check the parameter data is (possibly partially) rejected by the module. Check context of parameters." />
+          <Text TextId="gPxtId_17" Value="cold-junction compensation error" />
+          <Text TextId="gPxtId_20" Value="The module detected a defect or missing cold-junction compensation." />
+          <Text TextId="gPxtId_21" Value="hardware failure" />
+          <Text TextId="gPxtId_22" Value="The module detected a hardware failure. Exchange module." />
+          <Text TextId="gPxtId_23" Value="communication failure" />
+          <Text TextId="gPxtId_24" Value="The module detected a communication problem at its ports, e. g. RS232/485/422, SSI or other interface. Check connection resp. function of attached devices." />
+          <Text TextId="gPxtId_25" Value="direction error" />
+          <Text TextId="gPxtId_26" Value="The direction is detected to be wrong. Check parameterization resp. control interface versus use case." />
+          <Text TextId="gPxtId_27" Value="user software error" />
+          <Text TextId="gPxtId_28" Value="The module detected an user application software error. Check interoperability of user application software revisions. Reinitialize user application software of the module." />
+          <Text TextId="gPxtId_29" Value="sensor supply load dump" />
+          <Text TextId="gPxtId_30" Value="The module detected a load dump at sensor supply." />
+          <Text TextId="gPxtId_31" Value="common error" />
+          <Text TextId="gPxtId_32" Value="The module detected an error. Refer to manual for a more detailed description of possible errors. Error types can depend on operation mode and parameterization." />
+          <Text TextId="gPxtId_33" Value="configuration error" />
+          <Text TextId="gPxtId_34" Value="After validity check the configuration data is (possibly partially) rejected. Check context." />
+          <Text TextId="gPxtId_35" Value="PN-IO" />
+          <Text TextId="gPxtId_36" Value="Port 1" />
+          <Text TextId="gPxtId_37" Value="Port 2" />
+          <Text TextId="gPxtId_4" Value="PROFINET IO Block module in IP67" />
+          <Text TextId="gPxtId_40" Value="TBEN Line Topology Multiprotocol" />
+          <Text TextId="gPxtId_41" Value="PROFINET-RT device with 2 ports; FastStartUp capable; Port diagnosis; IM functionality; Topology recognition;" />
+          <Text TextId="gTId_276" Value="Fieldbus configuration" />
+          <Text TextId="gTId_384" Value="set to 0" />
+          <Text TextId="gTId_386" Value="hold current value" />
+          <Text TextId="gTId_389_46" Value="Output behav. at communic. loss" />
+          <Text TextId="gTId_393_46" Value="Deactivate all diagnostics" />
+          <Text TextId="gTId_397_46" Value="Deactivate I/O-ASS. Force Mode" />
+          <Text TextId="gTId_400_46" Value="Deactiv. load voltage diagn." />
+          <Text TextId="gTId_458_46" Value="Deactivate Modbus TCP" />
+          <Text TextId="gTId_459_46" Value="Deactivate PROFINET" />
+          <Text TextId="gTId_460_46" Value="Deactivate EtherNet/IP" />
+          <Text TextId="gTId_461_46" Value="Deactivate WEB server" />
+          <Text TextId="gTId_462" Value="yes" />
+          <Text TextId="gTId_463" Value="no" />
+          <Text TextId="gTId_510" Value="PROFINET configuration" />
+          <Text TextId="gTId_551" Value="Diagnostics" />
+          <Text TextId="gTId_552" Value="Module status" />
+          <Text TextId="gTId_647" Value="Channel 0" />
+          <Text TextId="gTId_648" Value="Channel 1" />
+          <Text TextId="gTId_649" Value="Channel 2" />
+          <Text TextId="gTId_650" Value="Channel 3" />
+        </PrimaryLanguage>
+        <!--  *********************  Deutsch  *********************  -->
+        <Language xml:lang="de">
+          <!-- 2nd language german -->
+          <Text TextId="txtX1" Value="X1" />
+          <Text TextId="txtX1P1" Value="X1 P1" />
+          <Text TextId="txtX1P2" Value="X1 P2" />
+          <Text TextId="txtSlotParam" Value="Modul-Parametrierung" />
+          <Text TextId="txtAktivieren" Value="aktivieren" />
+          <Text TextId="txtDeaktivieren" Value="deaktivieren" />
+          <Text TextId="dPngGmo_current" Value="Strom" />
+          <Text TextId="dPngGmo_Diagnostics" Value="Diagnosen" />
+          <Text TextId="dPngGmo_Module_status" Value="Modulstatus" />
+          <Text TextId="dPngGmo_voltage" Value="Spannung" />
+          <Text TextId="dTId_136753_94137" Value="Betriebsart" />
+          <Text TextId="dTId_136826" Value="Stationsparameter" />
+          <Text TextId="dTId_139084_94137" Value="Diagnosen deaktivieren" />
+          <Text TextId="dTId_140681_94139Ch0" Value="Drahtbruch K0" />
+          <Text TextId="dTId_140681_94139Ch1" Value="Drahtbruch K1" />
+          <Text TextId="dTId_140681_94139Ch2" Value="Drahtbruch K2" />
+          <Text TextId="dTId_140681_94139Ch3" Value="Drahtbruch K3" />
+          <Text TextId="dTId_269160_94137" Value="Ausgangswert" />
+          <Text TextId="dTId_403450" Value="0...20 mA" />
+          <Text TextId="dTId_403451" Value="4...20 mA" />
+          <Text TextId="dTId_403453_94137" Value="Daten-Darstellung" />
+          <Text TextId="dTId_403454" Value="Standard" />
+          <Text TextId="dTId_403456" Value="Extended Range" />
+          <Text TextId="dTId_448508" Value="Momentanwert" />
+          <Text TextId="dTId_448681_94137" Value="Ersatzwert" />
+          <Text TextId="dTId_481590_94137" Value="Kanal deaktivieren" />
+          <Text TextId="dTId_501170" Value="NE43" />
+          <Text TextId="dTId_507726" Value="Ersatzwert" />
+          <Text TextId="dTId_697303" Value="0...10 V" />
+          <Text TextId="dTId_697304" Value="-10...+10 V" />
+          <Text TextId="dTId_697391" Value="Spannung" />
+          <Text TextId="dTId_697392" Value="Strom" />
+          <Text TextId="dTId_698253" Value="automatisch" />
+          <Text TextId="dTId_698288_94139Ch0" Value="Ueberlast K0" />
+          <Text TextId="dTId_698288_94139Ch1" Value="Ueberlast K1" />
+          <Text TextId="dTId_698288_94139Ch2" Value="Ueberlast K2" />
+          <Text TextId="dTId_698288_94139Ch3" Value="Ueberlast K3" />
+          <Text TextId="dTId_698740_94137" Value="Ausgangswert bei Feldbusfehler" />
+          <Text TextId="dTId_698747_94137" Value="Aktivieren nach Ueberlast" />
+          <Text TextId="dTId_698748_94137" Value="Strombereich" />
+          <Text TextId="dTId_698749_94137" Value="Spannungsbereich" />
+          <Text TextId="dTId_698761" Value="fester Startwert" />
+          <Text TextId="dTId_698762" Value="manuell" />
+          <Text TextId="dTId_698764" Value="2...10 V" />
+          <Text TextId="dTId_698765" Value="0...5 V" />
+          <Text TextId="dTId_698766" Value="1...5 V" />
+          <Text TextId="dTId_698782" Value="Diagnosekanal" />
+          <Text TextId="dTId_698783" Value="Modulstatus" />
+          <Text TextId="dTId_698792_94141" Value="I/O-ASSISTANT-Force Mode aktiv" />
+          <Text TextId="dTId_698795_94141" Value="Moduldiagnose liegt an" />
+          <Text TextId="dTId_698796_94141" Value="Unterspannung V1" />
+          <Text TextId="dTId_698797_94141" Value="Unterspannung V2" />
+          <Text TextId="dTId_699139_94141" Value="Interner Fehler" />
+          <Text TextId="dTId_700470_94141" Value="ARGEE Programm aktiv" />
+          <Text TextId="gPngHc_dap" Value="TBEN-S" />
+          <Text TextId="gPngHc_DAP_TBEN_S2_4AO_Name" Value="TBEN-S2-4AO" />
+          <Text TextId="gPxtId_11" Value="DAP v3.1" />
+          <Text TextId="gPxtId_15" Value="Parametrierungsfehler" />
+          <Text TextId="gPxtId_16" Value="Nach der Plausibilitaetspruefung wird der Parameter-Datensatz (ev. teilweise) abgelehnt. Pruefen Sie den Kontext der Parameter-Daten." />
+          <Text TextId="gPxtId_17" Value="Kaltstellenkompensation defekt" />
+          <Text TextId="gPxtId_20" Value="Das Modul hat eine defekte oder fehlende Kaltstellenkompensation festgestellt." />
+          <Text TextId="gPxtId_21" Value="Hardware-Fehler" />
+          <Text TextId="gPxtId_22" Value="Das Modul hat einen Hardware-Fehler erkannt. Tauschen Sie das Modul." />
+          <Text TextId="gPxtId_23" Value="Kommunikationsfehler" />
+          <Text TextId="gPxtId_24" Value="Das Modul hat Kommunikationsprobleme an den Ports (z. B. RS232/485/422, SSI oder andere Schnittstelle) festgestellt. Pruefen Sie die Verbindung zu angeschlossenen Geraeten bzw. deren Funktion." />
+          <Text TextId="gPxtId_25" Value="Richtungsfehler" />
+          <Text TextId="gPxtId_26" Value="Die Richtung wurde als falsch erkannt. Pruefen Sie die Parametrierung bzw. die Steuerschnittstelle gegen den Anwendungsfall." />
+          <Text TextId="gPxtId_27" Value="Anwendersoftware-Fehler" />
+          <Text TextId="gPxtId_28" Value="Das Modul hat einen Anwendersoftware-Fehler festgestellt. Pruefen Sie die Interoperabilitaet der Anwendersoftware-Versionen. Reinitialisieren Sie die Anwendersoftware." />
+          <Text TextId="gPxtId_29" Value="Ueberlast Sensorversorgung" />
+          <Text TextId="gPxtId_30" Value="Das Modul hat einen zu grossen Strom an der Sensorversorgung festgestellt." />
+          <Text TextId="gPxtId_31" Value="Sammelfehler" />
+          <Text TextId="gPxtId_32" Value="Das Modul hat einen Fehler festgestellt. Moegliche Fehler koennen der Dokumentation entnommen werden. Der Fehlertyp kann von Betriebsart und Parametrierung abhaengig sein." />
+          <Text TextId="gPxtId_33" Value="Konfigurationsfehler" />
+          <Text TextId="gPxtId_34" Value="Nach der Plausibilitaetspruefung wird der Konfigurations-Datensatz (ev. teilweise) abgelehnt. Pruefen Sie den Kontext." />
+          <Text TextId="gPxtId_35" Value="PN-IO" />
+          <Text TextId="gPxtId_36" Value="Port 1" />
+          <Text TextId="gPxtId_37" Value="Port 2" />
+          <Text TextId="gPxtId_4" Value="PROFINET IO Block Modul in IP67" />
+          <Text TextId="gPxtId_40" Value="TBEN Linientopologie Multiprotokoll" />
+          <Text TextId="gPxtId_41" Value="PROFINET-RT Geraet mit 2 Ports; unterstuetzt FastStartUp; Port Diagnose; IM Funktionalitaet; Topology Erkennung;" />
+          <Text TextId="gTId_276" Value="Feldbus-Konfiguration" />
+          <Text TextId="gTId_384" Value="0 ausgeben" />
+          <Text TextId="gTId_386" Value="Momentanwert halten" />
+          <Text TextId="gTId_389_46" Value="Ausg. bei Kommunikationsfehler" />
+          <Text TextId="gTId_393_46" Value="Alle Diagnosen deaktivieren" />
+          <Text TextId="gTId_397_46" Value="I/O-ASS. Force Mode deaktivieren" />
+          <Text TextId="gTId_400_46" Value="Lastspannungs-Diagnosen deaktiv." />
+          <Text TextId="gTId_458_46" Value="Deaktiviere Modbus TCP" />
+          <Text TextId="gTId_459_46" Value="Deaktiviere PROFINET" />
+          <Text TextId="gTId_460_46" Value="Deaktiviere EtherNet/IP" />
+          <Text TextId="gTId_461_46" Value="Deaktiviere WEB Server" />
+          <Text TextId="gTId_462" Value="ja" />
+          <Text TextId="gTId_463" Value="nein" />
+          <Text TextId="gTId_510" Value="PROFINET-Konfiguration" />
+          <Text TextId="gTId_551" Value="Diagnosen" />
+          <Text TextId="gTId_552" Value="Modulstatus" />
+          <Text TextId="gTId_647" Value="Kanal 0" />
+          <Text TextId="gTId_648" Value="Kanal 1" />
+          <Text TextId="gTId_649" Value="Kanal 2" />
+          <Text TextId="gTId_650" Value="Kanal 3" />
+        </Language>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--                                                                             -->
+<!--   Company:          Hans Turck GmbH & Co. KG                                -->
+<!--   Device:           TBEN-S2-4AI                                             -->
+<!--   Date Time:        2018-01-22 12:47                                        -->
+<!--   Gateway database: V1.00.2400, Rev. 6718                                   -->
+<!--   Device database:  V1.00.2400, Rev. 6715                                   -->
+<!--   Generator:        V1.6.0.0                                                -->
+<!--   Author:           Michael Horstmann                                       -->
+<!--                                                                             -->
+<!--   Copyright (c) 2002-2018 Hans Turck GmbH & Co. KG                          -->
+<!--                                                                             -->
+<!--                                                                             -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-V2.3.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x013D" DeviceID="0x6230">
+      <InfoText TextId="gPxtId_40" />
+      <VendorName Value="Turck" />
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="I/O" ProductFamily="Turck" />
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem ID="DAP_TBEN_S2_4AI" PhysicalSlots="0..6" ModuleIdentNumber="0x62300001" MinDeviceInterval="32" ImplementationType="Turck" DNS_CompatibleName="turck-tben-s2-4ai" AddressAssignment="DCP;LOCAL" NameOfStationNotTransferable="false" FixedInSlots="0" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" PowerOnToCommReady="400" DeviceAccessSupported="false" PNIO_Version="V2.2">
+          <ModuleInfo CategoryRef="gHcCat_dap">
+            <Name TextId="gPngHc_DAP_TBEN_S2_4AI_Name" />
+            <InfoText TextId="gPxtId_4" />
+            <VendorName Value="Turck" />
+            <OrderNumber Value="6814025" />
+            <HardwareRelease Value="HW 1" />
+            <SoftwareRelease Value="SW V 1.4.8" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="txtX1" />
+            <SubslotItem SubslotNumber="32769" TextId="txtX1P1" />
+            <SubslotItem SubslotNumber="32770" TextId="txtX1P2" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="1024" MaxOutputLength="1024" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="dPngGmo_voltage" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_current" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_RTD" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_Diagnostics" AllowedInSlots="5" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_resistance" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_thermocouple" AllowedInSlots="1..4" />
+            <ModuleItemRef ModuleItemTarget="dPngGmo_Module_status" AllowedInSlots="6" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="SUB_TBEN_S2_4AI" SubmoduleIdentNumber="0x00001000" Writeable_IM_Records="1 2 3 4">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="2" TransferSequence="1">
+                  <Name TextId="gTId_510" />
+                  <Const Data="0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="gTId_393_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="4" DefaultValue="0" AllowedValues="0..1" TextId="gTId_397_46" />
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem Index="28672" Length="2" TransferSequence="2">
+                  <Name TextId="gTId_276" />
+                  <Const Data="0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="0" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="gTId_458_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="0" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="gTId_460_46" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="0" BitOffset="2" DefaultValue="0" AllowedValues="0..1" TextId="gTId_459_46" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="7" DefaultValue="0" AllowedValues="0..1" TextId="gTId_461_46" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo CategoryRef="gHcCat_dap_submod">
+                <Name TextId="gPxtId_11" />
+                <InfoText TextId="gPxtId_41" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem SubslotNumber="32768" TextId="gPxtId_35" ID="PN_IO_TBEN_S2_4AI" SubmoduleIdentNumber="0x00001001" SupportedRT_Classes="RT_CLASS_1" NetworkComponentDiagnosisSupported="true" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" DCP_HelloSupported="true">
+              <ApplicationRelations>
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem SubslotNumber="32769" TextId="gPxtId_36" ID="Port1_TBEN_S2_4AI" SubmoduleIdentNumber="0x00001002" MAUTypes="16" SupportsRingportConfig="true" IsDefaultRingport="true" LinkStateDiagnosisCapability="Up+Down" />
+            <PortSubmoduleItem SubslotNumber="32770" TextId="gPxtId_37" ID="Port2_TBEN_S2_4AI" SubmoduleIdentNumber="0x00001002" MAUTypes="16" SupportsRingportConfig="true" IsDefaultRingport="true" LinkStateDiagnosisCapability="Up+Down" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="GraRef_TBEN_S2_4AI" />
+          </Graphics>
+          <SlotList>
+            <SlotItem SlotNumber="1" TextId="gTId_647" />
+            <SlotItem SlotNumber="2" TextId="gTId_648" />
+            <SlotItem SlotNumber="3" TextId="gTId_649" />
+            <SlotItem SlotNumber="4" TextId="gTId_650" />
+            <SlotItem SlotNumber="5" TextId="gTId_551" />
+            <SlotItem SlotNumber="6" TextId="gTId_552" />
+          </SlotList>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="dPngGmo_current" ModuleIdentNumber="0x00080182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_current" />
+            <InfoText TextId="dPngGmo_current" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="current-VirtSubMod1" SubmoduleIdentNumber="0x01080181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269159_94138" />
+                </Input>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x20,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_S2_OPMI" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="2" AllowedValues="0..4" TextId="dTId_136753_94138" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_IMR" DataType="BitArea" ByteOffset="2" BitOffset="6" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698748_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_VWT" DataType="BitArea" ByteOffset="3" BitOffset="0" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698756_94138" />
+                  <Ref ValueItemTarget="gPrmSub_AIU_FMT" DataType="BitArea" ByteOffset="1" BitOffset="2" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_403453_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_INFIL" DataType="BitArea" ByteOffset="1" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698754_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_SUP" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_697809_94138" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_current" />
+                <InfoText TextId="dPngGmo_current" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_Diagnostics" ModuleIdentNumber="0x01100000">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_Diagnostics" />
+            <InfoText TextId="dPngGmo_Diagnostics" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="Diagnostics-VirtSubMod1" SubmoduleIdentNumber="0x01100000" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="2" TextId="dTId_698285_94140Ch0" />
+                    <BitDataItem BitOffset="7" TextId="dTId_698284_94140Ch0" />
+                    <BitDataItem BitOffset="5" TextId="dTId_140762_94140" />
+                    <BitDataItem BitOffset="6" TextId="dTId_140763_94140" />
+                    <BitDataItem BitOffset="0" TextId="dTId_651684_94140Ch0" />
+                    <BitDataItem BitOffset="1" TextId="dTId_448845_94140Ch0" />
+                    <BitDataItem BitOffset="4" TextId="dTId_140681_94140Ch0" />
+                    <BitDataItem BitOffset="3" TextId="dTId_699051_94140Ch0" />
+                  </DataItem>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="2" TextId="dTId_698285_94140Ch1" />
+                    <BitDataItem BitOffset="7" TextId="dTId_698284_94140Ch1" />
+                    <BitDataItem BitOffset="5" TextId="dTId_140762_94140" />
+                    <BitDataItem BitOffset="6" TextId="dTId_140763_94140" />
+                    <BitDataItem BitOffset="0" TextId="dTId_651684_94140Ch1" />
+                    <BitDataItem BitOffset="1" TextId="dTId_448845_94140Ch1" />
+                    <BitDataItem BitOffset="4" TextId="dTId_140681_94140Ch1" />
+                    <BitDataItem BitOffset="3" TextId="dTId_699051_94140Ch1" />
+                  </DataItem>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="2" TextId="dTId_698285_94140Ch2" />
+                    <BitDataItem BitOffset="7" TextId="dTId_698284_94140Ch2" />
+                    <BitDataItem BitOffset="5" TextId="dTId_140762_94140" />
+                    <BitDataItem BitOffset="6" TextId="dTId_140763_94140" />
+                    <BitDataItem BitOffset="0" TextId="dTId_651684_94140Ch2" />
+                    <BitDataItem BitOffset="1" TextId="dTId_448845_94140Ch2" />
+                    <BitDataItem BitOffset="4" TextId="dTId_140681_94140Ch2" />
+                    <BitDataItem BitOffset="3" TextId="dTId_699051_94140Ch2" />
+                  </DataItem>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="dTId_698782">
+                    <BitDataItem BitOffset="2" TextId="dTId_698285_94140Ch3" />
+                    <BitDataItem BitOffset="7" TextId="dTId_698284_94140Ch3" />
+                    <BitDataItem BitOffset="5" TextId="dTId_140762_94140" />
+                    <BitDataItem BitOffset="6" TextId="dTId_140763_94140" />
+                    <BitDataItem BitOffset="0" TextId="dTId_651684_94140Ch3" />
+                    <BitDataItem BitOffset="1" TextId="dTId_448845_94140Ch3" />
+                    <BitDataItem BitOffset="4" TextId="dTId_140681_94140Ch3" />
+                    <BitDataItem BitOffset="3" TextId="dTId_699051_94140Ch3" />
+                  </DataItem>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_Diagnostics" />
+                <InfoText TextId="dPngGmo_Diagnostics" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_Module_status" ModuleIdentNumber="0x00080000">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_Module_status" />
+            <InfoText TextId="dPngGmo_Module_status" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="Module_status-VirtSubMod1" SubmoduleIdentNumber="0x00080000" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" UseAsBits="true" TextId="dTId_698783">
+                    <BitDataItem BitOffset="14" TextId="dTId_698792_94141" />
+                    <BitDataItem BitOffset="9" TextId="dTId_698796_94141" />
+                    <BitDataItem BitOffset="7" TextId="dTId_698797_94141" />
+                    <BitDataItem BitOffset="0" TextId="dTId_698795_94141" />
+                    <BitDataItem BitOffset="10" TextId="dTId_699139_94141" />
+                    <BitDataItem BitOffset="1" TextId="dTId_700470_94141" />
+                  </DataItem>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_Module_status" />
+                <InfoText TextId="dPngGmo_Module_status" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_resistance" ModuleIdentNumber="0x00080182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_resistance" />
+            <InfoText TextId="dPngGmo_resistance" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="resistance-VirtSubMod1" SubmoduleIdentNumber="0x04080181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269159_94138" />
+                </Input>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x30,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_S2_OPMI" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="3" AllowedValues="0..4" TextId="dTId_136753_94138" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_RAA" DataType="BitArea" ByteOffset="3" BitOffset="4" BitLength="2" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698801_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_RWT" DataType="BitArea" ByteOffset="3" BitOffset="2" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698800_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_INFIL" DataType="BitArea" ByteOffset="1" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698754_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_SUP" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_697809_94138" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_resistance" />
+                <InfoText TextId="dPngGmo_resistance" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_RTD" ModuleIdentNumber="0x00080182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_RTD" />
+            <InfoText TextId="dPngGmo_RTD" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="RTD-VirtSubMod1" SubmoduleIdentNumber="0x02080181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269159_94138" />
+                </Input>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x40,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_S2_OPMI" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="4" AllowedValues="0..4" TextId="dTId_136753_94138" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_RTDST" DataType="BitArea" ByteOffset="4" BitOffset="0" BitLength="8" DefaultValue="0" AllowedValues="0..11" TextId="dTId_697812_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_RWT" DataType="BitArea" ByteOffset="3" BitOffset="6" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698757_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_TMU" DataType="Bit" ByteOffset="0" BitOffset="2" DefaultValue="0" AllowedValues="0..1" TextId="dTId_698753_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_INFIL" DataType="BitArea" ByteOffset="1" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698754_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_SUP" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_697809_94138" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_RTD" />
+                <InfoText TextId="dPngGmo_RTD" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_thermocouple" ModuleIdentNumber="0x00080182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_thermocouple" />
+            <InfoText TextId="dPngGmo_thermocouple" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="thermocouple-VirtSubMod1" SubmoduleIdentNumber="0x03080181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269159_94138" />
+                </Input>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x00,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_S2_OPMI" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..4" TextId="dTId_136753_94138" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_TCST" DataType="BitArea" ByteOffset="5" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..9" TextId="dTId_651691_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_TCCJC" DataType="BitArea" ByteOffset="5" BitOffset="0" BitLength="4" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698759_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_TMU" DataType="Bit" ByteOffset="0" BitOffset="2" DefaultValue="0" AllowedValues="0..1" TextId="dTId_698753_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_INFIL" DataType="BitArea" ByteOffset="1" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698754_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_SUP" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_697809_94138" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_thermocouple" />
+                <InfoText TextId="dPngGmo_thermocouple" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="dPngGmo_voltage" ModuleIdentNumber="0x00080182">
+          <ModuleInfo>
+            <Name TextId="dPngGmo_voltage" />
+            <InfoText TextId="dPngGmo_voltage" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="voltage-VirtSubMod1" SubmoduleIdentNumber="0x00080181" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1">
+                <Input>
+                  <DataItem DataType="Unsigned16" TextId="dTId_269159_94138" />
+                </Input>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="1" Length="6" TransferSequence="0">
+                  <Name TextId="dTId_136826" />
+                  <Const Data="0x10,0x00,0x00,0x00,0x00,0x00" ByteOffset="0" />
+                  <Ref ValueItemTarget="gPrmSub_S2_OPMI" DataType="BitArea" ByteOffset="0" BitOffset="4" BitLength="4" DefaultValue="1" AllowedValues="0..4" TextId="dTId_136753_94138" Changeable="false" />
+                  <Ref ValueItemTarget="gPrmSub_S2_URA_AI" DataType="BitArea" ByteOffset="2" BitOffset="0" BitLength="4" DefaultValue="0" AllowedValues="0..8" TextId="dTId_698749_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_VWT" DataType="BitArea" ByteOffset="2" BitOffset="4" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_698755_94138" />
+                  <Ref ValueItemTarget="gPrmSub_AIU_FMT" DataType="BitArea" ByteOffset="1" BitOffset="2" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_403453_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_INFIL" DataType="BitArea" ByteOffset="1" BitOffset="4" BitLength="4" DefaultValue="0" AllowedValues="0..3" TextId="dTId_698754_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="1" DefaultValue="0" AllowedValues="0..1" TextId="dTId_481590_94138" />
+                  <Ref ValueItemTarget="gPrmSub_NO_YES" DataType="Bit" ByteOffset="1" BitOffset="0" DefaultValue="0" AllowedValues="0..1" TextId="dTId_139084_94138" />
+                  <Ref ValueItemTarget="gPrmSub_S2_SUP" DataType="BitArea" ByteOffset="0" BitOffset="0" BitLength="2" DefaultValue="0" AllowedValues="0..2" TextId="dTId_697809_94138" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="dPngGmo_voltage" />
+                <InfoText TextId="dPngGmo_voltage" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <ValueList>
+        <ValueItem ID="PrmSlotParam">
+          <Assignments>
+            <Assign Content="0" TextId="txtAktivieren" />
+            <Assign Content="1" TextId="txtDeaktivieren" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_AIU_FMT">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_403454" />
+            <Assign Content="1" TextId="dTId_501170" />
+            <Assign Content="2" TextId="dTId_403456" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_NO_YES">
+          <Assignments>
+            <Assign Content="0" TextId="gTId_463" />
+            <Assign Content="1" TextId="gTId_462" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_IMR">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_403451" />
+            <Assign Content="1" TextId="dTId_403450" />
+            <Assign Content="2" TextId="dTId_698763" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_INFIL">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_403454" />
+            <Assign Content="1" TextId="dTId_698772" />
+            <Assign Content="2" TextId="dTId_698773" />
+            <Assign Content="3" TextId="dTId_136876" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_OPMI">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698779" />
+            <Assign Content="1" TextId="dTId_697391" />
+            <Assign Content="2" TextId="dTId_697392" />
+            <Assign Content="3" TextId="dTId_698781" />
+            <Assign Content="4" TextId="dTId_698780" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_RAA">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_453920" />
+            <Assign Content="1" TextId="dTId_453922" />
+            <Assign Content="2" TextId="dTId_699052" />
+            <Assign Content="3" TextId="dTId_453924" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_RTDST">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698822" />
+            <Assign Content="1" TextId="dTId_698823" />
+            <Assign Content="2" TextId="dTId_698824" />
+            <Assign Content="3" TextId="dTId_698825" />
+            <Assign Content="4" TextId="dTId_698826" />
+            <Assign Content="5" TextId="dTId_698827" />
+            <Assign Content="6" TextId="dTId_698828" />
+            <Assign Content="7" TextId="dTId_698829" />
+            <Assign Content="8" TextId="dTId_698830" />
+            <Assign Content="9" TextId="dTId_698831" />
+            <Assign Content="10" TextId="dTId_698832" />
+            <Assign Content="11" TextId="dTId_698833" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_RWT">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_697354" />
+            <Assign Content="1" TextId="dTId_697355" />
+            <Assign Content="2" TextId="dTId_698774" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_SUP">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_136876" />
+            <Assign Content="1" TextId="dTId_697328" />
+            <Assign Content="2" TextId="dTId_697329" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_TCCJC">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_651692" />
+            <Assign Content="1" TextId="dTId_651693" />
+            <Assign Content="2" TextId="dTId_698775" />
+            <Assign Content="3" TextId="dTId_137802" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_TCST">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698812" />
+            <Assign Content="1" TextId="dTId_698813" />
+            <Assign Content="2" TextId="dTId_698814" />
+            <Assign Content="3" TextId="dTId_698815" />
+            <Assign Content="4" TextId="dTId_698816" />
+            <Assign Content="5" TextId="dTId_698817" />
+            <Assign Content="6" TextId="dTId_698818" />
+            <Assign Content="7" TextId="dTId_698819" />
+            <Assign Content="8" TextId="dTId_698820" />
+            <Assign Content="9" TextId="dTId_698821" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_TMU">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698769" />
+            <Assign Content="1" TextId="dTId_698770" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_URA_AI">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698768" />
+            <Assign Content="1" TextId="dTId_697303" />
+            <Assign Content="2" TextId="dTId_698764" />
+            <Assign Content="3" TextId="dTId_698765" />
+            <Assign Content="4" TextId="dTId_698766" />
+            <Assign Content="5" TextId="dTId_698767" />
+            <Assign Content="6" TextId="dTId_699040" />
+            <Assign Content="7" TextId="dTId_699039" />
+            <Assign Content="8" TextId="dTId_699041" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="gPrmSub_S2_VWT">
+          <Assignments>
+            <Assign Content="0" TextId="dTId_698771" />
+            <Assign Content="1" TextId="dTId_698776" />
+            <Assign Content="2" TextId="dTId_698777" />
+          </Assignments>
+        </ValueItem>
+      </ValueList>
+      <ChannelDiagList>
+        <ChannelDiagItem ErrorType="16">
+          <Name TextId="gPxtId_15" />
+          <Help TextId="gPxtId_16" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="21">
+          <Name TextId="gPxtId_21" />
+          <Help TextId="gPxtId_22" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="22">
+          <Name TextId="gPxtId_23" />
+          <Help TextId="gPxtId_24" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="23">
+          <Name TextId="gPxtId_25" />
+          <Help TextId="gPxtId_26" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="24">
+          <Name TextId="gPxtId_27" />
+          <Help TextId="gPxtId_28" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="25">
+          <Name TextId="gPxtId_17" />
+          <Help TextId="gPxtId_20" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="26">
+          <Name TextId="gPxtId_29" />
+          <Help TextId="gPxtId_30" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="28">
+          <Name TextId="gPxtId_31" />
+          <Help TextId="gPxtId_32" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="29">
+          <Name TextId="gPxtId_33" />
+          <Help TextId="gPxtId_34" />
+        </ChannelDiagItem>
+      </ChannelDiagList>
+      <GraphicsList>
+        <GraphicItem ID="GraRef_TBEN_S2_4AI" GraphicFile="GSDML-013D-6230-TBEN_S2_4AI" />
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem ID="gHcCat_dap" TextId="gPngHc_dap" />
+        <CategoryItem ID="gHcCat_dap_submod" TextId="gPxtId_4" />
+      </CategoryList>
+      <ExternalTextList>
+        <!--  *********************  Englisch  *********************  -->
+        <PrimaryLanguage>
+          <!-- Primary language english -->
+          <Text TextId="txtX1" Value="X1" />
+          <Text TextId="txtX1P1" Value="X1 P1" />
+          <Text TextId="txtX1P2" Value="X1 P2" />
+          <Text TextId="txtSlotParam" Value="module parameterization" />
+          <Text TextId="txtAktivieren" Value="activate" />
+          <Text TextId="txtDeaktivieren" Value="deactivate" />
+          <Text TextId="dPngGmo_current" Value="current" />
+          <Text TextId="dPngGmo_Diagnostics" Value="Diagnostics" />
+          <Text TextId="dPngGmo_Module_status" Value="Module status" />
+          <Text TextId="dPngGmo_resistance" Value="resistance" />
+          <Text TextId="dPngGmo_RTD" Value="RTD" />
+          <Text TextId="dPngGmo_thermocouple" Value="thermocouple" />
+          <Text TextId="dPngGmo_voltage" Value="voltage" />
+          <Text TextId="dTId_136753_94138" Value="Operation mode" />
+          <Text TextId="dTId_136826" Value="Station parameter" />
+          <Text TextId="dTId_136876" Value="off" />
+          <Text TextId="dTId_137802" Value="none" />
+          <Text TextId="dTId_139084_94138" Value="Deactivate diagnostics" />
+          <Text TextId="dTId_140681_94140Ch0" Value="Wire break Ch0" />
+          <Text TextId="dTId_140681_94140Ch1" Value="Wire break Ch1" />
+          <Text TextId="dTId_140681_94140Ch2" Value="Wire break Ch2" />
+          <Text TextId="dTId_140681_94140Ch3" Value="Wire break Ch3" />
+          <Text TextId="dTId_140762_94140" Value="Overflow" />
+          <Text TextId="dTId_140763_94140" Value="Underflow" />
+          <Text TextId="dTId_269159_94138" Value="Input value" />
+          <Text TextId="dTId_403450" Value="0...20 mA" />
+          <Text TextId="dTId_403451" Value="4...20 mA" />
+          <Text TextId="dTId_403453_94138" Value="Data representation" />
+          <Text TextId="dTId_403454" Value="standard" />
+          <Text TextId="dTId_403456" Value="extended range" />
+          <Text TextId="dTId_448845_94140Ch0" Value="Overcurrent (RTD only) Ch0" />
+          <Text TextId="dTId_448845_94140Ch1" Value="Overcurrent (RTD only) Ch1" />
+          <Text TextId="dTId_448845_94140Ch2" Value="Overcurrent (RTD only) Ch2" />
+          <Text TextId="dTId_448845_94140Ch3" Value="Overcurrent (RTD only) Ch3" />
+          <Text TextId="dTId_453920" Value="0...100 Ohm" />
+          <Text TextId="dTId_453922" Value="0...400 Ohm" />
+          <Text TextId="dTId_453924" Value="0...4000 Ohm" />
+          <Text TextId="dTId_481590_94138" Value="Deactivate channel" />
+          <Text TextId="dTId_501170" Value="NE43" />
+          <Text TextId="dTId_651684_94140Ch0" Value="Cold junction compensation wire break Ch0" />
+          <Text TextId="dTId_651684_94140Ch1" Value="Cold junction compensation wire break Ch1" />
+          <Text TextId="dTId_651684_94140Ch2" Value="Cold junction compensation wire break Ch2" />
+          <Text TextId="dTId_651684_94140Ch3" Value="Cold junction compensation wire break Ch3" />
+          <Text TextId="dTId_651691_94138" Value="Thermocouple type" />
+          <Text TextId="dTId_651692" Value="PT1000" />
+          <Text TextId="dTId_651693" Value="PT100" />
+          <Text TextId="dTId_697303" Value="0...10 V" />
+          <Text TextId="dTId_697328" Value="50 Hz" />
+          <Text TextId="dTId_697329" Value="60 Hz" />
+          <Text TextId="dTId_697354" Value="2-wire" />
+          <Text TextId="dTId_697355" Value="3-wire" />
+          <Text TextId="dTId_697391" Value="voltage" />
+          <Text TextId="dTId_697392" Value="current" />
+          <Text TextId="dTId_697809_94138" Value="Mains suppression" />
+          <Text TextId="dTId_697812_94138" Value="RTD type" />
+          <Text TextId="dTId_698284_94140Ch0" Value="Lower limit value underrun Ch0" />
+          <Text TextId="dTId_698284_94140Ch1" Value="Lower limit value underrun Ch1" />
+          <Text TextId="dTId_698284_94140Ch2" Value="Lower limit value underrun Ch2" />
+          <Text TextId="dTId_698284_94140Ch3" Value="Lower limit value underrun Ch3" />
+          <Text TextId="dTId_698285_94140Ch0" Value="Upper limit value exceeded Ch0" />
+          <Text TextId="dTId_698285_94140Ch1" Value="Upper limit value exceeded Ch1" />
+          <Text TextId="dTId_698285_94140Ch2" Value="Upper limit value exceeded Ch2" />
+          <Text TextId="dTId_698285_94140Ch3" Value="Upper limit value exceeded Ch3" />
+          <Text TextId="dTId_698748_94138" Value="Current range" />
+          <Text TextId="dTId_698749_94138" Value="Voltage range" />
+          <Text TextId="dTId_698753_94138" Value="Temperature unit" />
+          <Text TextId="dTId_698754_94138" Value="Input averaging filter" />
+          <Text TextId="dTId_698755_94138" Value="Voltage wiring type" />
+          <Text TextId="dTId_698756_94138" Value="Current wiring type" />
+          <Text TextId="dTId_698757_94138" Value="RTD wiring type" />
+          <Text TextId="dTId_698759_94138" Value="Thermocouple cold junc. config." />
+          <Text TextId="dTId_698763" Value="-20...20 mA" />
+          <Text TextId="dTId_698764" Value="2...10 V" />
+          <Text TextId="dTId_698765" Value="0...5 V" />
+          <Text TextId="dTId_698766" Value="1...5 V" />
+          <Text TextId="dTId_698767" Value="-1...1 V" />
+          <Text TextId="dTId_698768" Value="-10...10 V" />
+          <Text TextId="dTId_698769" Value="Celsius" />
+          <Text TextId="dTId_698770" Value="Fahrenheit" />
+          <Text TextId="dTId_698771" Value="differential" />
+          <Text TextId="dTId_698772" Value="smooth" />
+          <Text TextId="dTId_698773" Value="fast" />
+          <Text TextId="dTId_698774" Value="4-wire" />
+          <Text TextId="dTId_698775" Value="cold junction from channel 1" />
+          <Text TextId="dTId_698776" Value="single ended" />
+          <Text TextId="dTId_698777" Value="differential without ground" />
+          <Text TextId="dTId_698779" Value="thermocouple" />
+          <Text TextId="dTId_698780" Value="RTD" />
+          <Text TextId="dTId_698781" Value="resistance" />
+          <Text TextId="dTId_698782" Value="Diagnostic channel" />
+          <Text TextId="dTId_698783" Value="Module state" />
+          <Text TextId="dTId_698792_94141" Value="I/O-ASSISTANT Force Mode active" />
+          <Text TextId="dTId_698795_94141" Value="Module diagnostics available" />
+          <Text TextId="dTId_698796_94141" Value="Undervoltage V1" />
+          <Text TextId="dTId_698797_94141" Value="Undervoltage V2" />
+          <Text TextId="dTId_698800_94138" Value="Resistance wiring type" />
+          <Text TextId="dTId_698801_94138" Value="Resistance range" />
+          <Text TextId="dTId_698812" Value="type K, -270...1370 ´C, -454...2498 ´F" />
+          <Text TextId="dTId_698813" Value="type B, +100...1820 ´C, 212...3308 ´F" />
+          <Text TextId="dTId_698814" Value="type E, -270...1000 ´C, -454...1832 ´F" />
+          <Text TextId="dTId_698815" Value="type J, -210...1200 ´C, -346...2192 ´F" />
+          <Text TextId="dTId_698816" Value="type N, -270...1300 ´C, -454...2372 ´F" />
+          <Text TextId="dTId_698817" Value="type R, -50...1768 ´C, -58...3214 ´F" />
+          <Text TextId="dTId_698818" Value="type S, -50...1768 ´C, -58...3214 ´F" />
+          <Text TextId="dTId_698819" Value="type T, -270...400 ´C, -454...752 ´F" />
+          <Text TextId="dTId_698820" Value="type C, 0...2315 ´C, 32...4199 ´F" />
+          <Text TextId="dTId_698821" Value="type G, 0...2315 ´C, 32...4199 ´F" />
+          <Text TextId="dTId_698822" Value="PT100, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698823" Value="PT100, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698824" Value="NI100, -60...250 ´C, -76...482 ´F" />
+          <Text TextId="dTId_698825" Value="NI100, -60...150 ´C, -76...302 ´F" />
+          <Text TextId="dTId_698826" Value="PT200, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698827" Value="PT200, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698828" Value="PT500, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698829" Value="PT500, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698830" Value="PT1000, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698831" Value="PT1000, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698832" Value="NI1000, -60...250 ´C, -76...482 ´F" />
+          <Text TextId="dTId_698833" Value="NI1000, -60...150 ´C, -76...302 ´F" />
+          <Text TextId="dTId_699039" Value="-100...100 mV" />
+          <Text TextId="dTId_699040" Value="-500...500 mV" />
+          <Text TextId="dTId_699041" Value="-50...50 mV" />
+          <Text TextId="dTId_699051_94140Ch0" Value="Overcurrent supply VAUX1 Ch0" />
+          <Text TextId="dTId_699051_94140Ch1" Value="Overcurrent supply VAUX1 Ch1" />
+          <Text TextId="dTId_699051_94140Ch2" Value="Overcurrent supply VAUX1 Ch2" />
+          <Text TextId="dTId_699051_94140Ch3" Value="Overcurrent supply VAUX1 Ch3" />
+          <Text TextId="dTId_699052" Value="0...2000 Ohm" />
+          <Text TextId="dTId_699139_94141" Value="Internal error" />
+          <Text TextId="dTId_700470_94141" Value="ARGEE program active" />
+          <Text TextId="gPngHc_dap" Value="TBEN-S" />
+          <Text TextId="gPngHc_DAP_TBEN_S2_4AI_Name" Value="TBEN-S2-4AI" />
+          <Text TextId="gPxtId_11" Value="DAP v3.1" />
+          <Text TextId="gPxtId_15" Value="parameterization error" />
+          <Text TextId="gPxtId_16" Value="After validity check the parameter data is (possibly partially) rejected by the module. Check context of parameters." />
+          <Text TextId="gPxtId_17" Value="cold-junction compensation error" />
+          <Text TextId="gPxtId_20" Value="The module detected a defect or missing cold-junction compensation." />
+          <Text TextId="gPxtId_21" Value="hardware failure" />
+          <Text TextId="gPxtId_22" Value="The module detected a hardware failure. Exchange module." />
+          <Text TextId="gPxtId_23" Value="communication failure" />
+          <Text TextId="gPxtId_24" Value="The module detected a communication problem at its ports, e. g. RS232/485/422, SSI or other interface. Check connection resp. function of attached devices." />
+          <Text TextId="gPxtId_25" Value="direction error" />
+          <Text TextId="gPxtId_26" Value="The direction is detected to be wrong. Check parameterization resp. control interface versus use case." />
+          <Text TextId="gPxtId_27" Value="user software error" />
+          <Text TextId="gPxtId_28" Value="The module detected an user application software error. Check interoperability of user application software revisions. Reinitialize user application software of the module." />
+          <Text TextId="gPxtId_29" Value="sensor supply load dump" />
+          <Text TextId="gPxtId_30" Value="The module detected a load dump at sensor supply." />
+          <Text TextId="gPxtId_31" Value="common error" />
+          <Text TextId="gPxtId_32" Value="The module detected an error. Refer to manual for a more detailed description of possible errors. Error types can depend on operation mode and parameterization." />
+          <Text TextId="gPxtId_33" Value="configuration error" />
+          <Text TextId="gPxtId_34" Value="After validity check the configuration data is (possibly partially) rejected. Check context." />
+          <Text TextId="gPxtId_35" Value="PN-IO" />
+          <Text TextId="gPxtId_36" Value="Port 1" />
+          <Text TextId="gPxtId_37" Value="Port 2" />
+          <Text TextId="gPxtId_4" Value="PROFINET IO Block module in IP67" />
+          <Text TextId="gPxtId_40" Value="TBEN Line Topology Multiprotocol" />
+          <Text TextId="gPxtId_41" Value="PROFINET-RT device with 2 ports; FastStartUp capable; Port diagnosis; IM functionality; Topology recognition;" />
+          <Text TextId="gTId_276" Value="Fieldbus configuration" />
+          <Text TextId="gTId_393_46" Value="Deactivate all diagnostics" />
+          <Text TextId="gTId_397_46" Value="Deactivate I/O-ASS. Force Mode" />
+          <Text TextId="gTId_458_46" Value="Deactivate Modbus TCP" />
+          <Text TextId="gTId_459_46" Value="Deactivate PROFINET" />
+          <Text TextId="gTId_460_46" Value="Deactivate EtherNet/IP" />
+          <Text TextId="gTId_461_46" Value="Deactivate WEB server" />
+          <Text TextId="gTId_462" Value="yes" />
+          <Text TextId="gTId_463" Value="no" />
+          <Text TextId="gTId_510" Value="PROFINET configuration" />
+          <Text TextId="gTId_551" Value="Diagnostics" />
+          <Text TextId="gTId_552" Value="Module status" />
+          <Text TextId="gTId_647" Value="Channel 0" />
+          <Text TextId="gTId_648" Value="Channel 1" />
+          <Text TextId="gTId_649" Value="Channel 2" />
+          <Text TextId="gTId_650" Value="Channel 3" />
+        </PrimaryLanguage>
+        <!--  *********************  Deutsch  *********************  -->
+        <Language xml:lang="de">
+          <!-- 2nd language german -->
+          <Text TextId="txtX1" Value="X1" />
+          <Text TextId="txtX1P1" Value="X1 P1" />
+          <Text TextId="txtX1P2" Value="X1 P2" />
+          <Text TextId="txtSlotParam" Value="Modul-Parametrierung" />
+          <Text TextId="txtAktivieren" Value="aktivieren" />
+          <Text TextId="txtDeaktivieren" Value="deaktivieren" />
+          <Text TextId="dPngGmo_current" Value="Strom" />
+          <Text TextId="dPngGmo_Diagnostics" Value="Diagnosen" />
+          <Text TextId="dPngGmo_Module_status" Value="Modulstatus" />
+          <Text TextId="dPngGmo_resistance" Value="Widerstand" />
+          <Text TextId="dPngGmo_RTD" Value="RTD" />
+          <Text TextId="dPngGmo_thermocouple" Value="Thermoelement" />
+          <Text TextId="dPngGmo_voltage" Value="Spannung" />
+          <Text TextId="dTId_136753_94138" Value="Betriebsart" />
+          <Text TextId="dTId_136826" Value="Stationsparameter" />
+          <Text TextId="dTId_136876" Value="aus" />
+          <Text TextId="dTId_137802" Value="keine" />
+          <Text TextId="dTId_139084_94138" Value="Diagnosen deaktivieren" />
+          <Text TextId="dTId_140681_94140Ch0" Value="Drahtbruch K0" />
+          <Text TextId="dTId_140681_94140Ch1" Value="Drahtbruch K1" />
+          <Text TextId="dTId_140681_94140Ch2" Value="Drahtbruch K2" />
+          <Text TextId="dTId_140681_94140Ch3" Value="Drahtbruch K3" />
+          <Text TextId="dTId_140762_94140" Value="Ueberlauf" />
+          <Text TextId="dTId_140763_94140" Value="Unterlauf" />
+          <Text TextId="dTId_269159_94138" Value="Eingangswert" />
+          <Text TextId="dTId_403450" Value="0...20 mA" />
+          <Text TextId="dTId_403451" Value="4...20 mA" />
+          <Text TextId="dTId_403453_94138" Value="Daten-Darstellung" />
+          <Text TextId="dTId_403454" Value="Standard" />
+          <Text TextId="dTId_403456" Value="Extended Range" />
+          <Text TextId="dTId_448845_94140Ch0" Value="Ueberstrom (nur RTD) K0" />
+          <Text TextId="dTId_448845_94140Ch1" Value="Ueberstrom (nur RTD) K1" />
+          <Text TextId="dTId_448845_94140Ch2" Value="Ueberstrom (nur RTD) K2" />
+          <Text TextId="dTId_448845_94140Ch3" Value="Ueberstrom (nur RTD) K3" />
+          <Text TextId="dTId_453920" Value="0...100 Ohm" />
+          <Text TextId="dTId_453922" Value="0...400 Ohm" />
+          <Text TextId="dTId_453924" Value="0...4000 Ohm" />
+          <Text TextId="dTId_481590_94138" Value="Kanal deaktivieren" />
+          <Text TextId="dTId_501170" Value="NE43" />
+          <Text TextId="dTId_651684_94140Ch0" Value="Kaltstellenkompensation Drahtbruch K0" />
+          <Text TextId="dTId_651684_94140Ch1" Value="Kaltstellenkompensation Drahtbruch K1" />
+          <Text TextId="dTId_651684_94140Ch2" Value="Kaltstellenkompensation Drahtbruch K2" />
+          <Text TextId="dTId_651684_94140Ch3" Value="Kaltstellenkompensation Drahtbruch K3" />
+          <Text TextId="dTId_651691_94138" Value="Thermoelementtyp" />
+          <Text TextId="dTId_651692" Value="PT1000" />
+          <Text TextId="dTId_651693" Value="PT100" />
+          <Text TextId="dTId_697303" Value="0...10 V" />
+          <Text TextId="dTId_697328" Value="50 Hz" />
+          <Text TextId="dTId_697329" Value="60 Hz" />
+          <Text TextId="dTId_697354" Value="2-Leiter" />
+          <Text TextId="dTId_697355" Value="3-Leiter" />
+          <Text TextId="dTId_697391" Value="Spannung" />
+          <Text TextId="dTId_697392" Value="Strom" />
+          <Text TextId="dTId_697809_94138" Value="Netzunterdrueckung" />
+          <Text TextId="dTId_697812_94138" Value="RTD-Typ" />
+          <Text TextId="dTId_698284_94140Ch0" Value="Unterer Grenzwert unterschr. K0" />
+          <Text TextId="dTId_698284_94140Ch1" Value="Unterer Grenzwert unterschr. K1" />
+          <Text TextId="dTId_698284_94140Ch2" Value="Unterer Grenzwert unterschr. K2" />
+          <Text TextId="dTId_698284_94140Ch3" Value="Unterer Grenzwert unterschr. K3" />
+          <Text TextId="dTId_698285_94140Ch0" Value="Oberer Grenzwert ueberschr. K0" />
+          <Text TextId="dTId_698285_94140Ch1" Value="Oberer Grenzwert ueberschr. K1" />
+          <Text TextId="dTId_698285_94140Ch2" Value="Oberer Grenzwert ueberschr. K2" />
+          <Text TextId="dTId_698285_94140Ch3" Value="Oberer Grenzwert ueberschr. K3" />
+          <Text TextId="dTId_698748_94138" Value="Strombereich" />
+          <Text TextId="dTId_698749_94138" Value="Spannungsbereich" />
+          <Text TextId="dTId_698753_94138" Value="Temperatureinheit" />
+          <Text TextId="dTId_698754_94138" Value="Mittelwert Eingangsfilter" />
+          <Text TextId="dTId_698755_94138" Value="Spannungs-Messbetriebsart" />
+          <Text TextId="dTId_698756_94138" Value="Strom-Messbetriebsart" />
+          <Text TextId="dTId_698757_94138" Value="RTD-Messbetriebsart" />
+          <Text TextId="dTId_698759_94138" Value="Kaltstellenkomp. Thermoelement" />
+          <Text TextId="dTId_698763" Value="-20...20 mA" />
+          <Text TextId="dTId_698764" Value="2...10 V" />
+          <Text TextId="dTId_698765" Value="0...5 V" />
+          <Text TextId="dTId_698766" Value="1...5 V" />
+          <Text TextId="dTId_698767" Value="-1...1 V" />
+          <Text TextId="dTId_698768" Value="-10...10 V" />
+          <Text TextId="dTId_698769" Value="Celsius" />
+          <Text TextId="dTId_698770" Value="Fahrenheit" />
+          <Text TextId="dTId_698771" Value="symmetrisch" />
+          <Text TextId="dTId_698772" Value="glatt" />
+          <Text TextId="dTId_698773" Value="schnell" />
+          <Text TextId="dTId_698774" Value="4-Leiter" />
+          <Text TextId="dTId_698775" Value="Kaltstelle vom Kanal 1" />
+          <Text TextId="dTId_698776" Value="asymmetrisch" />
+          <Text TextId="dTId_698777" Value="symmetrisch ohne Masse" />
+          <Text TextId="dTId_698779" Value="Thermoelement" />
+          <Text TextId="dTId_698780" Value="RTD" />
+          <Text TextId="dTId_698781" Value="Widerstand" />
+          <Text TextId="dTId_698782" Value="Diagnosekanal" />
+          <Text TextId="dTId_698783" Value="Modulstatus" />
+          <Text TextId="dTId_698792_94141" Value="I/O-ASSISTANT-Force Mode aktiv" />
+          <Text TextId="dTId_698795_94141" Value="Moduldiagnose liegt an" />
+          <Text TextId="dTId_698796_94141" Value="Unterspannung V1" />
+          <Text TextId="dTId_698797_94141" Value="Unterspannung V2" />
+          <Text TextId="dTId_698800_94138" Value="Widerstands-Merssbetriebsart" />
+          <Text TextId="dTId_698801_94138" Value="Widerstandsbereich" />
+          <Text TextId="dTId_698812" Value="Typ K, -270...1370 ´C, -454...2498 ´F" />
+          <Text TextId="dTId_698813" Value="Typ B, +100...1820 ´C, 212...3308 ´F" />
+          <Text TextId="dTId_698814" Value="Typ E, -270...1000 ´C, -454...1832 ´F" />
+          <Text TextId="dTId_698815" Value="Typ J, -210...1200 ´C, -346...2192 ´F" />
+          <Text TextId="dTId_698816" Value="Typ N, -270...1300 ´C, -454...2372 ´F" />
+          <Text TextId="dTId_698817" Value="Typ R, -50...1768 ´C, -58...3214 ´F" />
+          <Text TextId="dTId_698818" Value="Typ S, -50...1768 ´C, -58...3214 ´F" />
+          <Text TextId="dTId_698819" Value="Typ T, -270...400 ´C, -454...752 ´F" />
+          <Text TextId="dTId_698820" Value="Typ C, 0...2315 ´C, 32...4199 ´F" />
+          <Text TextId="dTId_698821" Value="Typ G, 0...2315 ´C, 32...4199 ´F" />
+          <Text TextId="dTId_698822" Value="PT100, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698823" Value="PT100, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698824" Value="NI100, -60...250 ´C, -76...482 ´F" />
+          <Text TextId="dTId_698825" Value="NI100, -60...150 ´C, -76...302 ´F" />
+          <Text TextId="dTId_698826" Value="PT200, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698827" Value="PT200, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698828" Value="PT500, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698829" Value="PT500, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698830" Value="PT1000, -200...850 ´C, -328...1562 ´F" />
+          <Text TextId="dTId_698831" Value="PT1000, -200...150 ´C, -328...302 ´F" />
+          <Text TextId="dTId_698832" Value="NI1000, -60...250 ´C, -76...482 ´F" />
+          <Text TextId="dTId_698833" Value="NI1000, -60...150 ´C, -76...302 ´F" />
+          <Text TextId="dTId_699039" Value="-100...100 mV" />
+          <Text TextId="dTId_699040" Value="-500...500 mV" />
+          <Text TextId="dTId_699041" Value="-50...50 mV" />
+          <Text TextId="dTId_699051_94140Ch0" Value="Ueberstrom Versorgung VAUX1 K0" />
+          <Text TextId="dTId_699051_94140Ch1" Value="Ueberstrom Versorgung VAUX1 K1" />
+          <Text TextId="dTId_699051_94140Ch2" Value="Ueberstrom Versorgung VAUX1 K2" />
+          <Text TextId="dTId_699051_94140Ch3" Value="Ueberstrom Versorgung VAUX1 K3" />
+          <Text TextId="dTId_699052" Value="0...2000 Ohm" />
+          <Text TextId="dTId_699139_94141" Value="Interner Fehler" />
+          <Text TextId="dTId_700470_94141" Value="ARGEE Programm aktiv" />
+          <Text TextId="gPngHc_dap" Value="TBEN-S" />
+          <Text TextId="gPngHc_DAP_TBEN_S2_4AI_Name" Value="TBEN-S2-4AI" />
+          <Text TextId="gPxtId_11" Value="DAP v3.1" />
+          <Text TextId="gPxtId_15" Value="Parametrierungsfehler" />
+          <Text TextId="gPxtId_16" Value="Nach der Plausibilitaetspruefung wird der Parameter-Datensatz (ev. teilweise) abgelehnt. Pruefen Sie den Kontext der Parameter-Daten." />
+          <Text TextId="gPxtId_17" Value="Kaltstellenkompensation defekt" />
+          <Text TextId="gPxtId_20" Value="Das Modul hat eine defekte oder fehlende Kaltstellenkompensation festgestellt." />
+          <Text TextId="gPxtId_21" Value="Hardware-Fehler" />
+          <Text TextId="gPxtId_22" Value="Das Modul hat einen Hardware-Fehler erkannt. Tauschen Sie das Modul." />
+          <Text TextId="gPxtId_23" Value="Kommunikationsfehler" />
+          <Text TextId="gPxtId_24" Value="Das Modul hat Kommunikationsprobleme an den Ports (z. B. RS232/485/422, SSI oder andere Schnittstelle) festgestellt. Pruefen Sie die Verbindung zu angeschlossenen Geraeten bzw. deren Funktion." />
+          <Text TextId="gPxtId_25" Value="Richtungsfehler" />
+          <Text TextId="gPxtId_26" Value="Die Richtung wurde als falsch erkannt. Pruefen Sie die Parametrierung bzw. die Steuerschnittstelle gegen den Anwendungsfall." />
+          <Text TextId="gPxtId_27" Value="Anwendersoftware-Fehler" />
+          <Text TextId="gPxtId_28" Value="Das Modul hat einen Anwendersoftware-Fehler festgestellt. Pruefen Sie die Interoperabilitaet der Anwendersoftware-Versionen. Reinitialisieren Sie die Anwendersoftware." />
+          <Text TextId="gPxtId_29" Value="Ueberlast Sensorversorgung" />
+          <Text TextId="gPxtId_30" Value="Das Modul hat einen zu grossen Strom an der Sensorversorgung festgestellt." />
+          <Text TextId="gPxtId_31" Value="Sammelfehler" />
+          <Text TextId="gPxtId_32" Value="Das Modul hat einen Fehler festgestellt. Moegliche Fehler koennen der Dokumentation entnommen werden. Der Fehlertyp kann von Betriebsart und Parametrierung abhaengig sein." />
+          <Text TextId="gPxtId_33" Value="Konfigurationsfehler" />
+          <Text TextId="gPxtId_34" Value="Nach der Plausibilitaetspruefung wird der Konfigurations-Datensatz (ev. teilweise) abgelehnt. Pruefen Sie den Kontext." />
+          <Text TextId="gPxtId_35" Value="PN-IO" />
+          <Text TextId="gPxtId_36" Value="Port 1" />
+          <Text TextId="gPxtId_37" Value="Port 2" />
+          <Text TextId="gPxtId_4" Value="PROFINET IO Block Modul in IP67" />
+          <Text TextId="gPxtId_40" Value="TBEN Linientopologie Multiprotokoll" />
+          <Text TextId="gPxtId_41" Value="PROFINET-RT Geraet mit 2 Ports; unterstuetzt FastStartUp; Port Diagnose; IM Funktionalitaet; Topology Erkennung;" />
+          <Text TextId="gTId_276" Value="Feldbus-Konfiguration" />
+          <Text TextId="gTId_393_46" Value="Alle Diagnosen deaktivieren" />
+          <Text TextId="gTId_397_46" Value="I/O-ASS. Force Mode deaktivieren" />
+          <Text TextId="gTId_458_46" Value="Deaktiviere Modbus TCP" />
+          <Text TextId="gTId_459_46" Value="Deaktiviere PROFINET" />
+          <Text TextId="gTId_460_46" Value="Deaktiviere EtherNet/IP" />
+          <Text TextId="gTId_461_46" Value="Deaktiviere WEB Server" />
+          <Text TextId="gTId_462" Value="ja" />
+          <Text TextId="gTId_463" Value="nein" />
+          <Text TextId="gTId_510" Value="PROFINET-Konfiguration" />
+          <Text TextId="gTId_551" Value="Diagnosen" />
+          <Text TextId="gTId_552" Value="Modulstatus" />
+          <Text TextId="gTId_647" Value="Kanal 0" />
+          <Text TextId="gTId_648" Value="Kanal 1" />
+          <Text TextId="gTId_649" Value="Kanal 2" />
+          <Text TextId="gTId_650" Value="Kanal 3" />
+        </Language>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

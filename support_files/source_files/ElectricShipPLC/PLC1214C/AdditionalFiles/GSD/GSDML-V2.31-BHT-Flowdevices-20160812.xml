@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.31.xsd" xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x02F3" DeviceID="0x0001">
+      <InfoText TextId="TOK_DevIdent_InfoText"/>
+      <VendorName Value="Bronkhorst" />
+    </DeviceIdentity>
+      <DeviceFunction>
+        <Family MainFamily="Sensors" ProductFamily="Bronkhorst Flow Devices" />
+      </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem ID="DAP 1" PhysicalSlots="0..1" ResetToFactoryModes="2" ModuleIdentNumber="0x00000001" LLDP_NoD_Supported="true" MinDeviceInterval="8" ImplementationType="TPS-1" DNS_CompatibleName="Bronkhorst-IO" FixedInSlots="0" ExtendedAddressAssignmentSupported="false" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" DeviceAccessSupported="true" CheckDeviceID_Allowed="true" RequiredSchemaVersion="V2.3" PNIO_Version="V2.31" NameOfStationNotTransferable = "true" >
+          <ModuleInfo>
+            <Name TextId="T_ID_DAP1_NAME" />
+            <InfoText TextId="T_ID_DAP1_INFO" />
+            <VendorName Value="Bronkhorst Nederland B.V." />
+            <OrderNumber Value="Flow Device" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="340" MaxOutputLength="340" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_MOD_BASIC" UsedInSlots="1" AllowedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 1" SubmoduleIdentNumber="0x00000001" API="0" Writeable_IM_Records="1 2 3 4">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="8192" Length="4">
+                  <Name TextId="TI_OFFSET"/>
+                  <Const Data="0x00,0x00,0x10,0x00"/>   <!-- const offset in ns input trigger T3 -->
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem Index="8193" Length="4">
+                  <Name TextId="TO_OFFSET"/>
+                  <Const Data="0x00,0x00,0x20,0x00"/>   <!-- const offset in ns output trigger T4 -->
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TPS1_board" />
+                <InfoText TextId="TOK_TPS1_board" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x000a" IsochroneModeSupported="false" SupportedRT_Classes="RT_CLASS_1" TextId="TOK_DAP_InterfaceModule" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DCP_HelloSupported="false" DelayMeasurementSupported="true">
+            	  <ApplicationRelations StartupMode="Advanced;Legacy" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x000b" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+            <PortSubmoduleItem ID="IDS_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x000c" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_DEVICE" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem ID="DAP 2" PhysicalSlots="0..1" ResetToFactoryModes="2" ModuleIdentNumber="0x00000002" LLDP_NoD_Supported="true" MinDeviceInterval="8" ImplementationType="TPS-1" DNS_CompatibleName="Bronkhorst-IO" FixedInSlots="0" ExtendedAddressAssignmentSupported="false" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" DeviceAccessSupported="true" CheckDeviceID_Allowed="true" RequiredSchemaVersion="V2.3" PNIO_Version="V2.31" NameOfStationNotTransferable = "true" >
+          <ModuleInfo>
+            <Name TextId="T_ID_DAP2_NAME" />
+            <InfoText TextId="T_ID_DAP2_INFO" />
+            <VendorName Value="Bronkhorst Nederland B.V." />
+            <OrderNumber Value="Pressure Device" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="340" MaxOutputLength="340" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_MOD_BASIC" UsedInSlots="1" AllowedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 2" SubmoduleIdentNumber="0x00000001" API="0" Writeable_IM_Records="1 2 3 4">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="8192" Length="4">
+                  <Name TextId="TI_OFFSET"/>
+                  <Const Data="0x00,0x00,0x10,0x00"/>   <!-- const offset in ns input trigger T3 -->
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem Index="8193" Length="4">
+                  <Name TextId="TO_OFFSET"/>
+                  <Const Data="0x00,0x00,0x20,0x00"/>   <!-- const offset in ns output trigger T4 -->
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TPS1_board" />
+                <InfoText TextId="TOK_TPS1_board" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_2I" SubslotNumber="32768" SubmoduleIdentNumber="0x000a" IsochroneModeSupported="false" SupportedRT_Classes="RT_CLASS_1" TextId="TOK_DAP_InterfaceModule" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DCP_HelloSupported="false" DelayMeasurementSupported="true">
+            	  <ApplicationRelations StartupMode="Advanced;Legacy" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_2P1" SubslotNumber="32769" SubmoduleIdentNumber="0x000b" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+            <PortSubmoduleItem ID="IDS_2P2" SubslotNumber="32770" SubmoduleIdentNumber="0x000c" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_DEVICE" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        
+        <DeviceAccessPointItem ID="DAP 3" PhysicalSlots="0..3" ResetToFactoryModes="2" ModuleIdentNumber="0x00000003" LLDP_NoD_Supported="true" MinDeviceInterval="8" ImplementationType="TPS-1" DNS_CompatibleName="Bronkhorst-IO" FixedInSlots="0" ExtendedAddressAssignmentSupported="false" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" DeviceAccessSupported="true" CheckDeviceID_Allowed="true" RequiredSchemaVersion="V2.3" PNIO_Version="V2.31" NameOfStationNotTransferable = "true" >
+          <ModuleInfo>
+            <Name TextId="T_ID_DAP3_NAME" />
+            <InfoText TextId="T_ID_DAP3_INFO" />
+            <VendorName Value="Bronkhorst Nederland B.V." />
+            <OrderNumber Value="Multichannel Device" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="340" MaxOutputLength="340" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_MOD_BASIC_MULTI_CHANNEL" UsedInSlots="1..3" AllowedInSlots="1..3" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 3" SubmoduleIdentNumber="0x00000001" API="0" Writeable_IM_Records="1 2 3 4">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="8192" Length="4">
+                  <Name TextId="TI_OFFSET"/>
+                  <Const Data="0x00,0x00,0x10,0x00"/>   <!-- const offset in ns input trigger T3 -->
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem Index="8193" Length="4">
+                  <Name TextId="TO_OFFSET"/>
+                  <Const Data="0x00,0x00,0x20,0x00"/>   <!-- const offset in ns output trigger T4 -->
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TPS1_board" />
+                <InfoText TextId="TOK_TPS1_board" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_3I" SubslotNumber="32768" SubmoduleIdentNumber="0x000a" IsochroneModeSupported="false" SupportedRT_Classes="RT_CLASS_1" TextId="TOK_DAP_InterfaceModule" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DCP_HelloSupported="false" DelayMeasurementSupported="true">
+            	  <ApplicationRelations StartupMode="Advanced;Legacy" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_3P1" SubslotNumber="32769" SubmoduleIdentNumber="0x000b" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+            <PortSubmoduleItem ID="IDS_3P2" SubslotNumber="32770" SubmoduleIdentNumber="0x000c" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_DEVICE" />
+          </Graphics>
+        </DeviceAccessPointItem>
+        
+        <DeviceAccessPointItem ID="DAP 4" PhysicalSlots="0..1" ResetToFactoryModes="2" ModuleIdentNumber="0x00000004" LLDP_NoD_Supported="true" MinDeviceInterval="8" ImplementationType="TPS-1" DNS_CompatibleName="Bronkhorst-IO" FixedInSlots="0" ExtendedAddressAssignmentSupported="false" ObjectUUID_LocalIndex="1" MultipleWriteSupported="true" DeviceAccessSupported="true" CheckDeviceID_Allowed="true" RequiredSchemaVersion="V2.3" PNIO_Version="V2.31" NameOfStationNotTransferable = "true" >
+          <ModuleInfo>
+            <Name TextId="T_ID_DAP4_NAME" />
+            <InfoText TextId="T_ID_DAP4_INFO" />
+            <VendorName Value="Bronkhorst Nederland B.V." />
+            <OrderNumber Value="PID controller" />
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I" />
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="340" MaxOutputLength="340" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_MOD_BASIC" UsedInSlots="1" AllowedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 4" SubmoduleIdentNumber="0x00000001" API="0" Writeable_IM_Records="1 2 3 4">
+              <IOData IOPS_Length="1" IOCS_Length="1" />
+              <RecordDataList>
+                <ParameterRecordDataItem Index="8192" Length="4">
+                  <Name TextId="TI_OFFSET"/>
+                  <Const Data="0x00,0x00,0x10,0x00"/>   <!-- const offset in ns input trigger T3 -->
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem Index="8193" Length="4">
+                  <Name TextId="TO_OFFSET"/>
+                  <Const Data="0x00,0x00,0x20,0x00"/>   <!-- const offset in ns output trigger T4 -->
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TPS1_board" />
+                <InfoText TextId="TOK_TPS1_board" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_4I" SubslotNumber="32768" SubmoduleIdentNumber="0x000a" IsochroneModeSupported="false" SupportedRT_Classes="RT_CLASS_1" TextId="TOK_DAP_InterfaceModule" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DCP_HelloSupported="false" DelayMeasurementSupported="true">
+            	  <ApplicationRelations StartupMode="Advanced;Legacy" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_4P1" SubslotNumber="32769" SubmoduleIdentNumber="0x000b" MAUTypes="16" TextId="TOK_Port1" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+            <PortSubmoduleItem ID="IDS_4P2" SubslotNumber="32770" SubmoduleIdentNumber="0x000c" MAUTypes="16" TextId="TOK_Port2" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_DEVICE" />
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+
+      <ModuleList>
+        <ModuleItem ID="ID_MOD_BASIC" ModuleIdentNumber="0x00000010" PhysicalSubslots="1..59">
+          <ModuleInfo>
+            <Name TextId="TOK_Basic_Module" />
+            <InfoText TextId="TOK_Basic_Module" />
+          </ModuleInfo>
+          <UseableSubmodules>
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10100" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12100" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10101" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20101" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12103" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM22103" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10103" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12107" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1740F" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10104" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20104" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10102" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20102" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17201" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27201" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10110" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20110" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10111" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1010D" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12116" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1011F" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17301" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27301" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17103" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17102" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17105" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1710C" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17101" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17106" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27106" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17104" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16101" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26101" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16102" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26102" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16103" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26103" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16105" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26105" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16106" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26106" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16107" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26107" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16109" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26109" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16801" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16802" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16803" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26803" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16805" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26805" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16806" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26806" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16807" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16808" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26808" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16809" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26809" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1680A" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2680A" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1680B" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2680B" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10114" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27308" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2000A" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1721F" AllowedInSubslots="1..59" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2721F" AllowedInSubslots="1..59" />
+          </UseableSubmodules>
+          <Graphics>
+            <GraphicItemRef Type="DeviceIcon" GraphicItemTarget="IDG_ICON" />
+          </Graphics>
+        </ModuleItem>
+        
+        <ModuleItem ID="ID_MOD_BASIC_MULTI_CHANNEL" ModuleIdentNumber="0x00000011" PhysicalSubslots="1..20">
+          <ModuleInfo>
+            <Name TextId="TOK_Basic_Module_Multi_Channel" />
+            <InfoText TextId="TOK_Basic_Module_Multi_Channel" />
+          </ModuleInfo>
+          <UseableSubmodules>
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10100" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12100" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10101" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20101" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12103" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM22103" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10103" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12107" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1740F" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10104" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20104" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10102" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20102" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17201" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27201" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10110" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM20110" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10111" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1010D" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM12116" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1011F" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17301" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27301" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17103" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17102" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17105" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1710C" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17101" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17106" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27106" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM17104" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16101" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26101" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16102" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26102" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16103" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26103" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16105" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26105" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16106" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26106" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16107" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26107" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16109" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26109" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16801" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16802" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16803" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26803" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16805" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26805" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16806" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26806" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16807" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16808" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26808" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM16809" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM26809" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1680A" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2680A" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1680B" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2680B" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM10114" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM27308" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2000A" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="ISM1721F" AllowedInSubslots="1..20" />
+            <SubmoduleItemRef SubmoduleItemTarget="OSM2721F" AllowedInSubslots="1..20" />
+          </UseableSubmodules>
+          <Graphics>
+            <GraphicItemRef Type="DeviceIcon" GraphicItemTarget="IDG_ICON" />
+          </Graphics>
+        </ModuleItem>
+      </ModuleList>
+
+      <SubmoduleList>
+        <SubmoduleItem ID="ISM10100" SubmoduleIdentNumber="0x00010100">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM10100_measure_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10100_measure_TXT" />
+            <InfoText TextId="ID_ISM10100_measure_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM12100" SubmoduleIdentNumber="0x00012100">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM12100_measure_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM12100_measure_TXT" />
+            <InfoText TextId="ID_ISM12100_measure_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10101" SubmoduleIdentNumber="0x00010101">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM10101_Setpoint_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10101_Setpoint_TXT" />
+            <InfoText TextId="ID_ISM10101_Setpoint_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM20101" SubmoduleIdentNumber="0x00020101">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_OSM20101_Setpoint_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM20101_Setpoint_TXT" />
+            <InfoText TextId="ID_OSM20101_Setpoint_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM12103" SubmoduleIdentNumber="0x00012103">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM12103_fSetpoint_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM12103_fSetpoint_TXT" />
+            <InfoText TextId="ID_ISM12103_fSetpoint_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM22103" SubmoduleIdentNumber="0x00022103">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_OSM22103_fSetpoint_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM22103_fSetpoint_TXT" />
+            <InfoText TextId="ID_OSM22103_fSetpoint_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10103" SubmoduleIdentNumber="0x00010103">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM10103_analoginp_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10103_analoginp_TXT" />
+            <InfoText TextId="ID_ISM10103_analoginp_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM12107" SubmoduleIdentNumber="0x00012107">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM12107_temperatur_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM12107_temperatur_TXT" />
+            <InfoText TextId="ID_ISM12107_temperatur_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1740F" SubmoduleIdentNumber="0x0001740F">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM1740F_DensityAct_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_BASIC" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1740F_DensityAct_TXT" />
+            <InfoText TextId="ID_ISM1740F_DensityAct_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10104" SubmoduleIdentNumber="0x00010104">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM10104_cntrlmode_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ADVANCED" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10104_cntrlmode_TXT" />
+            <InfoText TextId="ID_ISM10104_cntrlmode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM20104" SubmoduleIdentNumber="0x00020104">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM20104_cntrlmode_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ADVANCED" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM20104_cntrlmode_TXT" />
+            <InfoText TextId="ID_OSM20104_cntrlmode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10102" SubmoduleIdentNumber="0x00010102">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM10102_setpslope_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ADVANCED" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10102_setpslope_TXT" />
+            <InfoText TextId="ID_ISM10102_setpslope_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM20102" SubmoduleIdentNumber="0x00020102">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_OSM20102_setpslope_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ADVANCED" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM20102_setpslope_TXT" />
+            <InfoText TextId="ID_OSM20102_setpslope_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17201" SubmoduleIdentNumber="0x00017201">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer32" UseAsBits="false" TextId="ID_ISM17201_ValveOut_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ADVANCED" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17201_ValveOut_TXT" />
+            <InfoText TextId="ID_ISM17201_ValveOut_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM27201" SubmoduleIdentNumber="0x00027201">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer32" UseAsBits="false" TextId="ID_OSM27201_ValveOut_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ADVANCED" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM27201_ValveOut_TXT" />
+            <InfoText TextId="ID_OSM27201_ValveOut_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10110" SubmoduleIdentNumber="0x00010110">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM10110_fluidnr_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10110_fluidnr_TXT" />
+            <InfoText TextId="ID_ISM10110_fluidnr_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM20110" SubmoduleIdentNumber="0x00020110">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM20110_fluidnr_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM20110_fluidnr_TXT" />
+            <InfoText TextId="ID_OSM20110_fluidnr_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10111" SubmoduleIdentNumber="0x00010111">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="10" UseAsBits="false" TextId="ID_ISM10111_fluidname_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10111_fluidname_TXT" />
+            <InfoText TextId="ID_ISM10111_fluidname_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1010D" SubmoduleIdentNumber="0x0001010D">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM1010D_capacity100_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1010D_capacity100_TXT" />
+            <InfoText TextId="ID_ISM1010D_capacity100_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM12116" SubmoduleIdentNumber="0x00012116">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM12116_capacity0_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM12116_capacity0_TXT" />
+            <InfoText TextId="ID_ISM12116_capacity0_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1011F" SubmoduleIdentNumber="0x0001011F">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="7" UseAsBits="false" TextId="ID_ISM1011F_capunitstr_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1011F_capunitstr_TXT" />
+            <InfoText TextId="ID_ISM1011F_capunitstr_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17301" SubmoduleIdentNumber="0x00017301">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM17301_CalMode_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17301_CalMode_TXT" />
+            <InfoText TextId="ID_ISM17301_CalMode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM27301" SubmoduleIdentNumber="0x00027301">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM27301_CalMode_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_CALIBRATION" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM27301_CalMode_TXT" />
+            <InfoText TextId="ID_OSM27301_CalMode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17103" SubmoduleIdentNumber="0x00017103">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="20" UseAsBits="false" TextId="ID_ISM17103_SerialNum_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17103_SerialNum_TXT" />
+            <InfoText TextId="ID_ISM17103_SerialNum_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17102" SubmoduleIdentNumber="0x00017102">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="23" UseAsBits="false" TextId="ID_ISM17102_ModelNum_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17102_ModelNum_TXT" />
+            <InfoText TextId="ID_ISM17102_ModelNum_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17105" SubmoduleIdentNumber="0x00017105">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="6" UseAsBits="false" TextId="ID_ISM17105_Version_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17105_Version_TXT" />
+            <InfoText TextId="ID_ISM17105_Version_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1710C" SubmoduleIdentNumber="0x0001710C">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM1710C_IdentNr_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1710C_IdentNr_TXT" />
+            <InfoText TextId="ID_ISM1710C_IdentNr_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17101" SubmoduleIdentNumber="0x00017101">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="6" UseAsBits="false" TextId="ID_ISM17101_DeviceType_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17101_DeviceType_TXT" />
+            <InfoText TextId="ID_ISM17101_DeviceType_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17106" SubmoduleIdentNumber="0x00017106">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="16" UseAsBits="false" TextId="ID_ISM17106_UserTag_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17106_UserTag_TXT" />
+            <InfoText TextId="ID_ISM17106_UserTag_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM27106" SubmoduleIdentNumber="0x00027106">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="16" UseAsBits="false" TextId="ID_OSM27106_UserTag_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM27106_UserTag_TXT" />
+            <InfoText TextId="ID_OSM27106_UserTag_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM17104" SubmoduleIdentNumber="0x00017104">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="16" UseAsBits="false" TextId="ID_ISM17104_MfrConfig_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_IDENTIFICATION" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM17104_MfrConfig_TXT" />
+            <InfoText TextId="ID_ISM17104_MfrConfig_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16101" SubmoduleIdentNumber="0x00016101">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM16101_AlrmMaxLim_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16101_AlrmMaxLim_TXT" />
+            <InfoText TextId="ID_ISM16101_AlrmMaxLim_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26101" SubmoduleIdentNumber="0x00026101">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_OSM26101_AlrmMaxLim_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26101_AlrmMaxLim_TXT" />
+            <InfoText TextId="ID_OSM26101_AlrmMaxLim_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16102" SubmoduleIdentNumber="0x00016102">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM16102_AlrmMinLim_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16102_AlrmMinLim_TXT" />
+            <InfoText TextId="ID_ISM16102_AlrmMinLim_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26102" SubmoduleIdentNumber="0x00026102">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_OSM26102_AlrmMinLim_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26102_AlrmMinLim_TXT" />
+            <InfoText TextId="ID_OSM26102_AlrmMinLim_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16103" SubmoduleIdentNumber="0x00016103">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16103_AlrmMode_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16103_AlrmMode_TXT" />
+            <InfoText TextId="ID_ISM16103_AlrmMode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26103" SubmoduleIdentNumber="0x00026103">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26103_AlrmMode_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26103_AlrmMode_TXT" />
+            <InfoText TextId="ID_OSM26103_AlrmMode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16105" SubmoduleIdentNumber="0x00016105">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16105_AlrmStpMod_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16105_AlrmStpMod_TXT" />
+            <InfoText TextId="ID_ISM16105_AlrmStpMod_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26105" SubmoduleIdentNumber="0x00026105">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26105_AlrmStpMod_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26105_AlrmStpMod_TXT" />
+            <InfoText TextId="ID_OSM26105_AlrmStpMod_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16106" SubmoduleIdentNumber="0x00016106">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM16106_AlrmNwSetp_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16106_AlrmNwSetp_TXT" />
+            <InfoText TextId="ID_ISM16106_AlrmNwSetp_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26106" SubmoduleIdentNumber="0x00026106">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_OSM26106_AlrmNwSetp_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26106_AlrmNwSetp_TXT" />
+            <InfoText TextId="ID_OSM26106_AlrmNwSetp_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16107" SubmoduleIdentNumber="0x00016107">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16107_AlrmDelay_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16107_AlrmDelay_TXT" />
+            <InfoText TextId="ID_ISM16107_AlrmDelay_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26107" SubmoduleIdentNumber="0x00026107">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26107_AlrmDelay_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26107_AlrmDelay_TXT" />
+            <InfoText TextId="ID_OSM26107_AlrmDelay_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16109" SubmoduleIdentNumber="0x00016109">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16109_AlrmRstEn_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16109_AlrmRstEn_TXT" />
+            <InfoText TextId="ID_ISM16109_AlrmRstEn_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26109" SubmoduleIdentNumber="0x00026109">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26109_AlrmRstEn_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_ALARM" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26109_AlrmRstEn_TXT" />
+            <InfoText TextId="ID_OSM26109_AlrmRstEn_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16801" SubmoduleIdentNumber="0x00016801">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM16801_CntrValue_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16801_CntrValue_TXT" />
+            <InfoText TextId="ID_ISM16801_CntrValue_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16802" SubmoduleIdentNumber="0x00016802">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16802_CntrUnit_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16802_CntrUnit_TXT" />
+            <InfoText TextId="ID_ISM16802_CntrUnit_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16803" SubmoduleIdentNumber="0x00016803">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM16803_CntrLimit_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16803_CntrLimit_TXT" />
+            <InfoText TextId="ID_ISM16803_CntrLimit_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26803" SubmoduleIdentNumber="0x00026803">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_OSM26803_CntrLimit_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26803_CntrLimit_TXT" />
+            <InfoText TextId="ID_OSM26803_CntrLimit_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16805" SubmoduleIdentNumber="0x00016805">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16805_CntrStpMod_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16805_CntrStpMod_TXT" />
+            <InfoText TextId="ID_ISM16805_CntrStpMod_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26805" SubmoduleIdentNumber="0x00026805">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26805_CntrStpMod_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26805_CntrStpMod_TXT" />
+            <InfoText TextId="ID_OSM26805_CntrStpMod_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16806" SubmoduleIdentNumber="0x00016806">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_ISM16806_CntrNwSetp_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16806_CntrNwSetp_TXT" />
+            <InfoText TextId="ID_ISM16806_CntrNwSetp_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26806" SubmoduleIdentNumber="0x00026806">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer16" UseAsBits="false" TextId="ID_OSM26806_CntrNwSetp_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26806_CntrNwSetp_TXT" />
+            <InfoText TextId="ID_OSM26806_CntrNwSetp_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16807" SubmoduleIdentNumber="0x00016807">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="OctetString" Length="4" UseAsBits="false" TextId="ID_ISM16807_CntrUntstr_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16807_CntrUntstr_TXT" />
+            <InfoText TextId="ID_ISM16807_CntrUntstr_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16808" SubmoduleIdentNumber="0x00016808">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16808_CntrMode_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16808_CntrMode_TXT" />
+            <InfoText TextId="ID_ISM16808_CntrMode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26808" SubmoduleIdentNumber="0x00026808">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26808_CntrMode_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26808_CntrMode_TXT" />
+            <InfoText TextId="ID_OSM26808_CntrMode_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM16809" SubmoduleIdentNumber="0x00016809">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_ISM16809_CntrRstEn_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM16809_CntrRstEn_TXT" />
+            <InfoText TextId="ID_ISM16809_CntrRstEn_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM26809" SubmoduleIdentNumber="0x00026809">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM26809_CntrRstEn_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM26809_CntrRstEn_TXT" />
+            <InfoText TextId="ID_OSM26809_CntrRstEn_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1680A" SubmoduleIdentNumber="0x0001680A">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM1680A_CntrCConv_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1680A_CntrCConv_TXT" />
+            <InfoText TextId="ID_ISM1680A_CntrCConv_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM2680A" SubmoduleIdentNumber="0x0002680A">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_OSM2680A_CntrCConv_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM2680A_CntrCConv_TXT" />
+            <InfoText TextId="ID_OSM2680A_CntrCConv_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1680B" SubmoduleIdentNumber="0x0001680B">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_ISM1680B_CntrCGain_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1680B_CntrCGain_TXT" />
+            <InfoText TextId="ID_ISM1680B_CntrCGain_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM2680B" SubmoduleIdentNumber="0x0002680B">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Float32" UseAsBits="false" TextId="ID_OSM2680B_CntrCGain_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_COUNTER" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM2680B_CntrCGain_TXT" />
+            <InfoText TextId="ID_OSM2680B_CntrCGain_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM10114" SubmoduleIdentNumber="0x00010114">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Unsigned8" UseAsBits="true" TextId="ID_ISM10114_alarminfo_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_DIAGNOSIS" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM10114_alarminfo_TXT" />
+            <InfoText TextId="ID_ISM10114_alarminfo_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM27308" SubmoduleIdentNumber="0x00027308">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM27308_Reset_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_DIAGNOSIS" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM27308_Reset_TXT" />
+            <InfoText TextId="ID_OSM27308_Reset_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM2000A" SubmoduleIdentNumber="0x0002000A">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer8" UseAsBits="false" TextId="ID_OSM2000A_initreset_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_DIAGNOSIS" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM2000A_initreset_TXT" />
+            <InfoText TextId="ID_OSM2000A_initreset_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="ISM1721F" SubmoduleIdentNumber="0x0001721F">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem DataType="Integer32" UseAsBits="false" TextId="ID_ISM1721F_IOSwitchSt_TXT" />
+            </Input>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_DIAGNOSIS" SubCategory1Ref="SM_Input" >
+            <Name TextId="ID_ISM1721F_IOSwitchSt_TXT" />
+            <InfoText TextId="ID_ISM1721F_IOSwitchSt_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+        <SubmoduleItem ID="OSM2721F" SubmoduleIdentNumber="0x0002721F">
+          <IOData>
+            <Output Consistency="All items consistency">
+              <DataItem DataType="Integer32" UseAsBits="false" TextId="ID_OSM2721F_IOSwitchSt_TXT" />
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="SM_CAT_DIAGNOSIS" SubCategory1Ref="SM_Output" >
+            <Name TextId="ID_OSM2721F_IOSwitchSt_TXT" />
+            <InfoText TextId="ID_OSM2721F_IOSwitchSt_INF" />
+          </ModuleInfo>
+        </SubmoduleItem>
+      </SubmoduleList>
+
+      <GraphicsList>
+        <GraphicItem ID="IDG_DEVICE" GraphicFile="GSDML-02F3-0001-Device" />
+        <GraphicItem ID="IDG_ICON" GraphicFile="GSDML-02F3-0001-Icon" />
+      </GraphicsList>
+
+      <CategoryList>
+        <CategoryItem ID="SM_CAT_BASIC" TextId="ID_SM_CAT_BASIC" />
+        <CategoryItem ID="SM_CAT_ADVANCED" TextId="ID_SM_CAT_ADVANCED" />
+        <CategoryItem ID="SM_CAT_CALIBRATION" TextId="ID_SM_CAT_CALIBRATION" />
+        <CategoryItem ID="SM_CAT_IDENTIFICATION" TextId="ID_SM_CAT_IDENTIFICATION" />
+        <CategoryItem ID="SM_CAT_ALARM" TextId="ID_SM_CAT_ALARM" />
+        <CategoryItem ID="SM_CAT_COUNTER" TextId="ID_SM_CAT_COUNTER" />
+        <CategoryItem ID="SM_CAT_DIAGNOSIS" TextId="ID_SM_CAT_DIAGNOSIS" />
+        <CategoryItem ID="SM_Input" TextId="SM_INPUT_TEXT" />
+        <CategoryItem ID="SM_Output" TextId="SM_OUTPUT_TEXT" />
+      </CategoryList>
+
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <Text TextId="BHT" Value="Bronkhorst High-Tech b.v." />
+          <Text TextId="TOK_DevIdent_InfoText" Value="Flowmeter with Profinet interface" />
+          <Text TextId="T_ID_DAP1_NAME" Value="Flow meter/controller" />
+          <Text TextId="T_ID_DAP1_INFO" Value="Flow meter/controller with Profinet interface" />
+          <Text TextId="T_ID_DAP2_NAME" Value="Pressure meter/controller" />
+          <Text TextId="T_ID_DAP2_INFO" Value="Pressure meter/controller with Profinet interface" />
+          <Text TextId="T_ID_DAP3_NAME" Value="Multi channel meter/controller" />
+          <Text TextId="T_ID_DAP3_INFO" Value="Multi channel meter/controller with Profinet interface" />
+          <Text TextId="T_ID_DAP4_NAME" Value="PID controller" />
+          <Text TextId="T_ID_DAP4_INFO" Value="PID controller with Profinet interface" />
+          <Text TextId="TOK_TPS1_board" Value="Profinet interface for Bronkhorst equipment" />
+          <Text TextId="TOK_Subslot_8000" Value="X1" />
+          <Text TextId="TOK_Subslot_8001" Value="X1 P1" />
+          <Text TextId="TOK_Subslot_8002" Value="X1 P2" />
+          <Text TextId="TOK_DAP_InterfaceModule" Value="PN-IO" />
+          <Text TextId="TOK_Port1" Value="Port 1 - RJ45" />
+          <Text TextId="TOK_Port2" Value="Port 2 - RJ45" />
+          <Text TextId="TI_OFFSET" Value="TI_OFFSET"/>
+          <Text TextId="TO_OFFSET" Value="TO_OFFSET"/>
+          <Text TextId="TOK_Basic_Module" Value="Generic Flow Device" />
+          <Text TextId="TOK_Basic_Module_Multi_Channel" Value="Generic Multi Channel Flow Device" />
+          <Text TextId="SM_INPUT_TEXT" Value="Input data (to IO Controller)" />
+          <Text TextId="SM_OUTPUT_TEXT" Value="Output data (to IO Device)" />
+          <Text TextId="ID_ISM10100_measure_TXT" Value="Measure, integer (read)" />
+          <Text TextId="ID_ISM10100_measure_INF" Value="Measure, integer (read)" />
+          <Text TextId="ID_ISM12100_measure_TXT" Value="FMeasure, float (read)" />
+          <Text TextId="ID_ISM12100_measure_INF" Value="FMeasure, float (read)" />
+          <Text TextId="ID_ISM10101_Setpoint_TXT" Value="Setpoint, integer (read)" />
+          <Text TextId="ID_ISM10101_Setpoint_INF" Value="Setpoint, integer (read)" />
+          <Text TextId="ID_OSM20101_Setpoint_TXT" Value="Setpoint, integer (write)" />
+          <Text TextId="ID_OSM20101_Setpoint_INF" Value="Setpoint, integer (write)" />
+          <Text TextId="ID_ISM12103_fSetpoint_TXT" Value="FSetpoint, float (read)" />
+          <Text TextId="ID_ISM12103_fSetpoint_INF" Value="FSetpoint, float (read)" />
+          <Text TextId="ID_OSM22103_fSetpoint_TXT" Value="FSetpoint, float (write)" />
+          <Text TextId="ID_OSM22103_fSetpoint_INF" Value="FSetpoint, float (write)" />
+          <Text TextId="ID_ISM10103_analoginp_TXT" Value="Analog input (read)" />
+          <Text TextId="ID_ISM10103_analoginp_INF" Value="Analog input (read)" />
+          <Text TextId="ID_ISM12107_temperatur_TXT" Value="Temperature (read)" />
+          <Text TextId="ID_ISM12107_temperatur_INF" Value="Temperature (read)" />
+          <Text TextId="ID_ISM1740F_DensityAct_TXT" Value="Actual density (read)" />
+          <Text TextId="ID_ISM1740F_DensityAct_INF" Value="Actual density (read)" />
+          <Text TextId="ID_ISM10104_cntrlmode_TXT" Value="Control mode (read)" />
+          <Text TextId="ID_ISM10104_cntrlmode_INF" Value="Control mode (read)" />
+          <Text TextId="ID_OSM20104_cntrlmode_TXT" Value="Control mode (write)" />
+          <Text TextId="ID_OSM20104_cntrlmode_INF" Value="Control mode (write)" />
+          <Text TextId="ID_ISM10102_setpslope_TXT" Value="Setpoint slope (read)" />
+          <Text TextId="ID_ISM10102_setpslope_INF" Value="Setpoint slope (read)" />
+          <Text TextId="ID_OSM20102_setpslope_TXT" Value="Setpoint slope (write)" />
+          <Text TextId="ID_OSM20102_setpslope_INF" Value="Setpoint slope (write)" />
+          <Text TextId="ID_ISM17201_ValveOut_TXT" Value="Valve output (read)" />
+          <Text TextId="ID_ISM17201_ValveOut_INF" Value="Valve output (read)" />
+          <Text TextId="ID_OSM27201_ValveOut_TXT" Value="Valve output (write)" />
+          <Text TextId="ID_OSM27201_ValveOut_INF" Value="Valve output (write)" />
+          <Text TextId="ID_ISM10110_fluidnr_TXT" Value="Fluid number (read)" />
+          <Text TextId="ID_ISM10110_fluidnr_INF" Value="Fluid number (read)" />
+          <Text TextId="ID_OSM20110_fluidnr_TXT" Value="Fluid number (write)" />
+          <Text TextId="ID_OSM20110_fluidnr_INF" Value="Fluid number (write)" />
+          <Text TextId="ID_ISM10111_fluidname_TXT" Value="Fluid name (read)" />
+          <Text TextId="ID_ISM10111_fluidname_INF" Value="Fluid name (read)" />
+          <Text TextId="ID_ISM1010D_capacity100_TXT" Value="Capacity 100 % (read)" />
+          <Text TextId="ID_ISM1010D_capacity100_INF" Value="Capacity 100 % (read)" />
+          <Text TextId="ID_ISM12116_capacity0_TXT" Value="Capacity 0 % (read)" />
+          <Text TextId="ID_ISM12116_capacity0_INF" Value="Capacity 0 % (read)" />
+          <Text TextId="ID_ISM1011F_capunitstr_TXT" Value="Capacity unit string (read)" />
+          <Text TextId="ID_ISM1011F_capunitstr_INF" Value="Capacity unit string (read)" />
+          <Text TextId="ID_ISM17301_CalMode_TXT" Value="Calibration mode (read)" />
+          <Text TextId="ID_ISM17301_CalMode_INF" Value="Calibration mode (read)" />
+          <Text TextId="ID_OSM27301_CalMode_TXT" Value="Calibration mode (write)" />
+          <Text TextId="ID_OSM27301_CalMode_INF" Value="Calibration mode (write)" />
+          <Text TextId="ID_ISM17103_SerialNum_TXT" Value="Serial number (read)" />
+          <Text TextId="ID_ISM17103_SerialNum_INF" Value="Serial number (read)" />
+          <Text TextId="ID_ISM17102_ModelNum_TXT" Value="BHT Model number (read)" />
+          <Text TextId="ID_ISM17102_ModelNum_INF" Value="BHT Model number (read)" />
+          <Text TextId="ID_ISM17105_Version_TXT" Value="Firmware version (read)" />
+          <Text TextId="ID_ISM17105_Version_INF" Value="Firmware version (read)" />
+          <Text TextId="ID_ISM1710C_IdentNr_TXT" Value="Identification number (read)" />
+          <Text TextId="ID_ISM1710C_IdentNr_INF" Value="Identification number (read)" />
+          <Text TextId="ID_ISM17101_DeviceType_TXT" Value="Device type (read)" />
+          <Text TextId="ID_ISM17101_DeviceType_INF" Value="Device type (read)" />
+          <Text TextId="ID_ISM17106_UserTag_TXT" Value="Usertag (read)" />
+          <Text TextId="ID_ISM17106_UserTag_INF" Value="Usertag (read)" />
+          <Text TextId="ID_OSM27106_UserTag_TXT" Value="Usertag (write)" />
+          <Text TextId="ID_OSM27106_UserTag_INF" Value="Usertag (write)" />
+          <Text TextId="ID_ISM17104_MfrConfig_TXT" Value="Customer model number (read)" />
+          <Text TextId="ID_ISM17104_MfrConfig_INF" Value="Customer model number (read)" />
+          <Text TextId="ID_ISM16101_AlrmMaxLim_TXT" Value="Alarm maximum limit (read)" />
+          <Text TextId="ID_ISM16101_AlrmMaxLim_INF" Value="Alarm maximum limit (read)" />
+          <Text TextId="ID_OSM26101_AlrmMaxLim_TXT" Value="Alarm maximum limit (write)" />
+          <Text TextId="ID_OSM26101_AlrmMaxLim_INF" Value="Alarm maximum limit (write)" />
+          <Text TextId="ID_ISM16102_AlrmMinLim_TXT" Value="Alarm minimum limit (read)" />
+          <Text TextId="ID_ISM16102_AlrmMinLim_INF" Value="Alarm minimum limit (read)" />
+          <Text TextId="ID_OSM26102_AlrmMinLim_TXT" Value="Alarm minimum limit (write)" />
+          <Text TextId="ID_OSM26102_AlrmMinLim_INF" Value="Alarm minimum limit (write)" />
+          <Text TextId="ID_ISM16103_AlrmMode_TXT" Value="Alarm mode (read)" />
+          <Text TextId="ID_ISM16103_AlrmMode_INF" Value="Alarm mode (read)" />
+          <Text TextId="ID_OSM26103_AlrmMode_TXT" Value="Alarm mode (write)" />
+          <Text TextId="ID_OSM26103_AlrmMode_INF" Value="Alarm mode (write)" />
+          <Text TextId="ID_ISM16105_AlrmStpMod_TXT" Value="Alarm setpoint mode (read)" />
+          <Text TextId="ID_ISM16105_AlrmStpMod_INF" Value="Alarm setpoint mode (read)" />
+          <Text TextId="ID_OSM26105_AlrmStpMod_TXT" Value="Alarm setpoint mode (write)" />
+          <Text TextId="ID_OSM26105_AlrmStpMod_INF" Value="Alarm setpoint mode (write)" />
+          <Text TextId="ID_ISM16106_AlrmNwSetp_TXT" Value="Alarm new setpoint (read)" />
+          <Text TextId="ID_ISM16106_AlrmNwSetp_INF" Value="Alarm new setpoint (read)" />
+          <Text TextId="ID_OSM26106_AlrmNwSetp_TXT" Value="Alarm new setpoint (write)" />
+          <Text TextId="ID_OSM26106_AlrmNwSetp_INF" Value="Alarm new setpoint (write)" />
+          <Text TextId="ID_ISM16107_AlrmDelay_TXT" Value="Alarm delay time (read)" />
+          <Text TextId="ID_ISM16107_AlrmDelay_INF" Value="Alarm delay time (read)" />
+          <Text TextId="ID_OSM26107_AlrmDelay_TXT" Value="Alarm delay time (write)" />
+          <Text TextId="ID_OSM26107_AlrmDelay_INF" Value="Alarm delay time (write)" />
+          <Text TextId="ID_ISM16109_AlrmRstEn_TXT" Value="Reset alarm enable (read)" />
+          <Text TextId="ID_ISM16109_AlrmRstEn_INF" Value="Reset alarm enable (read)" />
+          <Text TextId="ID_OSM26109_AlrmRstEn_TXT" Value="Reset alarm enable (write)" />
+          <Text TextId="ID_OSM26109_AlrmRstEn_INF" Value="Reset alarm enable (write)" />
+          <Text TextId="ID_ISM16801_CntrValue_TXT" Value="Counter value (read)" />
+          <Text TextId="ID_ISM16801_CntrValue_INF" Value="Counter value (read)" />
+          <Text TextId="ID_ISM16802_CntrUnit_TXT" Value="Counter unit (read)" />
+          <Text TextId="ID_ISM16802_CntrUnit_INF" Value="Counter unit (read)" />
+          <Text TextId="ID_ISM16803_CntrLimit_TXT" Value="Counter limit (read)" />
+          <Text TextId="ID_ISM16803_CntrLimit_INF" Value="Counter limit (read)" />
+          <Text TextId="ID_OSM26803_CntrLimit_TXT" Value="Counter limit (write)" />
+          <Text TextId="ID_OSM26803_CntrLimit_INF" Value="Counter limit (write)" />
+          <Text TextId="ID_ISM16805_CntrStpMod_TXT" Value="Counter setpoint mode (read)" />
+          <Text TextId="ID_ISM16805_CntrStpMod_INF" Value="Counter setpoint mode (read)" />
+          <Text TextId="ID_OSM26805_CntrStpMod_TXT" Value="Counter setpoint mode (write)" />
+          <Text TextId="ID_OSM26805_CntrStpMod_INF" Value="Counter setpoint mode (write)" />
+          <Text TextId="ID_ISM16806_CntrNwSetp_TXT" Value="Counter new setpoint (read)" />
+          <Text TextId="ID_ISM16806_CntrNwSetp_INF" Value="Counter new setpoint (read)" />
+          <Text TextId="ID_OSM26806_CntrNwSetp_TXT" Value="Counter new setpoint (write)" />
+          <Text TextId="ID_OSM26806_CntrNwSetp_INF" Value="Counter new setpoint (write)" />
+          <Text TextId="ID_ISM16807_CntrUntstr_TXT" Value="Counter unit string (read)" />
+          <Text TextId="ID_ISM16807_CntrUntstr_INF" Value="Counter unit string (read)" />
+          <Text TextId="ID_ISM16808_CntrMode_TXT" Value="Counter mode (read)" />
+          <Text TextId="ID_ISM16808_CntrMode_INF" Value="Counter mode (read)" />
+          <Text TextId="ID_OSM26808_CntrMode_TXT" Value="Counter mode (write)" />
+          <Text TextId="ID_OSM26808_CntrMode_INF" Value="Counter mode (write)" />
+          <Text TextId="ID_ISM16809_CntrRstEn_TXT" Value="Reset counter enable (read)" />
+          <Text TextId="ID_ISM16809_CntrRstEn_INF" Value="Reset counter enable (read)" />
+          <Text TextId="ID_OSM26809_CntrRstEn_TXT" Value="Reset counter enable (write)" />
+          <Text TextId="ID_OSM26809_CntrRstEn_INF" Value="Reset counter enable (write)" />
+          <Text TextId="ID_ISM1680A_CntrCConv_TXT" Value="Counter controller overrun correction (read)" />
+          <Text TextId="ID_ISM1680A_CntrCConv_INF" Value="Counter controller overrun correction (read)" />
+          <Text TextId="ID_OSM2680A_CntrCConv_TXT" Value="Counter controller overrun correction (write)" />
+          <Text TextId="ID_OSM2680A_CntrCConv_INF" Value="Counter controller overrun correction (write)" />
+          <Text TextId="ID_ISM1680B_CntrCGain_TXT" Value="Counter controller gain (read)" />
+          <Text TextId="ID_ISM1680B_CntrCGain_INF" Value="Counter controller gain (read)" />
+          <Text TextId="ID_OSM2680B_CntrCGain_TXT" Value="Counter controller gain (write)" />
+          <Text TextId="ID_OSM2680B_CntrCGain_INF" Value="Counter controller gain (write)" />
+          <Text TextId="ID_ISM10114_alarminfo_TXT" Value="Alarm info (read)" />
+          <Text TextId="ID_ISM10114_alarminfo_INF" Value="Alarm info (read)" />
+          <Text TextId="ID_OSM27308_Reset_TXT" Value="Reset (write)" />
+          <Text TextId="ID_OSM27308_Reset_INF" Value="Reset (write)" />
+          <Text TextId="ID_OSM2000A_initreset_TXT" Value="Initreset (write)" />
+          <Text TextId="ID_OSM2000A_initreset_INF" Value="Initreset (write)" />
+          <Text TextId="ID_ISM1721F_IOSwitchSt_TXT" Value="IO switch status (read)" />
+          <Text TextId="ID_ISM1721F_IOSwitchSt_INF" Value="IO switch status (read)" />
+          <Text TextId="ID_OSM2721F_IOSwitchSt_TXT" Value="IO switch status (write)" />
+          <Text TextId="ID_OSM2721F_IOSwitchSt_INF" Value="IO switch status (write)" />
+          <Text TextId="ID_SM_CAT_BASIC" Value="Basic data" />
+          <Text TextId="ID_SM_CAT_ADVANCED" Value="Advanced data" />
+          <Text TextId="ID_SM_CAT_CALIBRATION" Value="Calibration data" />
+          <Text TextId="ID_SM_CAT_IDENTIFICATION" Value="Identification data" />
+          <Text TextId="ID_SM_CAT_ALARM" Value="Alarm data" />
+          <Text TextId="ID_SM_CAT_COUNTER" Value="Counter data" />
+          <Text TextId="ID_SM_CAT_DIAGNOSIS" Value="Diagnosis data" />
+        </PrimaryLanguage>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

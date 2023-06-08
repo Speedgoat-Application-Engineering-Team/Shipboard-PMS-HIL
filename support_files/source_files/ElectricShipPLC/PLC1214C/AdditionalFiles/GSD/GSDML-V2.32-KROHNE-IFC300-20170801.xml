@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.32.xsd">
+    <ProfileHeader>
+        <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+        <ProfileRevision>1.00</ProfileRevision>
+        <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+        <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>4</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>GSDML</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody>
+        <DeviceIdentity DeviceID="0x4500" VendorID="0x0045">
+            <InfoText TextId="IDT_DEVICE_INFOTEXT"/>
+            <VendorName Value="KROHNE"/>
+        </DeviceIdentity>
+        <DeviceFunction>
+            <Family MainFamily="Sensors" ProductFamily="IFC300"/>
+        </DeviceFunction>
+        <ApplicationProcess>
+            <DeviceAccessPointList>
+                <DeviceAccessPointItem CheckDeviceID_Allowed="true" DNS_CompatibleName="krohne-ifc300" DeviceAccessSupported="true" ExtendedAddressAssignmentSupported="false" FixedInSlots="0" ID="DAP 1" ImplementationType="ASIC" LLDP_NoD_Supported="true" MinDeviceInterval="8" ModuleIdentNumber="0x00000001" MultipleWriteSupported="true" NameOfStationNotTransferable="true" ObjectUUID_LocalIndex="1" PNIO_Version="V2.33" PhysicalSlots="0 1" PowerOnToCommReady="210" RequiredSchemaVersion="V2.31" ResetToFactoryModes="2" SharedDeviceSupported="true">
+                    <ModuleInfo>
+                        <Name TextId="IDT_DAP_MODULE_NAME"/>
+                        <InfoText TextId="IDT_DAP_MODULE_INFOTEXT"/>
+                        <VendorName Value="KROHNE"/>
+                    </ModuleInfo>
+                    <CertificationInfo ApplicationClass="" ConformanceClass="B" NetloadClass="III"/>
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_DAP_SUBSLOT_INTERFACE"/>
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_DAP_SUBSLOT_PORT1"/>
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_DAP_SUBSLOT_PORT2"/>
+                    </SubslotList>
+                    <IOConfigData MaxInputLength="126" MaxOutputLength="14"/>
+                    <UseableModules>
+                        <ModuleItemRef FixedInSlots="1" ModuleItemTarget="IDM_SENSORS"/>
+                    </UseableModules>
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="DAP 2" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3 4"  MayIssueProcessAlarm="false">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                                <ParameterRecordDataItem Index="8192" Length="4">
+                                    <Name TextId="IDT_RECORD_NAME_TI_OFFSET"/>
+                                    <Const Data="0x00,0x00,0x10,0x00"/>
+                                </ParameterRecordDataItem>
+                                <ParameterRecordDataItem Index="8193" Length="4">
+                                    <Name TextId="IDT_RECORD_NAME_TO_OFFSET"/>
+                                    <Const Data="0x00,0x00,0x20,0x00"/>
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_DAP_SUBMODULE_1_NAME" />
+                                <InfoText TextId="IDT_DAP_SUBMODULE_1_INFOTEXT" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x0000000a" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_NAME_IS" SupportedProtocols="LLDP;SNMP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_BoundarySupported="true" PTP_BoundarySupported="true" DCP_HelloSupported="true">
+                            <ApplicationRelations StartupMode="Legacy;Advanced" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" NumberOfAR="2">
+                                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                            </ApplicationRelations>
+                            <MediaRedundancy SupportedRole="Client" />
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0000000b" MAUTypes="16" TextId="IDT_NAME_PS1" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true">
+                            <MAUTypeList>
+                                <MAUTypeItem Value="16" AdjustSupported="true"/>
+                            </MAUTypeList>
+                        </PortSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0000000c" MAUTypes="16" TextId="IDT_NAME_PS2" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true">
+                            <MAUTypeList>
+                                <MAUTypeItem Value="16" AdjustSupported="true"/>
+                            </MAUTypeList>
+                        </PortSubmoduleItem>
+                    </SystemDefinedSubmoduleList>
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_GRAPHIC_V1"/>
+                    </Graphics>
+                </DeviceAccessPointItem>
+            </DeviceAccessPointList>
+            <ModuleList>
+                <ModuleItem ID="IDM_SENSORS" ModuleIdentNumber="0x00000002" PhysicalSubslots="1">
+                    <ModuleInfo>
+                        <Name TextId="IDT_SENSOR_MODULE_2_NAME"/>
+                        <InfoText TextId="IDT_SENSOR_MODULE_2_INFOTEXT"/>
+                    </ModuleInfo>
+                    <UseableSubmodules>
+                        <SubmoduleItemRef FixedInSubslots="1" SubmoduleItemTarget="IDS_SENSOR_DATA"/>
+                    </UseableSubmodules>
+                </ModuleItem>
+            </ModuleList>
+            <SubmoduleList>
+                <SubmoduleItem API="0" ID="IDS_SENSOR_DATA" SubmoduleIdentNumber="0x00000002" MayIssueProcessAlarm="false">
+                    <IOData IOCS_Length="1" IOPS_Length="1">
+                        <Input Consistency="All items consistency">
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_VOLUME_FLOW_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_VOLUME_FLOW_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_VOLUME_FLOW_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_VOLUME_FLOW_MINVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_VOLUME_FLOW_MAXVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_TOTALIZER1_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_TOTALIZER1_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_TOTALIZER1_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_TOTALIZER2_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_TOTALIZER2_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_TOTALIZER2_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_CONDUCTIVITY_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_CONDUCTIVITY_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_CONDUCTIVITY_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_CONDUCTIVITY_MINVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_CONDUCTIVITY_MAXVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_FLOW_SPEED_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_FLOW_SPEED_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_FLOW_SPEED_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_FLOW_SPEED_MINVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_FLOW_SPEED_MAXVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_MASS_FLOW_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_MASS_FLOW_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_MASS_FLOW_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_MASS_FLOW_MINVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_MASS_FLOW_MAXVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_LEVEL_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_LEVEL_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_LEVEL_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_LEVEL_MINVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_LEVEL_MAXVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_CORR_VOL_FLOW_VALUE"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_CORR_VOL_FLOW_STATUS"/>
+                            <DataItem DataType="Unsigned16" TextId="IDT_DATAITEM_CORR_VOL_FLOW_UNITCODE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_CORR_VOL_FLOW_MINVALUE"/>
+                            <DataItem DataType="Float32" TextId="IDT_DATAITEM_CORR_VOL_FLOW_MAXVALUE"/>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS1" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT0"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT1"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT2"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT3"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT4"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT5"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT6"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT7"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS2" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS3" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_BITDATAITEM_DIAG_BYTE2_BIT6"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_BITDATAITEM_DIAG_BYTE2_BIT7"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS4" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT1"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT2"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT3"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT4"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT5"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT6"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT7"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS5" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT0"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT1"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT2"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT3"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT4"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT6"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT7"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS6" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT0"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT1"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT2"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT4"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT5"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT6"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT7"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS7" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_DIAGNOSIS8" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_VOLUME_FLOW_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_TOTALIZER1_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_TOTALIZER_CONTROL_STARTSTOP"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_TOTALIZER_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_TOTALIZER2_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_TOTALIZER_CONTROL_STARTSTOP"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_TOTALIZER_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_CONDUCTIVITY_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_FLOW_SPEED_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_MASS_FLOW_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_LEVEL_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                            <DataItem DataType="Unsigned8" TextId="IDT_DATAITEM_CORR_VOL_FLOW_CONTROL" UseAsBits="true">
+                                <BitDataItem BitOffset="0" TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET"/>
+                                <BitDataItem BitOffset="1" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="2" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="3" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="4" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="5" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="6" TextId="IDT_DATAITEM_RESERVED"/>
+                                <BitDataItem BitOffset="7" TextId="IDT_DATAITEM_RESERVED"/>
+                            </DataItem>
+                        </Output>
+                    </IOData>
+                    <RecordDataList>
+                        <ParameterRecordDataItem Index="4" Length="2">
+                            <Name TextId="IDT_RECORD_NAME_GENERAL_SETTINGS"/>
+                            <Ref AllowedValues="0 1" BitOffset="0" ByteOffset="0" Changeable="true" DataType="Unsigned8" DefaultValue="0" TextId="IDT_RECORD_NAME_CFG_BY_PN_CONTROLLER" ValueItemTarget="IDV_YES_NO" Visible="true"/>
+                            <Ref AllowedValues="0 1" BitOffset="0" ByteOffset="1" Changeable="true" DataType="Unsigned8" DefaultValue="1" TextId="IDT_RECORD_NAME_LOCK_DISPLAY" ValueItemTarget="IDV_YES_NO" Visible="true"/>
+                        </ParameterRecordDataItem>
+                        <ParameterRecordDataItem Index="5" Length="17">
+                            <Name TextId="IDT_RECORD_NAME_MEASUREMENT_SETTINGS"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="0" Changeable="true" DataType="Float32" DefaultValue="3.0" TextId="IDT_RECORD_NAME_DAMPING" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="4" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_LFC_THRESHOLD" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="8" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_LFC_HYSTERESIS" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="12" Changeable="true" DataType="Float32" DefaultValue="1000.0" TextId="IDT_RECORD_NAME_DENSITY" Visible="true"/>
+                            <Ref AllowedValues="0 1 2 3 4" BitOffset="0" ByteOffset="16" Changeable="true" DataType="Unsigned8" DefaultValue="0" TextId="IDT_RECORD_NAME_EMPTYPIPEDETECTION" ValueItemTarget="IDV_EMPTYPIPEDETECT" Visible="true"/>
+                        </ParameterRecordDataItem>
+                        <ParameterRecordDataItem Index="6" Length="20">
+                            <Name TextId="IDT_RECORD_NAME_UNITS_OF_MEASUREMENT"/>
+                            <Ref AllowedValues="1347 1348 1349 1350 1351 1352 1353 1354 1356 1357 1358 1359 1362 1363 1364 1365 1367 1368 1369 1370 1371 1372 1373 1374" BitOffset="0" ByteOffset="0" Changeable="true" DataType="Unsigned16" DefaultValue="1353" TextId="IDT_RECORD_NAME_UNIT_VOLUME_FLOW" ValueItemTarget="IDV_UNIT_VOLFLOW" Visible="true"/>
+                            <Ref AllowedValues="1318 1319 1320 1321 1322 1323 1324 1325 1326 1327 1328 1329 1330 1331 1332 1333 1334 1335 1336 1337 1338 1339 1340 1341" BitOffset="0" ByteOffset="2" Changeable="true" DataType="Unsigned16" DefaultValue="1323" TextId="IDT_RECORD_NAME_UNIT_MASSFLOW" ValueItemTarget="IDV_UNIT_MASSFLOW" Visible="true"/>
+                            <Ref AllowedValues="1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044 1046 1047 1048 1049 1051" BitOffset="0" ByteOffset="4" Changeable="true" DataType="Unsigned16" DefaultValue="1034" TextId="IDT_RECORD_NAME_UNIT_T1_VOL" ValueItemTarget="IDV_UNIT_T_VOL" Visible="true"/>
+                            <Ref AllowedValues="1088 1089 1090 1092 1093 1094 1095 1096" BitOffset="0" ByteOffset="6" Changeable="true" DataType="Unsigned16" DefaultValue="1088" TextId="IDT_RECORD_NAME_UNIT_T1_MASS" ValueItemTarget="IDV_UNIT_T_MASS" Visible="true"/>
+                            <Ref AllowedValues="1034 1035 1036 1037 1038 1039 1040 1041 1042 1043 1044 1046 1047 1048 1049 1051" BitOffset="0" ByteOffset="8" Changeable="true" DataType="Unsigned16" DefaultValue="1034" TextId="IDT_RECORD_NAME_UNIT_T2_VOL" ValueItemTarget="IDV_UNIT_T_VOL" Visible="true"/>
+                            <Ref AllowedValues="1088 1089 1090 1092 1093 1094 1095 1096" BitOffset="0" ByteOffset="10" Changeable="true" DataType="Unsigned16" DefaultValue="1088" TextId="IDT_RECORD_NAME_UNIT_T2_MASS" ValueItemTarget="IDV_UNIT_T_MASS" Visible="true"/>
+                            <Ref AllowedValues="1299 1552" BitOffset="0" ByteOffset="12" Changeable="true" DataType="Unsigned16" DefaultValue="1552" TextId="IDT_RECORD_NAME_UNIT_CONDUCTIVITY" ValueItemTarget="IDV_UNIT_CONDUCTIVITY" Visible="true"/>
+                            <Ref AllowedValues="1097 1100 1103 1104 1105 1106 1107 1108" BitOffset="0" ByteOffset="14" Changeable="true" DataType="Unsigned16" DefaultValue="1097" TextId="IDT_RECORD_NAME_UNIT_DENSITY" ValueItemTarget="IDV_UNIT_DENSITY" Visible="true"/>
+                            <Ref AllowedValues="1061 1062 1063 1064 1066 1067 1068 1069 1070 1071 1072 1073 1074" BitOffset="0" ByteOffset="16" Changeable="true" DataType="Unsigned16" DefaultValue="1061" TextId="IDT_RECORD_NAME_UNIT_FLOWSPEED" ValueItemTarget="IDV_UNIT_FLOWSPEED" Visible="true"/>
+                            <Ref AllowedValues="1342" BitOffset="0" ByteOffset="18" Changeable="true" DataType="Unsigned16" DefaultValue="1342" TextId="IDT_RECORD_NAME_UNIT_LEVEL" ValueItemTarget="IDV_UNIT_LEVEL" Visible="true"/>
+                        </ParameterRecordDataItem>
+                        <ParameterRecordDataItem Index="7" Length="23">
+                            <Name TextId="IDT_RECORD_NAME_TOTALIZER1"/>
+                            <Ref AllowedValues="21 22 27" BitOffset="0" ByteOffset="0" Changeable="true" DataType="Unsigned16" DefaultValue="21" TextId="IDT_RECORD_NAME_TOTALIZER_MEASUREMENT" ValueItemTarget="IDV_TOTALIZER_MEASUREMENT" Visible="true"/>
+                            <Ref AllowedValues="0 1 2 3" BitOffset="0" ByteOffset="2" Changeable="true" DataType="Unsigned8" DefaultValue="1" TextId="IDT_RECORD_NAME_TOTALIZER_FUNCTION" ValueItemTarget="IDV_TOTALIZER_FUNCTION" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="3" Changeable="true" DataType="Float32" DefaultValue="3.0" TextId="IDT_RECORD_NAME_TOTALIZER_DAMPING" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="7" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_THRESHOLD" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="11" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_HYSTERESIS" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="15" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_THRESHOLD" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="19" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_HYSTERESIS" Visible="true"/>
+                        </ParameterRecordDataItem>
+                        <ParameterRecordDataItem Index="8" Length="23">
+                            <Name TextId="IDT_RECORD_NAME_TOTALIZER2"/>
+                            <Ref AllowedValues="21 22 27" BitOffset="0" ByteOffset="0" Changeable="true" DataType="Unsigned16" DefaultValue="21" TextId="IDT_RECORD_NAME_TOTALIZER_MEASUREMENT" ValueItemTarget="IDV_TOTALIZER_MEASUREMENT" Visible="true"/>
+                            <Ref AllowedValues="0 1 2 3" BitOffset="0" ByteOffset="2" Changeable="true" DataType="Unsigned8" DefaultValue="1" TextId="IDT_RECORD_NAME_TOTALIZER_FUNCTION" ValueItemTarget="IDV_TOTALIZER_FUNCTION" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="3" Changeable="true" DataType="Float32" DefaultValue="3.0" TextId="IDT_RECORD_NAME_TOTALIZER_DAMPING" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="7" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_THRESHOLD" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="11" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_HYSTERESIS" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="15" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_THRESHOLD" Visible="true"/>
+                            <Ref AllowedValues="-3.0e38..3.0e38" BitOffset="0" ByteOffset="19" Changeable="true" DataType="Float32" DefaultValue="0.0" TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_HYSTERESIS" Visible="true"/>
+                        </ParameterRecordDataItem>
+                    </RecordDataList>
+                    <ModuleInfo>
+                        <Name TextId="IDT_SENSOR_SUBMODULE_2_NAME"/>
+                        <InfoText TextId="IDT_SENSOR_SUBMODULE_2_INFOTEXT"/>
+                    </ModuleInfo>
+                </SubmoduleItem>
+            </SubmoduleList>
+            <ValueList>
+                <ValueItem ID="IDV_YES_NO">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_ASSIGN_NO"/>
+                        <Assign Content="1" TextId="IDT_ASSIGN_YES"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_VOLFLOW">
+                    <Assignments>
+                        <Assign Content="1347" TextId="IDT_ASSIGN_UC_VF_M3_S"/>
+                        <Assign Content="1348" TextId="IDT_ASSIGN_UC_VF_M3_MIN"/>
+                        <Assign Content="1349" TextId="IDT_ASSIGN_UC_VF_M3_H"/>
+                        <Assign Content="1350" TextId="IDT_ASSIGN_UC_VF_M3_D"/>
+                        <Assign Content="1351" TextId="IDT_ASSIGN_UC_VF_L_S"/>
+                        <Assign Content="1352" TextId="IDT_ASSIGN_UC_VF_L_MIN"/>
+                        <Assign Content="1353" TextId="IDT_ASSIGN_UC_VF_L_H"/>
+                        <Assign Content="1354" TextId="IDT_ASSIGN_UC_VF_L_D"/>
+                        <Assign Content="1356" TextId="IDT_ASSIGN_UC_VF_CF_S"/>
+                        <Assign Content="1357" TextId="IDT_ASSIGN_UC_VF_CF_MIN"/>
+                        <Assign Content="1358" TextId="IDT_ASSIGN_UC_VF_CF_H"/>
+                        <Assign Content="1359" TextId="IDT_ASSIGN_UC_VF_CF_D"/>
+                        <Assign Content="1362" TextId="IDT_ASSIGN_UC_VF_GAL_S"/>
+                        <Assign Content="1363" TextId="IDT_ASSIGN_UC_VF_GAL_MIN"/>
+                        <Assign Content="1364" TextId="IDT_ASSIGN_UC_VF_GAL_H"/>
+                        <Assign Content="1365" TextId="IDT_ASSIGN_UC_VF_GAL_D"/>
+                        <Assign Content="1367" TextId="IDT_ASSIGN_UC_VF_IG_S"/>
+                        <Assign Content="1368" TextId="IDT_ASSIGN_UC_VF_IG_MIN"/>
+                        <Assign Content="1369" TextId="IDT_ASSIGN_UC_VF_IG_H"/>
+                        <Assign Content="1370" TextId="IDT_ASSIGN_UC_VF_IG_D"/>
+                        <Assign Content="1371" TextId="IDT_ASSIGN_UC_VF_BBL_S"/>
+                        <Assign Content="1372" TextId="IDT_ASSIGN_UC_VF_BBL_MIN"/>
+                        <Assign Content="1373" TextId="IDT_ASSIGN_UC_VF_BBL_H"/>
+                        <Assign Content="1374" TextId="IDT_ASSIGN_UC_VF_BBL_D"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_MASSFLOW">
+                    <Assignments>
+                        <Assign Content="1318" TextId="IDT_ASSIGN_UC_MF_G_S"/>
+                        <Assign Content="1319" TextId="IDT_ASSIGN_UC_MF_G_MIN"/>
+                        <Assign Content="1320" TextId="IDT_ASSIGN_UC_MF_G_H"/>
+                        <Assign Content="1321" TextId="IDT_ASSIGN_UC_MF_G_D"/>
+                        <Assign Content="1322" TextId="IDT_ASSIGN_UC_MF_KG_S"/>
+                        <Assign Content="1323" TextId="IDT_ASSIGN_UC_MF_KG_MIN"/>
+                        <Assign Content="1324" TextId="IDT_ASSIGN_UC_MF_KG_H"/>
+                        <Assign Content="1325" TextId="IDT_ASSIGN_UC_MF_KG_D"/>
+                        <Assign Content="1326" TextId="IDT_ASSIGN_UC_MF_T_S"/>
+                        <Assign Content="1327" TextId="IDT_ASSIGN_UC_MF_T_MIN"/>
+                        <Assign Content="1328" TextId="IDT_ASSIGN_UC_MF_T_H"/>
+                        <Assign Content="1329" TextId="IDT_ASSIGN_UC_MF_T_D"/>
+                        <Assign Content="1330" TextId="IDT_ASSIGN_UC_MF_LB_S"/>
+                        <Assign Content="1331" TextId="IDT_ASSIGN_UC_MF_LB_MIN"/>
+                        <Assign Content="1332" TextId="IDT_ASSIGN_UC_MF_LB_H"/>
+                        <Assign Content="1333" TextId="IDT_ASSIGN_UC_MF_LB_D"/>
+                        <Assign Content="1334" TextId="IDT_ASSIGN_UC_MF_STON_S"/>
+                        <Assign Content="1335" TextId="IDT_ASSIGN_UC_MF_STON_MIN"/>
+                        <Assign Content="1336" TextId="IDT_ASSIGN_UC_MF_STON_H"/>
+                        <Assign Content="1337" TextId="IDT_ASSIGN_UC_MF_STON_D"/>
+                        <Assign Content="1338" TextId="IDT_ASSIGN_UC_MF_LTON_S"/>
+                        <Assign Content="1339" TextId="IDT_ASSIGN_UC_MF_LTON_MIN"/>
+                        <Assign Content="1340" TextId="IDT_ASSIGN_UC_MF_LTON_H"/>
+                        <Assign Content="1341" TextId="IDT_ASSIGN_UC_MF_LTON_D"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_T_VOL">
+                    <Assignments>
+                        <Assign Content="1034" TextId="IDT_ASSIGN_UC_V_M3"/>
+                        <Assign Content="1035" TextId="IDT_ASSIGN_UC_V_DM3"/>
+                        <Assign Content="1036" TextId="IDT_ASSIGN_UC_V_CM3"/>
+                        <Assign Content="1037" TextId="IDT_ASSIGN_UC_V_MM3"/>
+                        <Assign Content="1038" TextId="IDT_ASSIGN_UC_V_L"/>
+                        <Assign Content="1039" TextId="IDT_ASSIGN_UC_V_CL"/>
+                        <Assign Content="1040" TextId="IDT_ASSIGN_UC_V_ML"/>
+                        <Assign Content="1041" TextId="IDT_ASSIGN_UC_V_HL"/>
+                        <Assign Content="1042" TextId="IDT_ASSIGN_UC_V_IN3"/>
+                        <Assign Content="1043" TextId="IDT_ASSIGN_UC_V_FT3"/>
+                        <Assign Content="1044" TextId="IDT_ASSIGN_UC_V_YD3"/>
+                        <Assign Content="1046" TextId="IDT_ASSIGN_UC_V_PINT"/>
+                        <Assign Content="1047" TextId="IDT_ASSIGN_UC_V_QUART"/>
+                        <Assign Content="1048" TextId="IDT_ASSIGN_UC_V_GAL"/>
+                        <Assign Content="1049" TextId="IDT_ASSIGN_UC_V_IG"/>
+                        <Assign Content="1051" TextId="IDT_ASSIGN_UC_V_BBL"/>
+                        <Assign Content="1052" TextId="IDT_ASSIGN_UC_V_BBLLIQ"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_T_MASS">
+                    <Assignments>
+                        <Assign Content="1088" TextId="IDT_ASSIGN_UC_M_KG"/>
+                        <Assign Content="1089" TextId="IDT_ASSIGN_UC_M_G"/>
+                        <Assign Content="1090" TextId="IDT_ASSIGN_UC_M_MG"/>
+                        <Assign Content="1092" TextId="IDT_ASSIGN_UC_M_T"/>
+                        <Assign Content="1093" TextId="IDT_ASSIGN_UC_M_OZ"/>
+                        <Assign Content="1094" TextId="IDT_ASSIGN_UC_M_LB"/>
+                        <Assign Content="1095" TextId="IDT_ASSIGN_UC_M_STON"/>
+                        <Assign Content="1096" TextId="IDT_ASSIGN_UC_M_LTON"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_CONDUCTIVITY">
+                    <Assignments>
+                        <Assign Content="1299" TextId="IDT_ASSIGN_UC_C_S_M"/>
+                        <Assign Content="1552" TextId="IDT_ASSIGN_UC_C_MUS_CM"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_DENSITY">
+                    <Assignments>
+                        <Assign Content="1097" TextId="IDT_ASSIGN_UC_D_KG_M3"/>
+                        <Assign Content="1100" TextId="IDT_ASSIGN_UC_D_G_CM3"/>
+                        <Assign Content="1103" TextId="IDT_ASSIGN_UC_D_KG_L"/>
+                        <Assign Content="1104" TextId="IDT_ASSIGN_UC_D_G_ML"/>
+                        <Assign Content="1105" TextId="IDT_ASSIGN_UC_D_G_L"/>
+                        <Assign Content="1106" TextId="IDT_ASSIGN_UC_D_LB_IN3"/>
+                        <Assign Content="1107" TextId="IDT_ASSIGN_UC_D_LB_FT3"/>
+                        <Assign Content="1108" TextId="IDT_ASSIGN_UC_D_LB_GAL"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_FLOWSPEED">
+                    <Assignments>
+                        <Assign Content="1061" TextId="IDT_ASSIGN_UC_VE_M_S"/>
+                        <Assign Content="1062" TextId="IDT_ASSIGN_UC_VE_MM_S"/>
+                        <Assign Content="1063" TextId="IDT_ASSIGN_UC_VE_M_H"/>
+                        <Assign Content="1064" TextId="IDT_ASSIGN_UC_VE_KM_H"/>
+                        <Assign Content="1066" TextId="IDT_ASSIGN_UC_VE_IN_S"/>
+                        <Assign Content="1067" TextId="IDT_ASSIGN_UC_VE_FT_S"/>
+                        <Assign Content="1068" TextId="IDT_ASSIGN_UC_VE_YD_S"/>
+                        <Assign Content="1069" TextId="IDT_ASSIGN_UC_VE_IN_MIN"/>
+                        <Assign Content="1070" TextId="IDT_ASSIGN_UC_VE_FT_MIN"/>
+                        <Assign Content="1071" TextId="IDT_ASSIGN_UC_VE_YD_MIN"/>
+                        <Assign Content="1072" TextId="IDT_ASSIGN_UC_VE_IN_H"/>
+                        <Assign Content="1073" TextId="IDT_ASSIGN_UC_VE_FT_H"/>
+                        <Assign Content="1074" TextId="IDT_ASSIGN_UC_VE_YD_H"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_UNIT_LEVEL">
+                    <Assignments>
+                        <Assign Content="1342" TextId="IDT_ASSIGN_UC_X_PERC"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_EMPTYPIPEDETECT">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_ASSIGN_EPD_OFF"/>
+                        <Assign Content="1" TextId="IDT_ASSIGN_EPD_COND"/>
+                        <Assign Content="2" TextId="IDT_ASSIGN_EPD_CONDEP_S"/>
+                        <Assign Content="3" TextId="IDT_ASSIGN_EPD_CONDEP_F"/>
+                        <Assign Content="4" TextId="IDT_ASSIGN_EPD_CONDEP_I"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_TOTALIZER_MEASUREMENT">
+                    <Assignments>
+                        <Assign Content="21" TextId="IDT_ASSIGN_TOTAL_MEAS_VOL_FLOW"/>
+                        <Assign Content="22" TextId="IDT_ASSIGN_TOTAL_MEAS_MASSFLOW"/>
+                        <Assign Content="27" TextId="IDT_ASSIGN_TOTAL_MEAS_CORR_VOL_FLOW"/>
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_TOTALIZER_FUNCTION">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_ASSIGN_TOTAL_FUNC_OFF"/>
+                        <Assign Content="1" TextId="IDT_ASSIGN_TOTAL_FUNC_ABS"/>
+                        <Assign Content="2" TextId="IDT_ASSIGN_TOTAL_FUNC_INC"/>
+                        <Assign Content="3" TextId="IDT_ASSIGN_TOTAL_FUNC_DEC"/>
+                    </Assignments>
+                </ValueItem>
+            </ValueList>
+            <GraphicsList>
+                <GraphicItem ID="IDG_GRAPHIC_V1" GraphicFile="GSDML-0045-4500-KROHNE-IFC300"/>
+            </GraphicsList>
+            <ExternalTextList>
+                <PrimaryLanguage>
+                    <Text TextId="IDT_ASSIGN_EPD_COND" Value="Conductivity"/>
+                    <Text TextId="IDT_ASSIGN_EPD_CONDEP_F" Value="Conductivity + Empty Pipe (F)"/>
+                    <Text TextId="IDT_ASSIGN_EPD_CONDEP_I" Value="Conductivity + Empty Pipe (I)"/>
+                    <Text TextId="IDT_ASSIGN_EPD_CONDEP_S" Value="Conductivity + Empty Pipe (S)"/>
+                    <Text TextId="IDT_ASSIGN_EPD_OFF" Value="Off"/>
+                    <Text TextId="IDT_ASSIGN_NO" Value="No"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_ABS" Value="Absolute Total"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_DEC" Value="Decremental Total"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_INC" Value="Incremental Total"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_OFF" Value="Off"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_MEAS_CORR_VOL_FLOW" Value="Corrected Volume Flow"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_MEAS_MASSFLOW" Value="Mass Flow"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_MEAS_VOL_FLOW" Value="Volume Flow"/>
+                    <Text TextId="IDT_ASSIGN_UC_C_MUS_CM" Value="µS/cm"/>
+                    <Text TextId="IDT_ASSIGN_UC_C_S_M" Value="S/m"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_G_CM3" Value="g/cm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_G_L" Value="g/l"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_G_ML" Value="g/ml"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_KG_L" Value="kg/l"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_KG_M3" Value="kg/m³"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_LB_FT3" Value="lb/ft³"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_LB_GAL" Value="lb/gal"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_LB_IN3" Value="lb/in³"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_G" Value="g"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_KG" Value="kg"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_LB" Value="lb (Avoirdupois)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_LTON" Value="Lton (Large Ton)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_MG" Value="mg"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_OZ" Value="oz (Avoirdupois)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_STON" Value="STon (Short Ton)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_T" Value="t (Metric Ton)"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_D" Value="g/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_H" Value="g/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_MIN" Value="g/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_S" Value="g/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_D" Value="kg/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_H" Value="kg/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_MIN" Value="kg/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_S" Value="kg/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_D" Value="lb/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_H" Value="lb/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_MIN" Value="lb/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_S" Value="lb/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_D" Value="LTon/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_H" Value="LTon/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_MIN" Value="LTon/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_S" Value="LTon/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_D" Value="STon/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_H" Value="STon/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_MIN" Value="STon/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_S" Value="STon/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_D" Value="t/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_H" Value="t/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_MIN" Value="t/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_S" Value="t/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_BBL" Value="bbl (U.S. Petroleum)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_BBLLIQ" Value="bbl(liq) (U.S. Liquid)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_CL" Value="cl"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_CM3" Value="cm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_DM3" Value="dm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_FT3" Value="ft³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_GAL" Value="gal (U.S. Gallon)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_HL" Value="hl"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_IG" Value="IG (Imperial Gallon)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_IN3" Value="in³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_L" Value="l"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_M3" Value="m³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_ML" Value="ml"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_MM3" Value="mm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_PINT" Value="pint (U.S. Liquid)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_QUART" Value="quart (U.S. Liquid)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_YD3" Value="yd³"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_FT_H" Value="ft/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_FT_MIN" Value="ft/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_FT_S" Value="ft/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_IN_H" Value="in/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_IN_MIN" Value="in/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_IN_S" Value="in/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_KM_H" Value="km/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_M_H" Value="m/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_M_S" Value="m/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_MM_S" Value="mm/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_YD_H" Value="yd/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_YD_MIN" Value="yd/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_YD_S" Value="yd/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_D" Value="bbl/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_H" Value="bbl/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_MIN" Value="bbl/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_S" Value="bbl/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_D" Value="ft³/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_H" Value="ft³/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_MIN" Value="ft³/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_S" Value="ft³/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_D" Value="gal/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_H" Value="gal/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_MIN" Value="gal/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_S" Value="gal/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_D" Value="ImpGal/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_H" Value="ImpGal/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_MIN" Value="ImpGal/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_S" Value="ImpGal/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_D" Value="l/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_H" Value="l/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_MIN" Value="l/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_S" Value="l/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_D" Value="m³/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_H" Value="m³/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_MIN" Value="m³/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_S" Value="m³/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_X_PERC" Value="%"/>
+                    <Text TextId="IDT_ASSIGN_YES" Value="Yes"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT0" Value="The bus manager detected parameter errors during warm start"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT1" Value="The bus manager detected parameter errors during cold start"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT2" Value="The bus manager detected a timeout on the bus due to the bus manager long state telegram"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT3" Value="There were errors on the bus during warmstart"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT4" Value="The bus manager detected multiple timeouts in sequenced bus cycles. The limit for the timeout counter is programmable, the preselected value is 10"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT5" Value="The reason for the last cold start was power on"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT6" Value="The CPU configuration detected during cold start differs from stored value"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT7" Value="The test device is linked to the cyclic GDC communication"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE2_BIT6" Value="The optical GDC interface is ready, the keys are disabled"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE2_BIT7" Value="Internal GDC telegrams will be mirrored to the external bus"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT1" Value="Field current regulation out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT2" Value="Empty pipe (application error)  => measurement value is set to 0"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT3" Value="DC input amplifier override"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT4" Value="Flow sign: 1 = negative flow"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT5" Value="Field current data error"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT6" Value="Local data error"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT7" Value="Data error in the global data of the sensor interface"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT0" Value="Electrode noise out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT1" Value="Flow profile out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT2" Value="Linearity out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT3" Value="Impedance ratio out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT4" Value="Empy pipe (information)"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT6" Value="Pipe not full"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT7" Value="Empty pipe (out of specification)"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT0" Value="Sensor electronic board temperature is over range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT1" Value="Gain error"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT2" Value="Sensor signal not yet engaged"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT4" Value="Coil temperature out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT5" Value="Field current out of range"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT6" Value="Field coil shorted"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT7" Value="Field coil broken"/>
+                    <Text TextId="IDT_DAP_MODULE_INFOTEXT" Value="OPTIFLUX / TIDALFLUX / WATERFLUX with IFC300 PROFINET IO"/>
+                    <Text TextId="IDT_DAP_MODULE_NAME" Value="IFC300"/>
+                    <Text TextId="IDT_DAP_SUBMODULE_1_INFOTEXT" Value="IFC300"/>
+                    <Text TextId="IDT_DAP_SUBMODULE_1_NAME" Value="IFC300"/>
+                    <Text TextId="IDT_DAP_SUBSLOT_INTERFACE" Value="X1"/>
+                    <Text TextId="IDT_DAP_SUBSLOT_PORT1" Value="X1 P1"/>
+                    <Text TextId="IDT_DAP_SUBSLOT_PORT2" Value="X1 P2"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_CONTROL" Value="Conductivity - Control"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_MAXVALUE" Value="Conductivity - Maximum Value"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_MINVALUE" Value="Conductivity - Minimum Value"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_STATUS" Value="Conductivity - Status"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_UNITCODE" Value="Conductivity - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_VALUE" Value="Conductivity - Value"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_CONTROL" Value="Corrected Volume Flow - Control"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_MAXVALUE" Value="Corrected Volume Flow - Maximum Value"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_MINVALUE" Value="Corrected Volume Flow - Minimum Value"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_STATUS" Value="Corrected Volume Flow- Status"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_UNITCODE" Value="Corrected Volume Flow - Code"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_VALUE" Value="Corrected Volume Flow - Value"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS1" Value="Diagnosis 1"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS2" Value="Diagnosis 2"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS3" Value="Diagnosis 3"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS4" Value="Diagnosis 4"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS5" Value="Diagnosis 5"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS6" Value="Diagnosis 6"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS7" Value="Diagnosis 7"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS8" Value="Diagnosis 8"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_CONTROL" Value="Flow Velocity - Control"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_MAXVALUE" Value="Flow Speed - Maximum Value"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_MINVALUE" Value="Flow Speed - Minimum Value"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_STATUS" Value="Flow Speed - Status"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_UNITCODE" Value="Flow Speed - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_VALUE" Value="Flow Speed - Value"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_CONTROL" Value="Level - Control"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_MAXVALUE" Value="Level - Maximum Value"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_MINVALUE" Value="Level - Minimum Value"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_STATUS" Value="Level - Status"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_UNITCODE" Value="Level - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_VALUE" Value="Level - Value"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_CONTROL" Value="Mass Flow - Control"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_MAXVALUE" Value="Mass Flow - Maximum Value"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_MINVALUE" Value="Mass Flow - Minimum Value"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_STATUS" Value="Mass Flow - Status"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_UNITCODE" Value="Mass Flow - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_VALUE" Value="Mass Flow - Value"/>
+                    <Text TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET" Value="Stop and reset Min/Max Calculation"/>
+                    <Text TextId="IDT_DATAITEM_RESERVED" Value="-"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER_CONTROL_RESET" Value="Reset Totalizer"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER_CONTROL_STARTSTOP" Value="Start(0)/Stop(1) Totalizer"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_CONTROL" Value="Totalizer 1 - Control"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_STATUS" Value="Totalizer 1 - Status"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_UNITCODE" Value="Totalizer 1 - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_VALUE" Value="Totalizer 1 - Value"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_CONTROL" Value="Totalizer 2 - Control"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_STATUS" Value="Totalizer 2 - Status"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_UNITCODE" Value="Totalizer 2 - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_VALUE" Value="Totalizer 2 - Value"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_CONTROL" Value="Volume Flow - Control"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_MAXVALUE" Value="Volume Flow - Maximum Value"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_MINVALUE" Value="Volume Flow - Minimum Value"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_STATUS" Value="Volume Flow - Status"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_UNITCODE" Value="Volume Flow - Unit Code"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_VALUE" Value="Volume Flow - Value"/>
+                    <Text TextId="IDT_DEVICE_INFOTEXT" Value="IFC300 with PROFINET IO"/>
+                    <Text TextId="IDT_NAME_IS" Value="PN-IO"/>
+                    <Text TextId="IDT_NAME_PS1" Value="Port 1"/>
+                    <Text TextId="IDT_NAME_PS2" Value="Port 2"/>
+                    <Text TextId="IDT_RECORD_NAME_CFG_BY_PN_CONTROLLER" Value="Use configuration by PN Controller"/>
+                    <Text TextId="IDT_RECORD_NAME_DAMPING" Value="Damping [s]"/>
+                    <Text TextId="IDT_RECORD_NAME_DENSITY" Value="Density [#D]"/>
+                    <Text TextId="IDT_RECORD_NAME_EMPTYPIPEDETECTION" Value="Empty Pipe Detection"/>
+                    <Text TextId="IDT_RECORD_NAME_GENERAL_SETTINGS" Value="General Settings"/>
+                    <Text TextId="IDT_RECORD_NAME_LFC_HYSTERESIS" Value="LFC Hysteresis [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_LFC_THRESHOLD" Value="LFC Threshold [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_LOCK_DISPLAY" Value="Lock Local Display"/>
+                    <Text TextId="IDT_RECORD_NAME_MEASUREMENT_SETTINGS" Value="Measurement Settings"/>
+                    <Text TextId="IDT_RECORD_NAME_TI_OFFSET" Value="TI Offset"/>
+                    <Text TextId="IDT_RECORD_NAME_TO_OFFSET" Value="TO Offset"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_DAMPING" Value="Damping [s]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_FUNCTION" Value="Function"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_HYSTERESIS" Value="LFC Mass - Hysteresis [#MF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_THRESHOLD" Value="LFC Mass - Threshold [#MF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_HYSTERESIS" Value="LFC Volume - Hysteresis [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_THRESHOLD" Value="LFC Volume - Threshold [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_MEASUREMENT" Value="Measurement"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER1" Value="Totalizer 1"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER2" Value="Totalizer 2"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_CONDUCTIVITY" Value="Conductivity"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_DENSITY" Value="Density (D)"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_FLOWSPEED" Value="Flow Speed"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_LEVEL" Value="Level"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_MASSFLOW" Value="Mass Flow (MF)"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T1_MASS" Value="Totalizer 1 - Mass"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T1_VOL" Value="Totalizer 1 - Volume"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T2_MASS" Value="Totalizer 2 - Mass"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T2_VOL" Value="Totalizer 2 - Volume"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_VOLUME_FLOW" Value="Volume Flow (VF)"/>
+                    <Text TextId="IDT_RECORD_NAME_UNITS_OF_MEASUREMENT" Value="Units of Measurement"/>
+                    <Text TextId="IDT_SENSOR_MODULE_2_INFOTEXT" Value="IFC300 sensors"/>
+                    <Text TextId="IDT_SENSOR_MODULE_2_NAME" Value="Sensors"/>
+                    <Text TextId="IDT_SENSOR_SUBMODULE_2_INFOTEXT" Value="I/O data and records of the sensors"/>
+                    <Text TextId="IDT_SENSOR_SUBMODULE_2_NAME" Value="Sensor Data"/>
+                </PrimaryLanguage>
+                <Language xml:lang="de">
+                    <Text TextId="IDT_ASSIGN_EPD_COND" Value="Leitfähigkeit"/>
+                    <Text TextId="IDT_ASSIGN_EPD_CONDEP_F" Value="Leitfähigkeit + Rohr leer (F)"/>
+                    <Text TextId="IDT_ASSIGN_EPD_CONDEP_I" Value="Leitfähigkeit + Rohr leer (I)"/>
+                    <Text TextId="IDT_ASSIGN_EPD_CONDEP_S" Value="Leitfähigkeit + Rohr leer (S)"/>
+                    <Text TextId="IDT_ASSIGN_EPD_OFF" Value="Aus"/>
+                    <Text TextId="IDT_ASSIGN_NO" Value="Nein"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_ABS" Value="Summenzähler"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_DEC" Value="- Zähler"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_INC" Value="+ Zähler"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_FUNC_OFF" Value="Aus"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_MEAS_CORR_VOL_FLOW" Value="Korrigierter Volumendurchfluss"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_MEAS_MASSFLOW" Value="Massedurchfluss"/>
+                    <Text TextId="IDT_ASSIGN_TOTAL_MEAS_VOL_FLOW" Value="Volumendurchfluss"/>
+                    <Text TextId="IDT_ASSIGN_UC_C_MUS_CM" Value="µS/cm"/>
+                    <Text TextId="IDT_ASSIGN_UC_C_S_M" Value="S/m"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_G_CM3" Value="g/cm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_G_L" Value="g/l"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_G_ML" Value="g/ml"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_KG_L" Value="kg/l"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_KG_M3" Value="kg/m³"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_LB_FT3" Value="lb/ft³"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_LB_GAL" Value="lb/gal"/>
+                    <Text TextId="IDT_ASSIGN_UC_D_LB_IN3" Value="lb/in³"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_G" Value="g"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_KG" Value="kg"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_LB" Value="lb (Avoirdupois)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_LTON" Value="Lton (Large Ton)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_MG" Value="mg"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_OZ" Value="oz (Avoirdupois)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_STON" Value="STon (Short Ton)"/>
+                    <Text TextId="IDT_ASSIGN_UC_M_T" Value="t (Metric Ton)"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_D" Value="g/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_H" Value="g/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_MIN" Value="g/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_G_S" Value="g/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_D" Value="kg/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_H" Value="kg/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_MIN" Value="kg/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_KG_S" Value="kg/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_D" Value="lb/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_H" Value="lb/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_MIN" Value="lb/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LB_S" Value="lb/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_D" Value="LTon/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_H" Value="LTon/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_MIN" Value="LTon/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_LTON_S" Value="LTon/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_D" Value="STon/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_H" Value="STon/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_MIN" Value="STon/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_STON_S" Value="STon/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_D" Value="t/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_H" Value="t/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_MIN" Value="t/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_MF_T_S" Value="t/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_BBL" Value="bbl (U.S. Petroleum)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_BBLLIQ" Value="bbl(liq) (U.S. Liquid)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_CL" Value="cl"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_CM3" Value="cm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_DM3" Value="dm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_FT3" Value="ft³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_GAL" Value="gal (U.S. Gallon)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_HL" Value="hl"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_IG" Value="IG (Imperial Gallon)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_IN3" Value="in³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_L" Value="l"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_M3" Value="m³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_ML" Value="ml"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_MM3" Value="mm³"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_PINT" Value="pint (U.S. Liquid)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_QUART" Value="quart (U.S. Liquid)"/>
+                    <Text TextId="IDT_ASSIGN_UC_V_YD3" Value="yd³"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_FT_H" Value="ft/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_FT_MIN" Value="ft/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_FT_S" Value="ft/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_IN_H" Value="in/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_IN_MIN" Value="in/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_IN_S" Value="in/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_KM_H" Value="km/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_M_H" Value="m/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_M_S" Value="m/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_MM_S" Value="mm/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_YD_H" Value="yd/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_YD_MIN" Value="yd/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VE_YD_S" Value="yd/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_D" Value="bbl/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_H" Value="bbl/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_MIN" Value="bbl/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_BBL_S" Value="bbl/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_D" Value="ft³/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_H" Value="ft³/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_MIN" Value="ft³/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_CF_S" Value="ft³/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_D" Value="gal/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_H" Value="gal/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_MIN" Value="gal/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_GAL_S" Value="gal/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_D" Value="ImpGal/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_H" Value="ImpGal/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_MIN" Value="ImpGal/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_IG_S" Value="ImpGal/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_D" Value="l/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_H" Value="l/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_MIN" Value="l/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_L_S" Value="l/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_D" Value="m³/d"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_H" Value="m³/h"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_MIN" Value="m³/min"/>
+                    <Text TextId="IDT_ASSIGN_UC_VF_M3_S" Value="m³/s"/>
+                    <Text TextId="IDT_ASSIGN_UC_X_PERC" Value="%"/>
+                    <Text TextId="IDT_ASSIGN_YES" Value="Ja"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT0" Value="Busmanager meldet Parameterfehler im Warmstart"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT1" Value="Busmanager meldet Parameterfehler im Kaltstart"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT2" Value="Busmanager meldet Zeitüberschreitung"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT3" Value="Fehler während des Warmstarts"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT4" Value="Busmanager meldet Zeitüberschreitung im Buszyklus"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT5" Value="Einschalten des Gerätes war Grund für den letzten Kaltstart"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT6" Value="Unterschied in der CPU Konfiguration"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE0_BIT7" Value="Test-Adapter nimmt an der zyklischen GDC-Kommunikation teil"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE2_BIT6" Value="Optische GDC-Schnittstelle bereit"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE2_BIT7" Value="Interne GDC-Telegramme werden auf externen Bus gespiegelt"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT1" Value="Feldstromregelung außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT2" Value="Rohr leer (F) => Messwert zu 0 gesetzt"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT3" Value="DC Eingangsverstärker übersteuert"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT4" Value="Negativer/umgekehrter Durchfluss"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT5" Value="Feldstromdaten fehlerhaft"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT6" Value="Datenfehler in den lokalen Daten der Sensorschnittstelle"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE3_BIT7" Value="Datenfehler in den globalen Daten der Sensorschnittstelle"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT0" Value="Elektrodenrauschen außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT1" Value="Strömungsprofil außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT2" Value="Linearität außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT3" Value="Impedanzverhältnis außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT4" Value="Rohr leer (I)"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT6" Value="Rohr teilgefüllt"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE4_BIT7" Value="Rohr leer (S)"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT0" Value="Temperatur der Sensorelektronik zu hoch"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT1" Value="Verstärkungsfehler"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT2" Value="Kein Sensorsignal"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT4" Value="Spulentemperatur außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT5" Value="Feldstrom außerhalb der Spezifikation"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT6" Value="Kurzschluss Feldspule"/>
+                    <Text TextId="IDT_BITDATAITEM_DIAG_BYTE5_BIT7" Value="Feldspule defekt"/>
+                    <Text TextId="IDT_DAP_MODULE_INFOTEXT" Value="OPTIFLUX / TIDALFLUX / WATERFLUX mit IFC300 PROFINET IO"/>
+                    <Text TextId="IDT_DAP_MODULE_NAME" Value="IFC300"/>
+                    <Text TextId="IDT_DAP_SUBMODULE_1_INFOTEXT" Value="IFC300"/>
+                    <Text TextId="IDT_DAP_SUBMODULE_1_NAME" Value="IFC300"/>
+                    <Text TextId="IDT_DAP_SUBSLOT_INTERFACE" Value="X1"/>
+                    <Text TextId="IDT_DAP_SUBSLOT_PORT1" Value="X1 P1"/>
+                    <Text TextId="IDT_DAP_SUBSLOT_PORT2" Value="X1 P2"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_CONTROL" Value="Leitfähigkeit - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_MAXVALUE" Value="Leitfähigkeit - Maximalwert"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_MINVALUE" Value="Leitfähigkeit - Minimalwert"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_STATUS" Value="Leitfähigkeit - Status"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_UNITCODE" Value="Leitfähigkeit - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_CONDUCTIVITY_VALUE" Value="Leitfähigkeit - Wert"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_CONTROL" Value="Korrigierter Volumendurchfluss - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_MAXVALUE" Value="Korrigierter Volumendurchfluss - Maximalwert"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_MINVALUE" Value="Korrigierter Volumendurchfluss - Minimalwert"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_STATUS" Value="Korrigierter Volumendurchfluss - Status"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_UNITCODE" Value="Korrigierter Volumendurchfluss - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_CORR_VOL_FLOW_VALUE" Value="Korrigierter Volumendurchfluss - Wert"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS1" Value="Diagnose 1"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS2" Value="Diagnose 2"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS3" Value="Diagnose 3"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS4" Value="Diagnose 4"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS5" Value="Diagnose 5"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS6" Value="Diagnose 6"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS7" Value="Diagnose 7"/>
+                    <Text TextId="IDT_DATAITEM_DIAGNOSIS8" Value="Diagnose 8"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_CONTROL" Value="Durchflussgeschwindigkeit - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_MAXVALUE" Value="Durchflussgeschwindigkeit - Maximalwert"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_MINVALUE" Value="Durchflussgeschwindigkeit - Minimalwert"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_STATUS" Value="Durchflussgeschwindigkeit - Status"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_UNITCODE" Value="Durchflussgeschwindigkeit - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_FLOW_SPEED_VALUE" Value="Durchflussgeschwindigkeit - Wert"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_CONTROL" Value="Füllstand - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_MAXVALUE" Value="Füllstand - Maximalwert"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_MINVALUE" Value="Füllstand - Minimalwert"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_STATUS" Value="Füllstand - Status"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_UNITCODE" Value="Füllstand - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_LEVEL_VALUE" Value="Füllstand - Wert"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_CONTROL" Value="Massedurchfluss - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_MAXVALUE" Value="Massedurchfluss - Maximalwert"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_MINVALUE" Value="Massedurchfluss - Minimalwert"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_STATUS" Value="Massedurchfluss - Status"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_UNITCODE" Value="Massedurchfluss - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_MASS_FLOW_VALUE" Value="Massedurchfluss - Wert"/>
+                    <Text TextId="IDT_DATAITEM_MEASUREMENT_CONTROL_RESET" Value="Min/Max-Berechnung stoppen und zurücksetzen"/>
+                    <Text TextId="IDT_DATAITEM_RESERVED" Value="-"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER_CONTROL_RESET" Value="Zähler zurücksetzen"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER_CONTROL_STARTSTOP" Value="Start(0)/Stop(1) Zähler"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_CONTROL" Value="Zähler 1 - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_STATUS" Value="Zähler 1 - Status"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_UNITCODE" Value="Zähler 1 - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER1_VALUE" Value="Zähler 1 - Wert"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_CONTROL" Value="Zähler 2 - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_STATUS" Value="Zähler 2 - Status"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_UNITCODE" Value="Zähler 2 - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_TOTALIZER2_VALUE" Value="Zähler 2 - Wert"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_CONTROL" Value="Volumendurchfluss - Steuerung"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_MAXVALUE" Value="Volumendurchfluss - Maximalwert"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_MINVALUE" Value="Volumendurchfluss - Minimalwert"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_STATUS" Value="Volumendurchfluss - Status"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_UNITCODE" Value="Volumendurchfluss - Einheitencode"/>
+                    <Text TextId="IDT_DATAITEM_VOLUME_FLOW_VALUE" Value="Volumendurchfluss - Wert"/>
+                    <Text TextId="IDT_DEVICE_INFOTEXT" Value="IFC300 mit PROFINET IO"/>
+                    <Text TextId="IDT_NAME_IS" Value="PN-IO"/>
+                    <Text TextId="IDT_NAME_PS1" Value="Port 1"/>
+                    <Text TextId="IDT_NAME_PS2" Value="Port 2"/>
+                    <Text TextId="IDT_RECORD_NAME_CFG_BY_PN_CONTROLLER" Value="Konfiguration des PN Controllers verwenden"/>
+                    <Text TextId="IDT_RECORD_NAME_DAMPING" Value="Dämpfung [s]"/>
+                    <Text TextId="IDT_RECORD_NAME_DENSITY" Value="Dichte [#D]"/>
+                    <Text TextId="IDT_RECORD_NAME_EMPTYPIPEDETECTION" Value="Leerlauferkennung"/>
+                    <Text TextId="IDT_RECORD_NAME_GENERAL_SETTINGS" Value="Allgemeine Einstellungen"/>
+                    <Text TextId="IDT_RECORD_NAME_LFC_HYSTERESIS" Value="SMU Hysterese [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_LFC_THRESHOLD" Value="SMU Schwellwert  [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_LOCK_DISPLAY" Value="Lokale Anzeige verriegeln"/>
+                    <Text TextId="IDT_RECORD_NAME_MEASUREMENT_SETTINGS" Value="Messeinstellungen"/>
+                    <Text TextId="IDT_RECORD_NAME_TI_OFFSET" Value="TI Offset"/>
+                    <Text TextId="IDT_RECORD_NAME_TO_OFFSET" Value="TO Offset"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_DAMPING" Value="Dämpfung [s]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_FUNCTION" Value="Funktion"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_HYSTERESIS" Value="SMU Massedurchfluss - Hysterese [#MF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_MASS_THRESHOLD" Value="SMU Massedurchfluss - Schwellwert [#MF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_HYSTERESIS" Value="SMU Volumendurchfluss - Hysterese [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_LFC_VOL_THRESHOLD" Value="SMU Volumendurchfluss - Schwellwert [#VF]"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER_MEASUREMENT" Value="Messgröße"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER1" Value="Zähler 1"/>
+                    <Text TextId="IDT_RECORD_NAME_TOTALIZER2" Value="Zähler 2"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_CONDUCTIVITY" Value="Leitfähigkeit"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_DENSITY" Value="Dichte (D)"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_FLOWSPEED" Value="Durchflussgeschwindigkeit"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_LEVEL" Value="Füllstand"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_MASSFLOW" Value="Massedurchfluss (MF)"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T1_MASS" Value="Zähler 1 - Masse"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T1_VOL" Value="Zähler 1 - Volumen"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T2_MASS" Value="Zähler 2 - Masse"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_T2_VOL" Value="Zähler 2 - Volumen"/>
+                    <Text TextId="IDT_RECORD_NAME_UNIT_VOLUME_FLOW" Value="Volumendurchfluss (VE)"/>
+                    <Text TextId="IDT_RECORD_NAME_UNITS_OF_MEASUREMENT" Value="Maßeinheiten"/>
+                    <Text TextId="IDT_SENSOR_MODULE_2_INFOTEXT" Value="Sensoren des IFC300"/>
+                    <Text TextId="IDT_SENSOR_MODULE_2_NAME" Value="Sensoren"/>
+                    <Text TextId="IDT_SENSOR_SUBMODULE_2_INFOTEXT" Value="E/A-Daten und Parameter der Sensoren"/>
+                    <Text TextId="IDT_SENSOR_SUBMODULE_2_NAME" Value="Sensordaten"/>
+                </Language>
+            </ExternalTextList>
+        </ApplicationProcess>
+    </ProfileBody>
+</ISO15745Profile>

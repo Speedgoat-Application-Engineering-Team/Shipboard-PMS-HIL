@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-v2.33.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x027B" DeviceID="0x1000">
+      <InfoText TextId="IDT_FAMILY_DESCRIPTION"/>
+      <VendorName Value="Wachendorff Automation GmbH &amp; Co. KG"/>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Encoders" ProductFamily="WDGA"/>
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem ID="ID_DAP_WACHENDORFF_WDGA_IE" PhysicalSlots="0..1" PNIO_Version="V2.33" IO_SupervisorSupported="false" ModuleIdentNumber="0x00000200" MinDeviceInterval="8" ImplementationType="FPGA" DNS_CompatibleName="WDGA" MultipleWriteSupported="true" MaxSupportedRecordSize="8000" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.3" CheckDeviceID_Allowed="true" RemoteApplicationTimeout="300" NameOfStationNotTransferable="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" LLDP_NoD_Supported="true" WebServer="http:///" ResetToFactoryModes="2 8" PowerOnToCommReady="1200">
+          <ModuleInfo>
+            <Name TextId="IDT_DAP_NAME"/>
+            <InfoText TextId="IDT_DAP_INFO"/>
+            <VendorName Value="Wachendorff Automation GmbH &amp; Co. KG"/>
+            <OrderNumber Value="WDGAXXXXXXXXXPNXXXXX"/>
+            <HardwareRelease Value="1"/>
+            <SoftwareRelease Value="V1.0"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="C" ApplicationClass="Isochronous" NetloadClass="III"/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_DAP_INTERFACE_SUBSLOT"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_DAP_PORT1_SUBSLOT"/>
+            <SubslotItem SubslotNumber="32770" TextId="IDT_DAP_PORT2_SUBSLOT"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="64" MaxOutputLength="64" MaxDataLength="128"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="IDM_MODULE_ST0013" AllowedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="IDM_MODULE_ST0016" AllowedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="IDM_MODULE_MT1413" AllowedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="IDM_MODULE_MT1416" AllowedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="IDM_MODULE_MT1616" AllowedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="IDM_MODULE_MT4316" AllowedInSlots="1"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID1" SubmoduleIdentNumber="0x00000000" API="0" FixedInSubslots="1" PROFIsafeSupported="false" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="IDT_DAP_NAME"/>
+                <InfoText TextId="IDT_DAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="ID_DAP_INT" TextId="IDT_DAP_INTERFACE_SUBMODULE" SubmoduleIdentNumber="0x00000001" SubslotNumber="32768" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" IsochroneModeInRT_Classes="RT_CLASS_3" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="true" PTP_BoundarySupported="true" DCP_BoundarySupported="true" MulticastBoundarySupported="true" DelayMeasurementSupported="true" DCP_HelloSupported="true" UsesStaticARP_CacheEntries="true">
+              <RT_Class3Properties MaxBridgeDelay="4395" MaxNumberIR_FrameData="256" StartupMode="Legacy;Advanced" ForwardingMode="Relative"/>
+              <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+              <ApplicationRelations StartupMode="Legacy;Advanced">
+                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+                <RT_Class3TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" MRPD_Supported="true" MRT_Supported="true" AdditionalProtocolsSupported="false"/>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="ID_DAP_P1" TextId="IDT_DAP_PORT1_SUBMODULE" SubmoduleIdentNumber="0x00000002" SubslotNumber="32769" MAUTypes="16" MaxPortRxDelay="186" MaxPortTxDelay="104" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" ShortPreamble100MBitSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="16" AdjustSupported="true"/>
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem ID="ID_DAP_P2" TextId="IDT_DAP_PORT2_SUBMODULE" SubmoduleIdentNumber="0x00000003" SubslotNumber="32770" MAUTypes="16" MaxPortRxDelay="186" MaxPortTxDelay="104" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeSupported="true" CheckMAUTypeDifferenceSupported="true" ShortPreamble100MBitSupported="true">
+              <MAUTypeList>
+                <MAUTypeItem Value="16" AdjustSupported="true"/>
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="1"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="IDM_MODULE_ST0013" ModuleIdentNumber="0x00000013" PhysicalSubslots="2">
+          <ModuleInfo CategoryRef="IDMC_SINGLE_TURN">
+            <Name TextId="IDT_MODULE_ST0013_NAME"/>
+            <InfoText TextId="IDT_MODULE_ST0013_INFO"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDSM_ST0013_MAP" SubmoduleIdentNumber="0x0000FFFF" FixedInSubslots="1" API="15616" MayIssueProcessAlarm="false">
+              <IOData>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem TransferSequence="0" Length="31" Index="48896">
+                  <Name TextId="IDT_ENCODERPARAMETERS"/>
+                  <Const Data="0x22,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"/>
+                  <Ref TextId="IDT_CODESEQUENCE" ValueItemTarget="IDV_CODESEQUENCE" BitOffset="0" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_CLASS4FUNCTIONALITY" ValueItemTarget="IDV_CLASS4FUNCTIONALITY" BitOffset="1" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_PRESETCONTROL" ValueItemTarget="IDV_PRESETCONTROL" BitOffset="2" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_SCALINGFUNCCONTROL" ValueItemTarget="IDV_SCALINGFUNCCONTROL" BitOffset="3" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_ALARMCHANCONTROL" ValueItemTarget="IDV_ALARMCHANCONTROL" BitOffset="4" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_COMPATIBILITYMODE" ValueItemTarget="IDV_COMPATIBILITYMODE" BitOffset="5" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_MEASURINGUNITSPERREV" ValueItemTarget="IDV_MEASURINGUNITSPERREV" ByteOffset="1" DataType="Unsigned64" DefaultValue="8192" AllowedValues="1..8192"/>
+                  <Ref TextId="IDT_TOTALMEASURINGRANGE" ValueItemTarget="IDV_TOTALMEASURINGRANGE" ByteOffset="9" DataType="Unsigned64" DefaultValue="8192" AllowedValues="1..8192"/>
+                  <Ref TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" ValueItemTarget="IDV_MAXMASTERSIGNOFLIFEFAILURE" ByteOffset="17" DataType="Unsigned8" DefaultValue="1" AllowedValues="1..255"/>
+                  <Ref TextId="IDT_VELOCITYMEASURINGUNIT" ValueItemTarget="IDV_VELOCITYMEASURINGUNIT" BitOffset="0" ByteOffset="18" DataType="BitArea" DefaultValue="3" AllowedValues="0..3" BitLength="2"/>
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem TransferSequence="0" Length="9" Index="8192">
+                  <Name TextId="IDT_MANUFACTURERPARAMETERS"/>
+                  <Const Data="0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x40,0x20"/>
+                  <Ref TextId="IDT_HYSTERESISPOSITION" ValueItemTarget="IDV_HYSTERESISPOSITION" BitOffset="0" ByteOffset="0" DataType="Unsigned8" DefaultValue="4" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_WATCHDOGTIME" ValueItemTarget="IDV_WATCHDOGTIME" BitOffset="0" ByteOffset="1" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 55..1005" Changeable="false" Visible="false"/>
+                  <Ref TextId="IDT_EXTRAPOLATIONPOSITION" ValueItemTarget="IDV_EXTRAPOLATIONPOSITION" BitOffset="0" ByteOffset="3" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERMAXRPM" ValueItemTarget="IDV_FILTERMAXRPM" BitOffset="0" ByteOffset="5" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERPOSITION" ValueItemTarget="IDV_FILTERPOSITION" BitOffset="0" ByteOffset="7" DataType="Unsigned8" DefaultValue="64" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_FILTERSPEED" ValueItemTarget="IDV_FILTERSPEED" BitOffset="0" ByteOffset="8" DataType="Unsigned8" DefaultValue="255" AllowedValues="0..255" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_SUBMODULE_MAP_NAME"/>
+                <InfoText TextId="IDT_SUBMODULE_MAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <UseableSubmodules>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD81"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD82"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD83"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD84"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR860"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR59000"/>
+          </UseableSubmodules>
+        </ModuleItem>
+        <ModuleItem ID="IDM_MODULE_ST0016" ModuleIdentNumber="0x00000016" PhysicalSubslots="2">
+          <ModuleInfo CategoryRef="IDMC_SINGLE_TURN">
+            <Name TextId="IDT_MODULE_ST0016_NAME"/>
+            <InfoText TextId="IDT_MODULE_ST0016_INFO"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDSM_ST0016_MAP" SubmoduleIdentNumber="0x0000FFFF" FixedInSubslots="1" API="15616" MayIssueProcessAlarm="false">
+              <IOData>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem TransferSequence="0" Length="31" Index="48896">
+                  <Name TextId="IDT_ENCODERPARAMETERS"/>
+                  <Const Data="0x22,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"/>
+                  <Ref TextId="IDT_CODESEQUENCE" ValueItemTarget="IDV_CODESEQUENCE" BitOffset="0" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_CLASS4FUNCTIONALITY" ValueItemTarget="IDV_CLASS4FUNCTIONALITY" BitOffset="1" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_PRESETCONTROL" ValueItemTarget="IDV_PRESETCONTROL" BitOffset="2" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_SCALINGFUNCCONTROL" ValueItemTarget="IDV_SCALINGFUNCCONTROL" BitOffset="3" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_ALARMCHANCONTROL" ValueItemTarget="IDV_ALARMCHANCONTROL" BitOffset="4" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_COMPATIBILITYMODE" ValueItemTarget="IDV_COMPATIBILITYMODE" BitOffset="5" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_MEASURINGUNITSPERREV" ValueItemTarget="IDV_MEASURINGUNITSPERREV" ByteOffset="1" DataType="Unsigned64" DefaultValue="65536" AllowedValues="1..65536"/>
+                  <Ref TextId="IDT_TOTALMEASURINGRANGE" ValueItemTarget="IDV_TOTALMEASURINGRANGE" ByteOffset="9" DataType="Unsigned64" DefaultValue="65536" AllowedValues="1..65536"/>
+                  <Ref TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" ValueItemTarget="IDV_MAXMASTERSIGNOFLIFEFAILURE" ByteOffset="17" DataType="Unsigned8" DefaultValue="1" AllowedValues="1..255"/>
+                  <Ref TextId="IDT_VELOCITYMEASURINGUNIT" ValueItemTarget="IDV_VELOCITYMEASURINGUNIT" BitOffset="0" ByteOffset="18" DataType="BitArea" DefaultValue="3" AllowedValues="0..3" BitLength="2"/>
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem TransferSequence="0" Length="9" Index="8192">
+                  <Name TextId="IDT_MANUFACTURERPARAMETERS"/>
+                  <Const Data="0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x40,0x20"/>
+                  <Ref TextId="IDT_HYSTERESISPOSITION" ValueItemTarget="IDV_HYSTERESISPOSITION" BitOffset="0" ByteOffset="0" DataType="Unsigned8" DefaultValue="4" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_WATCHDOGTIME" ValueItemTarget="IDV_WATCHDOGTIME" BitOffset="0" ByteOffset="1" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 55..1005" Changeable="false" Visible="false"/>
+                  <Ref TextId="IDT_EXTRAPOLATIONPOSITION" ValueItemTarget="IDV_EXTRAPOLATIONPOSITION" BitOffset="0" ByteOffset="3" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERMAXRPM" ValueItemTarget="IDV_FILTERMAXRPM" BitOffset="0" ByteOffset="5" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERPOSITION" ValueItemTarget="IDV_FILTERPOSITION" BitOffset="0" ByteOffset="7" DataType="Unsigned8" DefaultValue="64" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_FILTERSPEED" ValueItemTarget="IDV_FILTERSPEED" BitOffset="0" ByteOffset="8" DataType="Unsigned8" DefaultValue="255" AllowedValues="0..255" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_SUBMODULE_MAP_NAME"/>
+                <InfoText TextId="IDT_SUBMODULE_MAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <UseableSubmodules>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD81"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD82"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD83"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD84"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR860"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR59000"/>
+          </UseableSubmodules>
+        </ModuleItem>
+        <ModuleItem ID="IDM_MODULE_MT1413" ModuleIdentNumber="0x00001413" PhysicalSubslots="2">
+          <ModuleInfo CategoryRef="IDMC_MULTI_TURN">
+            <Name TextId="IDT_MODULE_MT1413_NAME"/>
+            <InfoText TextId="IDT_MODULE_MT1413_INFO"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDSM_MT1413_MAP" SubmoduleIdentNumber="0x0000FFFF" FixedInSubslots="1" API="15616" MayIssueProcessAlarm="false">
+              <IOData>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem TransferSequence="0" Length="31" Index="48896">
+                  <Name TextId="IDT_ENCODERPARAMETERS"/>
+                  <Const Data="0x22,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"/>
+                  <Ref TextId="IDT_CODESEQUENCE" ValueItemTarget="IDV_CODESEQUENCE" BitOffset="0" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_CLASS4FUNCTIONALITY" ValueItemTarget="IDV_CLASS4FUNCTIONALITY" BitOffset="1" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_PRESETCONTROL" ValueItemTarget="IDV_PRESETCONTROL" BitOffset="2" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_SCALINGFUNCCONTROL" ValueItemTarget="IDV_SCALINGFUNCCONTROL" BitOffset="3" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_ALARMCHANCONTROL" ValueItemTarget="IDV_ALARMCHANCONTROL" BitOffset="4" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_COMPATIBILITYMODE" ValueItemTarget="IDV_COMPATIBILITYMODE" BitOffset="5" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_MEASURINGUNITSPERREV" ValueItemTarget="IDV_MEASURINGUNITSPERREV" ByteOffset="1" DataType="Unsigned64" DefaultValue="8192" AllowedValues="1..8192"/>
+                  <Ref TextId="IDT_TOTALMEASURINGRANGE" ValueItemTarget="IDV_TOTALMEASURINGRANGE" ByteOffset="9" DataType="Unsigned64" DefaultValue="134217728" AllowedValues="2..134217728"/>
+                  <Ref TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" ValueItemTarget="IDV_MAXMASTERSIGNOFLIFEFAILURE" ByteOffset="17" DataType="Unsigned8" DefaultValue="1" AllowedValues="1..255"/>
+                  <Ref TextId="IDT_VELOCITYMEASURINGUNIT" ValueItemTarget="IDV_VELOCITYMEASURINGUNIT" BitOffset="0" ByteOffset="18" DataType="BitArea" DefaultValue="3" AllowedValues="0..3" BitLength="2"/>
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem TransferSequence="0" Length="9" Index="8192">
+                  <Name TextId="IDT_MANUFACTURERPARAMETERS"/>
+                  <Const Data="0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x40,0x20"/>
+                  <Ref TextId="IDT_HYSTERESISPOSITION" ValueItemTarget="IDV_HYSTERESISPOSITION" BitOffset="0" ByteOffset="0" DataType="Unsigned8" DefaultValue="4" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_WATCHDOGTIME" ValueItemTarget="IDV_WATCHDOGTIME" BitOffset="0" ByteOffset="1" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 55..1005" Changeable="false" Visible="false"/>
+                  <Ref TextId="IDT_EXTRAPOLATIONPOSITION" ValueItemTarget="IDV_EXTRAPOLATIONPOSITION" BitOffset="0" ByteOffset="3" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERMAXRPM" ValueItemTarget="IDV_FILTERMAXRPM" BitOffset="0" ByteOffset="5" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERPOSITION" ValueItemTarget="IDV_FILTERPOSITION" BitOffset="0" ByteOffset="7" DataType="Unsigned8" DefaultValue="64" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_FILTERSPEED" ValueItemTarget="IDV_FILTERSPEED" BitOffset="0" ByteOffset="8" DataType="Unsigned8" DefaultValue="255" AllowedValues="0..255" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_SUBMODULE_MAP_NAME"/>
+                <InfoText TextId="IDT_SUBMODULE_MAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <UseableSubmodules>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD81"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD82"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD83"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD84"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR860"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR59000"/>
+          </UseableSubmodules>
+        </ModuleItem>
+        <ModuleItem ID="IDM_MODULE_MT1416" ModuleIdentNumber="0x00001416" PhysicalSubslots="2">
+          <ModuleInfo CategoryRef="IDMC_MULTI_TURN">
+            <Name TextId="IDT_MODULE_MT1416_NAME"/>
+            <InfoText TextId="IDT_MODULE_MT1416_INFO"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDSM_MT1416_MAP" SubmoduleIdentNumber="0x0000FFFF" FixedInSubslots="1" API="15616" MayIssueProcessAlarm="false">
+              <IOData>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem TransferSequence="0" Length="31" Index="48896">
+                  <Name TextId="IDT_ENCODERPARAMETERS"/>
+                  <Const Data="0x22,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"/>
+                  <Ref TextId="IDT_CODESEQUENCE" ValueItemTarget="IDV_CODESEQUENCE" BitOffset="0" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_CLASS4FUNCTIONALITY" ValueItemTarget="IDV_CLASS4FUNCTIONALITY" BitOffset="1" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_PRESETCONTROL" ValueItemTarget="IDV_PRESETCONTROL" BitOffset="2" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_SCALINGFUNCCONTROL" ValueItemTarget="IDV_SCALINGFUNCCONTROL" BitOffset="3" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_ALARMCHANCONTROL" ValueItemTarget="IDV_ALARMCHANCONTROL" BitOffset="4" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_COMPATIBILITYMODE" ValueItemTarget="IDV_COMPATIBILITYMODE" BitOffset="5" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_MEASURINGUNITSPERREV" ValueItemTarget="IDV_MEASURINGUNITSPERREV" ByteOffset="1" DataType="Unsigned64" DefaultValue="65536" AllowedValues="1..65536"/>
+                  <Ref TextId="IDT_TOTALMEASURINGRANGE" ValueItemTarget="IDV_TOTALMEASURINGRANGE" ByteOffset="9" DataType="Unsigned64" DefaultValue="1073741824" AllowedValues="2..1073741824"/>
+                  <Ref TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" ValueItemTarget="IDV_MAXMASTERSIGNOFLIFEFAILURE" ByteOffset="17" DataType="Unsigned8" DefaultValue="1" AllowedValues="1..255"/>
+                  <Ref TextId="IDT_VELOCITYMEASURINGUNIT" ValueItemTarget="IDV_VELOCITYMEASURINGUNIT" BitOffset="0" ByteOffset="18" DataType="BitArea" DefaultValue="3" AllowedValues="0..3" BitLength="2"/>
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem TransferSequence="0" Length="9" Index="8192">
+                  <Name TextId="IDT_MANUFACTURERPARAMETERS"/>
+                  <Const Data="0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x40,0x20"/>
+                  <Ref TextId="IDT_HYSTERESISPOSITION" ValueItemTarget="IDV_HYSTERESISPOSITION" BitOffset="0" ByteOffset="0" DataType="Unsigned8" DefaultValue="4" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_WATCHDOGTIME" ValueItemTarget="IDV_WATCHDOGTIME" BitOffset="0" ByteOffset="1" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 55..1005" Changeable="false" Visible="false"/>
+                  <Ref TextId="IDT_EXTRAPOLATIONPOSITION" ValueItemTarget="IDV_EXTRAPOLATIONPOSITION" BitOffset="0" ByteOffset="3" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERMAXRPM" ValueItemTarget="IDV_FILTERMAXRPM" BitOffset="0" ByteOffset="5" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERPOSITION" ValueItemTarget="IDV_FILTERPOSITION" BitOffset="0" ByteOffset="7" DataType="Unsigned8" DefaultValue="64" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_FILTERSPEED" ValueItemTarget="IDV_FILTERSPEED" BitOffset="0" ByteOffset="8" DataType="Unsigned8" DefaultValue="255" AllowedValues="0..255" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_SUBMODULE_MAP_NAME"/>
+                <InfoText TextId="IDT_SUBMODULE_MAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <UseableSubmodules>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD81"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD82"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD83"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD84"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR860"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR59000"/>
+          </UseableSubmodules>
+        </ModuleItem>
+        <ModuleItem ID="IDM_MODULE_MT1616" ModuleIdentNumber="0x00001616" PhysicalSubslots="2">
+          <ModuleInfo CategoryRef="IDMC_MULTI_TURN">
+            <Name TextId="IDT_MODULE_MT1616_NAME"/>
+            <InfoText TextId="IDT_MODULE_MT1616_INFO"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDSM_MT1616_MAP" SubmoduleIdentNumber="0x0000FFFF" FixedInSubslots="1" API="15616" MayIssueProcessAlarm="false">
+              <IOData>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem TransferSequence="0" Length="31" Index="48896">
+                  <Name TextId="IDT_ENCODERPARAMETERS"/>
+                  <Const Data="0x22,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"/>
+                  <Ref TextId="IDT_CODESEQUENCE" ValueItemTarget="IDV_CODESEQUENCE" BitOffset="0" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_CLASS4FUNCTIONALITY" ValueItemTarget="IDV_CLASS4FUNCTIONALITY" BitOffset="1" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_PRESETCONTROL" ValueItemTarget="IDV_PRESETCONTROL" BitOffset="2" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_SCALINGFUNCCONTROL" ValueItemTarget="IDV_SCALINGFUNCCONTROL" BitOffset="3" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_ALARMCHANCONTROL" ValueItemTarget="IDV_ALARMCHANCONTROL" BitOffset="4" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_COMPATIBILITYMODE" ValueItemTarget="IDV_COMPATIBILITYMODE" BitOffset="5" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_MEASURINGUNITSPERREV" ValueItemTarget="IDV_MEASURINGUNITSPERREV" ByteOffset="1" DataType="Unsigned64" DefaultValue="65536" AllowedValues="1..65536"/>
+                  <Ref TextId="IDT_TOTALMEASURINGRANGE" ValueItemTarget="IDV_TOTALMEASURINGRANGE" ByteOffset="9" DataType="Unsigned64" DefaultValue="4294967296" AllowedValues="2..4294967296"/>
+                  <Ref TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" ValueItemTarget="IDV_MAXMASTERSIGNOFLIFEFAILURE" ByteOffset="17" DataType="Unsigned8" DefaultValue="1" AllowedValues="1..255"/>
+                  <Ref TextId="IDT_VELOCITYMEASURINGUNIT" ValueItemTarget="IDV_VELOCITYMEASURINGUNIT" BitOffset="0" ByteOffset="18" DataType="BitArea" DefaultValue="3" AllowedValues="0..3" BitLength="2"/>
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem TransferSequence="0" Length="9" Index="8192">
+                  <Name TextId="IDT_MANUFACTURERPARAMETERS"/>
+                  <Const Data="0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x40,0x20"/>
+                  <Ref TextId="IDT_HYSTERESISPOSITION" ValueItemTarget="IDV_HYSTERESISPOSITION" BitOffset="0" ByteOffset="0" DataType="Unsigned8" DefaultValue="4" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_WATCHDOGTIME" ValueItemTarget="IDV_WATCHDOGTIME" BitOffset="0" ByteOffset="1" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 55..1005" Changeable="false" Visible="false"/>
+                  <Ref TextId="IDT_EXTRAPOLATIONPOSITION" ValueItemTarget="IDV_EXTRAPOLATIONPOSITION" BitOffset="0" ByteOffset="3" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERMAXRPM" ValueItemTarget="IDV_FILTERMAXRPM" BitOffset="0" ByteOffset="5" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERPOSITION" ValueItemTarget="IDV_FILTERPOSITION" BitOffset="0" ByteOffset="7" DataType="Unsigned8" DefaultValue="64" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_FILTERSPEED" ValueItemTarget="IDV_FILTERSPEED" BitOffset="0" ByteOffset="8" DataType="Unsigned8" DefaultValue="255" AllowedValues="0..255" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_SUBMODULE_MAP_NAME"/>
+                <InfoText TextId="IDT_SUBMODULE_MAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <UseableSubmodules>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD81"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD82"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD83"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD84"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR860"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR59000"/>
+          </UseableSubmodules>
+        </ModuleItem>
+        <ModuleItem ID="IDM_MODULE_MT4316" ModuleIdentNumber="0x00004316" PhysicalSubslots="2">
+          <ModuleInfo CategoryRef="IDMC_MULTI_TURN">
+            <Name TextId="IDT_MODULE_MT4316_NAME"/>
+            <InfoText TextId="IDT_MODULE_MT4316_INFO"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="IDSM_MT4316_MAP" SubmoduleIdentNumber="0x0000FFFF" FixedInSubslots="1" API="15616" MayIssueProcessAlarm="false">
+              <IOData>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem TransferSequence="0" Length="31" Index="48896">
+                  <Name TextId="IDT_ENCODERPARAMETERS"/>
+                  <Const Data="0x22,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"/>
+                  <Ref TextId="IDT_CODESEQUENCE" ValueItemTarget="IDV_CODESEQUENCE" BitOffset="0" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_CLASS4FUNCTIONALITY" ValueItemTarget="IDV_CLASS4FUNCTIONALITY" BitOffset="1" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_PRESETCONTROL" ValueItemTarget="IDV_PRESETCONTROL" BitOffset="2" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_SCALINGFUNCCONTROL" ValueItemTarget="IDV_SCALINGFUNCCONTROL" BitOffset="3" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_ALARMCHANCONTROL" ValueItemTarget="IDV_ALARMCHANCONTROL" BitOffset="4" ByteOffset="0" DataType="Bit" DefaultValue="0"/>
+                  <Ref TextId="IDT_COMPATIBILITYMODE" ValueItemTarget="IDV_COMPATIBILITYMODE" BitOffset="5" ByteOffset="0" DataType="Bit" DefaultValue="1"/>
+                  <Ref TextId="IDT_MEASURINGUNITSPERREV" ValueItemTarget="IDV_MEASURINGUNITSPERREV" ByteOffset="1" DataType="Unsigned64" DefaultValue="65536" AllowedValues="1..65536"/>
+                  <Ref TextId="IDT_TOTALMEASURINGRANGE" ValueItemTarget="IDV_TOTALMEASURINGRANGE" ByteOffset="9" DataType="Unsigned64" DefaultValue="576460752303423488" AllowedValues="2..576460752303423488"/>
+                  <Ref TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" ValueItemTarget="IDV_MAXMASTERSIGNOFLIFEFAILURE" ByteOffset="17" DataType="Unsigned8" DefaultValue="1" AllowedValues="1..255"/>
+                  <Ref TextId="IDT_VELOCITYMEASURINGUNIT" ValueItemTarget="IDV_VELOCITYMEASURINGUNIT" BitOffset="0" ByteOffset="18" DataType="BitArea" DefaultValue="3" AllowedValues="0..3" BitLength="2"/>
+                </ParameterRecordDataItem>
+                <ParameterRecordDataItem TransferSequence="0" Length="9" Index="8192">
+                  <Name TextId="IDT_MANUFACTURERPARAMETERS"/>
+                  <Const Data="0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x40,0x20"/>
+                  <Ref TextId="IDT_HYSTERESISPOSITION" ValueItemTarget="IDV_HYSTERESISPOSITION" BitOffset="0" ByteOffset="0" DataType="Unsigned8" DefaultValue="4" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_WATCHDOGTIME" ValueItemTarget="IDV_WATCHDOGTIME" BitOffset="0" ByteOffset="1" DataType="Unsigned16" DefaultValue="0" AllowedValues="0 55..1005" Changeable="false" Visible="false"/>
+                  <Ref TextId="IDT_EXTRAPOLATIONPOSITION" ValueItemTarget="IDV_EXTRAPOLATIONPOSITION" BitOffset="0" ByteOffset="3" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERMAXRPM" ValueItemTarget="IDV_FILTERMAXRPM" BitOffset="0" ByteOffset="5" DataType="Unsigned16" DefaultValue="0" AllowedValues="0..65535"/>
+                  <Ref TextId="IDT_FILTERPOSITION" ValueItemTarget="IDV_FILTERPOSITION" BitOffset="0" ByteOffset="7" DataType="Unsigned8" DefaultValue="64" AllowedValues="0..255"/>
+                  <Ref TextId="IDT_FILTERSPEED" ValueItemTarget="IDV_FILTERSPEED" BitOffset="0" ByteOffset="8" DataType="Unsigned8" DefaultValue="255" AllowedValues="0..255" />
+                </ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="IDT_SUBMODULE_MAP_NAME"/>
+                <InfoText TextId="IDT_SUBMODULE_MAP_INFO"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <UseableSubmodules>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD81"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD82"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD83"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_STD84"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR860"/>
+            <SubmoduleItemRef AllowedInSubslots="2" SubmoduleItemTarget="IDSM_VENDOR59000"/>
+          </UseableSubmodules>
+        </ModuleItem>
+      </ModuleList>
+      <SubmoduleList>
+        <!-- Telegram 81 -->
+        <SubmoduleItem ID="IDSM_STD81" SubmoduleIdentNumber="0x00000051" API="15616" MayIssueProcessAlarm="false">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem TextId="IDT_INPUT_DATA" Length="12" DataType="OctetString" UseAsBits="true"/>
+            </Input>
+            <Output Consistency="All items consistency">
+              <DataItem TextId="IDT_OUTPUT_DATA" Length="4" DataType="OctetString" UseAsBits="true"/>
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="IDSMC_PROFIL">
+            <Name TextId="IDT_SUBMODULE_STD81_NAME"/>
+            <InfoText TextId="IDT_SUBMODULE_STD81_INFO"/>
+          </ModuleInfo>
+          <IsochroneMode T_IO_OutputMin="8" T_IO_InputMin="90" T_IO_Base="1000" T_DC_Max="64" T_DC_Min="8" T_DC_Base="1" IsochroneModeRequired="false"/>
+        </SubmoduleItem>
+        <!--- Telegram 82 -->
+        <SubmoduleItem ID="IDSM_STD82" SubmoduleIdentNumber="0x00000052" API="15616" MayIssueProcessAlarm="false">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem TextId="IDT_INPUT_DATA" Length="14" DataType="OctetString" UseAsBits="true"/>
+            </Input>
+            <Output Consistency="All items consistency">
+              <DataItem TextId="IDT_OUTPUT_DATA" Length="4" DataType="OctetString" UseAsBits="true"/>
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="IDSMC_PROFIL">
+            <Name TextId="IDT_SUBMODULE_STD82_NAME"/>
+            <InfoText TextId="IDT_SUBMODULE_STD82_INFO"/>
+          </ModuleInfo>
+          <IsochroneMode T_IO_OutputMin="8" T_IO_InputMin="90" T_IO_Base="1000" T_DC_Max="64" T_DC_Min="8" T_DC_Base="1" IsochroneModeRequired="false"/>
+        </SubmoduleItem>
+        <!-- Telegram 83 -->
+        <SubmoduleItem ID="IDSM_STD83" SubmoduleIdentNumber="0x00000053" API="15616" MayIssueProcessAlarm="false">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem TextId="IDT_INPUT_DATA" Length="16" DataType="OctetString" UseAsBits="true"/>
+            </Input>
+            <Output Consistency="All items consistency">
+              <DataItem TextId="IDT_OUTPUT_DATA" Length="4" DataType="OctetString" UseAsBits="true"/>
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="IDSMC_PROFIL">
+            <Name TextId="IDT_SUBMODULE_STD83_NAME"/>
+            <InfoText TextId="IDT_SUBMODULE_STD83_INFO"/>
+          </ModuleInfo>
+          <IsochroneMode T_IO_OutputMin="8" T_IO_InputMin="90" T_IO_Base="1000" T_DC_Max="64" T_DC_Min="8" T_DC_Base="1" IsochroneModeRequired="false"/>
+        </SubmoduleItem>
+        <!-- Telegram 84 -->
+        <SubmoduleItem ID="IDSM_STD84" SubmoduleIdentNumber="0x00000054" API="15616" MayIssueProcessAlarm="false">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem TextId="IDT_INPUT_DATA" Length="20" DataType="OctetString" UseAsBits="true"/>
+            </Input>
+            <Output Consistency="All items consistency">
+              <DataItem TextId="IDT_OUTPUT_DATA" Length="4" DataType="OctetString" UseAsBits="true"/>
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="IDSMC_PROFIL">
+            <Name TextId="IDT_SUBMODULE_STD84_NAME"/>
+            <InfoText TextId="IDT_SUBMODULE_STD84_INFO"/>
+          </ModuleInfo>
+          <IsochroneMode T_IO_OutputMin="8" T_IO_InputMin="90" T_IO_Base="1000" T_DC_Max="64" T_DC_Min="8" T_DC_Base="1" IsochroneModeRequired="false"/>
+        </SubmoduleItem>
+        <!-- Telegram 860 -->
+        <SubmoduleItem ID="IDSM_VENDOR860" SubmoduleIdentNumber="0x0000035C" API="15616" MayIssueProcessAlarm="false">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem TextId="IDT_INPUT_DATA" Length="8" DataType="OctetString" UseAsBits="true"/>
+            </Input>
+            <Output Consistency="All items consistency">
+              <DataItem TextId="IDT_OUTPUT_DATA" Length="4" DataType="OctetString" UseAsBits="true"/>
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="IDSMC_VENDOR">
+            <Name TextId="IDT_SUBMODULE_VENDOR860_NAME"/>
+            <InfoText TextId="IDT_SUBMODULE_VENDOR860_INFO"/>
+          </ModuleInfo>
+          <IsochroneMode T_IO_OutputMin="8" T_IO_InputMin="90" T_IO_Base="1000" T_DC_Max="64" T_DC_Min="8" T_DC_Base="1" IsochroneModeRequired="false"/>
+        </SubmoduleItem>
+        <!-- Telegram 59000 -->
+        <SubmoduleItem ID="IDSM_VENDOR59000" SubmoduleIdentNumber="0x0000E678" API="15616" MayIssueProcessAlarm="false">
+          <IOData>
+            <Input Consistency="All items consistency">
+              <DataItem TextId="IDT_INPUT_DATA" Length="14" DataType="OctetString" UseAsBits="true"/>
+            </Input>
+            <Output Consistency="All items consistency">
+              <DataItem TextId="IDT_OUTPUT_DATA" Length="6" DataType="OctetString" UseAsBits="true"/>
+            </Output>
+          </IOData>
+          <ModuleInfo CategoryRef="IDSMC_VENDOR">
+            <Name TextId="IDT_SUBMODULE_VENDOR59000_NAME"/>
+            <InfoText TextId="IDT_SUBMODULE_VENDOR59000_INFO"/>
+          </ModuleInfo>
+          <IsochroneMode T_IO_OutputMin="8" T_IO_InputMin="90" T_IO_Base="1000" T_DC_Max="64" T_DC_Min="8" T_DC_Base="1" IsochroneModeRequired="false"/>
+        </SubmoduleItem>
+      </SubmoduleList>
+      <ValueList>
+        <ValueItem ID="IDV_CODESEQUENCE">
+          <Help TextId ="IDT_CODESEQUENCE_HELP"/>
+          <Assignments>
+            <Assign TextId="IDT_CODESEQUENCE_CW" Content="0" />
+            <Assign TextId="IDT_CODESEQUENCE_CCW" Content="1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_VELOCITYMEASURINGUNIT">
+          <Help TextId ="IDT_VELOCITYMEASURINGUNIT_HELP"/>
+          <Assignments>
+            <Assign Content="0" TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPERSEC"/>
+            <Assign Content="1" TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPER100MS"/>
+            <Assign Content="2" TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPER10MS"/>
+            <Assign Content="3" TextId="IDT_VELOCITYMEASURINGUNIT_REVOLUTIONSPERMINUTE"/>
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_CLASS4FUNCTIONALITY">
+          <Help TextId ="IDT_CLASS4FUNCTIONALITY_HELP"/>
+          <Assignments>
+            <Assign TextId="IDT_ENABLE" Content="1" />
+            <Assign TextId="IDT_DISABLE" Content="0" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_PRESETCONTROL">
+          <Help TextId ="IDT_PRESETCONTROL_HELP"/>
+          <Assignments>
+            <Assign TextId="IDT_ENABLE" Content="0" />
+            <Assign TextId="IDT_DISABLE" Content="1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_SCALINGFUNCCONTROL">
+          <Help TextId ="IDT_SCALINGFUNCCONTROL_HELP"/>
+          <Assignments>
+            <Assign TextId="IDT_ENABLE" Content="1" />
+            <Assign TextId="IDT_DISABLE" Content="0" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_ALARMCHANCONTROL">
+          <Help TextId ="IDT_ALARMCHANCONTROL_HELP"/>
+          <Assignments>
+            <Assign TextId="IDT_ENABLE" Content="1" />
+            <Assign TextId="IDT_DISABLE" Content="0" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_COMPATIBILITYMODE">
+          <Help TextId ="IDT_COMPATIBILITYMODE_HELP"/>
+          <Assignments>
+            <Assign TextId="IDT_ENABLE" Content="0" />
+            <Assign TextId="IDT_DISABLE" Content="1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="IDV_MEASURINGUNITSPERREV">
+          <Help TextId ="IDT_MEASURINGUNITSPERREV_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_TOTALMEASURINGRANGE">
+          <Help TextId ="IDT_TOTALMEASURINGRANGE_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_MAXMASTERSIGNOFLIFEFAILURE">
+          <Help TextId ="IDT_MAXMASTERSIGNOFLIFEFAILURE_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_HYSTERESISPOSITION">
+          <Help TextId ="IDT_HYSTERESISPOSITION_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_WATCHDOGTIME">
+          <Help TextId ="IDT_WATCHDOGTIME_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_EXTRAPOLATIONPOSITION">
+          <Help TextId ="IDT_EXTRAPOLATIONPOSITION_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_FILTERMAXRPM">
+          <Help TextId ="IDT_FILTERMAXRPM_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_FILTERPOSITION">
+          <Help TextId ="IDT_FILTERPOSITION_HELP"/>
+        </ValueItem>
+        <ValueItem ID="IDV_FILTERSPEED">
+          <Help TextId ="IDT_FILTERSPEED_HELP"/>
+        </ValueItem>
+      </ValueList>
+      <ChannelDiagList>
+        <ProfileChannelDiagItem API="15616" ErrorType="36864">
+          <Name TextId="IDT_DIAG_CHANNEL_0X9000"/>
+          <Help TextId="IDT_DIAG_CHANNEL_0X9000_HELP"/>
+        </ProfileChannelDiagItem>
+        <ProfileChannelDiagItem API="15616" ErrorType="36874">
+          <Name TextId="IDT_DIAG_CHANNEL_0X900A"/>
+          <Help TextId="IDT_DIAG_CHANNEL_0X900A_HELP"/>
+        </ProfileChannelDiagItem>
+        <ProfileChannelDiagItem API="15616" ErrorType="36880" MaintenanceAlarmState="MD">
+          <Name TextId="IDT_DIAG_CHANNEL_0X9010"/>
+          <Help TextId="IDT_DIAG_CHANNEL_0X9010_HELP"/>
+        </ProfileChannelDiagItem>
+        <ChannelDiagItem ErrorType="256">
+          <Name TextId="IDT_DIAG_CHANNEL_STINTERN"/>
+          <Help TextId="IDT_DIAG_CHANNEL_STINTERN_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="257">
+          <Name TextId="IDT_DIAG_CHANNEL_MAGNETWEAK"/>
+          <Help TextId="IDT_DIAG_CHANNEL_MAGNETWEAK_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="258">
+          <Name TextId="IDT_DIAG_CHANNEL_MAGNETSTRONG"/>
+          <Help TextId="IDT_DIAG_CHANNEL_MAGNETSTRONG_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="259">
+          <Name TextId="IDT_DIAG_CHANNEL_HALL"/>
+          <Help TextId="IDT_DIAG_CHANNEL_HALL_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="260">
+          <Name TextId="IDT_DIAG_CHANNEL_STCOM"/>
+          <Help TextId="IDT_DIAG_CHANNEL_STCOM_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="261">
+          <Name TextId="IDT_DIAG_CHANNEL_MTINTERN"/>
+          <Help TextId="IDT_DIAG_CHANNEL_MTINTERN_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="262">
+          <Name TextId="IDT_DIAG_CHANNEL_MTCOM"/>
+          <Help TextId="IDT_DIAG_CHANNEL_MTCOM_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="263">
+          <Name TextId="IDT_DIAG_CHANNEL_WDINTERN"/>
+          <Help TextId="IDT_DIAG_CHANNEL_WDINTERN_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="264">
+          <Name TextId="IDT_DIAG_CHANNEL_WDEXTERN"/>
+          <Help TextId="IDT_DIAG_CHANNEL_WDEXTERN_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="265">
+          <Name TextId="IDT_DIAG_CHANNEL_CONFIG"/>
+          <Help TextId="IDT_DIAG_CHANNEL_CONFIG_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="266">
+          <Name TextId="IDT_DIAG_CHANNEL_CRCCODE"/>
+          <Help TextId="IDT_DIAG_CHANNEL_CRCCODE_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="267">
+          <Name TextId="IDT_DIAG_CHANNEL_CRCPARAM"/>
+          <Help TextId="IDT_DIAG_CHANNEL_CRCPARAM_HELP"/>
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="268">
+          <Name TextId="IDT_DIAG_CHANNEL_DEBUG"/>
+          <Help TextId="IDT_DIAG_CHANNEL_DEBUG_HELP"/>
+        </ChannelDiagItem>
+      </ChannelDiagList>
+      <GraphicsList>
+        <GraphicItem ID="1" GraphicFile="GSDML-027B-1000-Wachendorff-WDGA-IE"/>
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem ID="IDMC_SINGLE_TURN" TextId="IDT_MC_SINGLE_TURN"/>
+        <CategoryItem ID="IDMC_MULTI_TURN" TextId="IDT_MC_MULTI_TURN"/>
+        <CategoryItem ID="IDSMC_PROFIL" TextId="IDT_SMC_PROFILE"/>
+        <CategoryItem ID="IDSMC_VENDOR" TextId="IDT_SMC_VENDOR"/>
+      </CategoryList>
+      <ExternalTextList>
+      <PrimaryLanguage>
+          <!-- Common -->
+          <Text TextId="IDT_FAMILY_DESCRIPTION" Value="Absolute Rotary Encoder"/>
+          <!-- DAP -->
+          <Text TextId="IDT_DAP_NAME" Value="Wachendorff Encoder"/>
+          <Text TextId="IDT_DAP_INFO" Value="Wachendorff Absolute Rotary Encoder with PROFINET IO interface. Supports Real-Time communication with RT, IRT and isochronous IRT with cycle time down to 250 µs. Singleturn resolution up to 16 Bits, total measuring resolution up to 59 Bits."/>
+          <Text TextId="IDT_DAP_INTERFACE_SUBSLOT" Value="X1"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_PORT1_SUBSLOT" Value="X1 P1"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_PORT2_SUBSLOT" Value="X1 P2"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_INTERFACE_SUBMODULE" Value="2 Port PN-IRT-Switch"/>
+          <Text TextId="IDT_DAP_PORT1_SUBMODULE" Value="Port 1"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_PORT2_SUBMODULE" Value="Port 2"/> <!-- dont change -->
+          <!-- Module/Submodule categories -->
+          <Text TextId="IDT_MC_SINGLE_TURN" Value="Singleturn"/>
+          <Text TextId="IDT_MC_MULTI_TURN" Value="Multiturn"/>
+          <Text TextId="IDT_SMC_PROFILE" Value="Profile"/>
+          <Text TextId="IDT_SMC_VENDOR" Value="Vendor"/>
+          <!-- Modules/Submodules -->
+          <Text TextId="IDT_INPUT_DATA" Value="Input data"/>
+          <Text TextId="IDT_OUTPUT_DATA" Value="Output data"/>
+          <Text TextId="IDT_MODULE_ST0013_NAME" Value="Singleturn 13 Bit, no multiturn"/>
+          <Text TextId="IDT_MODULE_ST0013_INFO" Value="Singleturn 13 Bit, no multiturn"/>
+          <Text TextId="IDT_MODULE_ST0016_NAME" Value="Singleturn 16 Bit, no multiturn"/>
+          <Text TextId="IDT_MODULE_ST0016_INFO" Value="Singleturn 16 Bit, no multiturn"/>
+          <Text TextId="IDT_MODULE_MT1413_NAME" Value="Multiturn 14 Bit + Singleturn 13 Bit = 27 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT1413_INFO" Value="Multiturn 14 Bit + Singleturn 13 Bit = 27 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT1416_NAME" Value="Multiturn 14 Bit + Singleturn 16 Bit = 30 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT1416_INFO" Value="Multiturn 14 Bit + Singleturn 16 Bit = 30 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT1616_NAME" Value="Multiturn 16 Bit + Singleturn 16 Bit = 32 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT1616_INFO" Value="Multiturn 16 Bit + Singleturn 16 Bit = 32 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT4316_NAME" Value="Multiturn 43 Bit + Singleturn 16 Bit = 59 Bit overall"/>
+          <Text TextId="IDT_MODULE_MT4316_INFO" Value="Multiturn 43 Bit + Singleturn 16 Bit = 59 Bit overall"/>
+          <Text TextId="IDT_SUBMODULE_MAP_NAME" Value="MAP"/>
+          <Text TextId="IDT_SUBMODULE_MAP_INFO" Value="MAP"/>
+          <Text TextId="IDT_SUBMODULE_STD81_NAME" Value="Standard Telegram 81"/>
+          <Text TextId="IDT_SUBMODULE_STD81_INFO" Value="Standard Telegram 81"/>
+          <Text TextId="IDT_SUBMODULE_STD82_NAME" Value="Standard Telegram 82"/>
+          <Text TextId="IDT_SUBMODULE_STD82_INFO" Value="Standard Telegram 82"/>
+          <Text TextId="IDT_SUBMODULE_STD83_NAME" Value="Standard Telegram 83"/>
+          <Text TextId="IDT_SUBMODULE_STD83_INFO" Value="Standard Telegram 83"/>
+          <Text TextId="IDT_SUBMODULE_STD84_NAME" Value="Standard Telegram 84"/>
+          <Text TextId="IDT_SUBMODULE_STD84_INFO" Value="Standard Telegram 84"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR860_NAME" Value="Vendor Telegram 860"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR860_INFO" Value="Vendor Telegram 860"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR59000_NAME" Value="Vendor Telegram 59000"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR59000_INFO" Value="Vendor Telegram 59000"/>
+          <!-- Diagnosis -->
+          <Text TextId="IDT_DIAG_CHANNEL_0X9000" Value="Memory error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X9000_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X900A" Value="Position error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X900A_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X9010" Value="Max frequency exceeded"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X9010_HELP" Value="The maximum rotation speed has been exceeded. Reduce traversing or rotating speed"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STINTERN" Value="Internal singleturn error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STINTERN_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETWEAK" Value="Magnetic field to weak"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETWEAK_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETSTRONG" Value="Magnetic field to strong"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETSTRONG_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_HALL" Value="Hall probe error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_HALL_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STCOM" Value="Singleturn communication error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STCOM_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTINTERN" Value="Multiturn internal error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTINTERN_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTCOM" Value="Multiturn communication error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTCOM_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDINTERN" Value="Watchdog internal error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDINTERN_HELP" Value="Internal error due to software failure or high electromagnetic interference"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDEXTERN" Value="Watchdog external error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDEXTERN_HELP" Value="Internal error due to software failure or high electromagnetic interference"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CONFIG" Value="Config error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CONFIG_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCCODE" Value="CRC code error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCCODE_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCPARAM" Value="CRC parameter error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCPARAM_HELP" Value="The encoder has an internal error and is not able to provide an accurate position value, replace encoder"/>
+          <Text TextId="IDT_DIAG_CHANNEL_DEBUG" Value="Debug test error"/>
+          <Text TextId="IDT_DIAG_CHANNEL_DEBUG_HELP" Value="This is not an actual error and can be ignored. It is used to test the error reporting mechanisms"/>
+          <!-- Variables -->
+          <Text TextId="IDT_ENCODERPARAMETERS" Value="Encoder Parameters"/>
+          <Text TextId="IDT_MANUFACTURERPARAMETERS" Value="Manufacturer parameters"/>
+          <Text TextId="IDT_ENABLE" Value="Enabled"/>
+          <Text TextId="IDT_DISABLE" Value="Disabled"/>
+          <Text TextId="IDT_CODESEQUENCE" Value="Code sequence"/>
+          <Text TextId="IDT_CODESEQUENCE_HELP" Value="Set counting direction of the encoder, from the point of view of the shaft"/>
+          <Text TextId="IDT_CODESEQUENCE_CW" Value="Clockwise"/>
+          <Text TextId="IDT_CODESEQUENCE_CCW" Value="Counter-clockwise"/>
+          <Text TextId="IDT_CLASS4FUNCTIONALITY" Value="Class 4 functionality"/>
+          <Text TextId="IDT_CLASS4FUNCTIONALITY_HELP" Value="If enabled, code sequence, scaling- and preset functionality affects position values"/>
+          <Text TextId="IDT_PRESETCONTROL" Value="Preset affects G1_XIST1"/>
+          <Text TextId="IDT_PRESETCONTROL_HELP" Value="If disabled, preset affects only G1_XIST2 and G1_XIST3, if enabled, preset affects also G1_XIST1"/>
+          <Text TextId="IDT_SCALINGFUNCCONTROL" Value="Scaling functionality"/>
+          <Text TextId="IDT_SCALINGFUNCCONTROL_HELP" Value="If enabled, the position value is scaled to measuring units per revolution and total measuring range"/>
+          <Text TextId="IDT_ALARMCHANCONTROL" Value="Profile specific diagnosis"/>
+          <Text TextId="IDT_ALARMCHANCONTROL_HELP" Value="If enabled, profile specific diagnosis will be raised"/>
+          <Text TextId="IDT_COMPATIBILITYMODE" Value="Compatibility with V3.1"/>
+          <Text TextId="IDT_COMPATIBILITYMODE_HELP" Value="If enabled, the encoder functionality is compatible with Encoder Profile V3.1"/>
+          <Text TextId="IDT_MEASURINGUNITSPERREV" Value="Measuring units per revolution"/>
+          <Text TextId="IDT_MEASURINGUNITSPERREV_HELP" Value="Number of steps in one revolution"/>
+          <Text TextId="IDT_TOTALMEASURINGRANGE" Value="Total measuring range"/>
+          <Text TextId="IDT_TOTALMEASURINGRANGE_HELP" Value="Number of steps of the total measuring range"/>
+          <Text TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" Value="Max. Master Sign-Of-Life failures"/>
+          <Text TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE_HELP" Value="Maximum tolerated failures of Master Sign-Of-Life"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT" Value="Velocity measuring unit"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_HELP" Value="Encoder velocity output value unit"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPERSEC" Value="Steps/s"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPER100MS" Value="Steps/100ms"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPER10MS" Value="Steps/10ms"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_REVOLUTIONSPERMINUTE" Value="RPM"/>
+          <Text TextId="IDT_HYSTERESISPOSITION" Value="Position hysteresis"/>
+          <Text TextId="IDT_HYSTERESISPOSITION_HELP" Value="Hysteresis of position value"/>
+          <Text TextId="IDT_WATCHDOGTIME" Value="Watchdog time"/>
+          <Text TextId="IDT_WATCHDOGTIME_HELP" Value="Watchdog time"/>
+          <Text TextId="IDT_EXTRAPOLATIONPOSITION" Value="Position extrapolation"/>
+          <Text TextId="IDT_EXTRAPOLATIONPOSITION_HELP" Value="Length of extrapolation of position value"/>
+          <Text TextId="IDT_FILTERMAXRPM" Value="Speed Filter Max. RPM"/>
+          <Text TextId="IDT_FILTERMAXRPM_HELP" Value="Maximum RPM for speed filter"/>
+          <Text TextId="IDT_FILTERPOSITION" Value="Position filter"/>
+          <Text TextId="IDT_FILTERPOSITION_HELP" Value="Length of position filter"/>
+          <Text TextId="IDT_FILTERSPEED" Value="Speed filter"/>
+          <Text TextId="IDT_FILTERSPEED_HELP" Value="Length of speed filter"/>
+        </PrimaryLanguage>
+        <Language xml:lang="de">
+          <!-- Common -->
+          <Text TextId="IDT_FAMILY_DESCRIPTION" Value="Absolutwert-Drehgeber"/>
+          <!-- DAP -->
+          <Text TextId="IDT_DAP_NAME" Value="Wachendorff Drehgeber"/>
+          <Text TextId="IDT_DAP_INFO" Value="Wachendorff Absolutwert-Drehgeber mit PROFINET IO Schnittstelle. Unterstützt Echtzeit-Kommunikation via RT, IRT and taktsynchronem IRT mit Zykluszeiten bis zu 250 µs. Umdrehungsauflösung einstellbar bis zu 16 Bits, Gesamtmessbereich bis zu 59 Bits."/>
+          <Text TextId="IDT_DAP_INTERFACE_SUBSLOT" Value="X1"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_PORT1_SUBSLOT" Value="X1 P1"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_PORT2_SUBSLOT" Value="X1 P2"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_INTERFACE_SUBMODULE" Value="2 Port PN-IRT-Switch"/>
+          <Text TextId="IDT_DAP_PORT1_SUBMODULE" Value="Port 1"/> <!-- dont change -->
+          <Text TextId="IDT_DAP_PORT2_SUBMODULE" Value="Port 2"/> <!-- dont change -->
+          <!-- Module/Submodule categories -->
+          <Text TextId="IDT_MC_SINGLE_TURN" Value="Singleturn"/>
+          <Text TextId="IDT_MC_MULTI_TURN" Value="Multiturn"/>
+          <Text TextId="IDT_SMC_PROFILE" Value="Profil"/>
+          <Text TextId="IDT_SMC_VENDOR" Value="Hersteller"/>
+          <!-- Modules/Submodules -->
+          <Text TextId="IDT_INPUT_DATA" Value="Eingangsdaten"/>
+          <Text TextId="IDT_OUTPUT_DATA" Value="Ausgangsdaten"/>
+          <Text TextId="IDT_MODULE_ST0013_NAME" Value="Singleturn 13 Bit, keine Umdrehungszählung"/>
+          <Text TextId="IDT_MODULE_ST0013_INFO" Value="Singleturn 13 Bit, keine Umdrehungszählung"/>
+          <Text TextId="IDT_MODULE_ST0016_NAME" Value="Singleturn 16 Bit, keine Umdrehungszählung"/>
+          <Text TextId="IDT_MODULE_ST0016_INFO" Value="Singleturn 16 Bit, keine Umdrehungszählung"/>
+          <Text TextId="IDT_MODULE_MT1413_NAME" Value="Multiturn 14 Bit + Singleturn 13 Bit = 27 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT1413_INFO" Value="Multiturn 14 Bit + Singleturn 13 Bit = 27 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT1416_NAME" Value="Multiturn 14 Bit + Singleturn 16 Bit = 30 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT1416_INFO" Value="Multiturn 14 Bit + Singleturn 16 Bit = 30 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT1616_NAME" Value="Multiturn 16 Bit + Singleturn 16 Bit = 32 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT1616_INFO" Value="Multiturn 16 Bit + Singleturn 16 Bit = 32 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT4316_NAME" Value="Multiturn 43 Bit + Singleturn 16 Bit = 59 Bit gesamt"/>
+          <Text TextId="IDT_MODULE_MT4316_INFO" Value="Multiturn 43 Bit + Singleturn 16 Bit = 59 Bit gesamt"/>
+          <Text TextId="IDT_SUBMODULE_MAP_NAME" Value="MAP"/>
+          <Text TextId="IDT_SUBMODULE_MAP_INFO" Value="MAP"/>
+          <Text TextId="IDT_SUBMODULE_STD81_NAME" Value="Standard Telegramm 81"/>
+          <Text TextId="IDT_SUBMODULE_STD81_INFO" Value="Standard Telegramm 81"/>
+          <Text TextId="IDT_SUBMODULE_STD82_NAME" Value="Standard Telegramm 82"/>
+          <Text TextId="IDT_SUBMODULE_STD82_INFO" Value="Standard Telegramm 82"/>
+          <Text TextId="IDT_SUBMODULE_STD83_NAME" Value="Standard Telegramm 83"/>
+          <Text TextId="IDT_SUBMODULE_STD83_INFO" Value="Standard Telegramm 83"/>
+          <Text TextId="IDT_SUBMODULE_STD84_NAME" Value="Standard Telegramm 84"/>
+          <Text TextId="IDT_SUBMODULE_STD84_INFO" Value="Standard Telegramm 84"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR860_NAME" Value="Hersteller Telegramm 860"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR860_INFO" Value="Hersteller Telegramm 860"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR59000_NAME" Value="Hersteller Telegram 59000"/>
+          <Text TextId="IDT_SUBMODULE_VENDOR59000_INFO" Value="Hersteller Telegram 59000"/>
+          <!-- Diagnosis -->
+          <Text TextId="IDT_DIAG_CHANNEL_0X9000" Value="Speicherfehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X9000_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X900A" Value="Positionswertfehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X900A_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X9010" Value="Max. Drehzahl überschritten"/>
+          <Text TextId="IDT_DIAG_CHANNEL_0X9010_HELP" Value="Die maximale Drehzahl wurde überschritten. Die Drehzahl an der Drehgeberwelle muss verringert werden."/>
+          <Text TextId="IDT_DIAG_CHANNEL_STINTERN" Value="Singleturn-Fehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STINTERN_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETWEAK" Value="Magnetfeld zu schwach"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETWEAK_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETSTRONG" Value="Magnetfeld zu stark"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MAGNETSTRONG_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_HALL" Value="Hallsensor-Fehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_HALL_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STCOM" Value="Singleturn-Fehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_STCOM_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTINTERN" Value="Multiturn-Fehler intern"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTINTERN_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTCOM" Value="Multiturn-Fehler Kommunikation"/>
+          <Text TextId="IDT_DIAG_CHANNEL_MTCOM_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDINTERN" Value="Interner Watchdogfehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDINTERN_HELP" Value="Der Drehgeber hat einen internen Softwarefehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDEXTERN" Value="Externer Watchdogfehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_WDEXTERN_HELP" Value="Der Drehgeber hat einen internen Softwarefehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CONFIG" Value="Konfigurationsfehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CONFIG_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCCODE" Value="CRC-Fehler Programmcode"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCCODE_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCPARAM" Value="CRC-Fehler Parametrierung"/>
+          <Text TextId="IDT_DIAG_CHANNEL_CRCPARAM_HELP" Value="Der Drehgeber hat einen internen Fehler und muss ersetzt werden, der Positionswert ist ungültig"/>
+          <Text TextId="IDT_DIAG_CHANNEL_DEBUG" Value="Testfehler"/>
+          <Text TextId="IDT_DIAG_CHANNEL_DEBUG_HELP" Value="Dies ist kein tatsächlicher Fehler sondern ein Testfehler, welcher zum Testen von Fehler-Mechanismen verwendet wird."/>
+          <!-- Variables -->
+          <Text TextId="IDT_ENCODERPARAMETERS" Value="Drehgeber Parameter"/>
+          <Text TextId="IDT_MANUFACTURERPARAMETERS" Value="Hersteller Parameter"/>
+          <Text TextId="IDT_ENABLE" Value="Freigegeben"/>
+          <Text TextId="IDT_DISABLE" Value="Gesperrt"/>
+          <Text TextId="IDT_CODESEQUENCE" Value="Codesequenz"/>
+          <Text TextId="IDT_CODESEQUENCE_HELP" Value="Setzt die Zählrichtung mit Blick auf die Welle"/>
+          <Text TextId="IDT_CODESEQUENCE_CW" Value="Im Uhrzeigersinn"/>
+          <Text TextId="IDT_CODESEQUENCE_CCW" Value="Gegen den Uhrzeigersinn"/>
+          <Text TextId="IDT_CLASS4FUNCTIONALITY" Value="Klasse 4 Funktionalität"/>
+          <Text TextId="IDT_CLASS4FUNCTIONALITY_HELP" Value="Wenn freigegeben, wirken Codesequenz, Preset und Skalierungsfunktionen auf den Positionswert."/>
+          <Text TextId="IDT_PRESETCONTROL" Value="Preset wirkt auf G1_XIST1"/>
+          <Text TextId="IDT_PRESETCONTROL_HELP" Value="Wenn gesperrt, wirkt der Preset nur auf G1_XIST2 und G1_XIST3, wenn freigegeben, wirkt der Preset auch auf G1_XIST1"/>
+          <Text TextId="IDT_SCALINGFUNCCONTROL" Value="Skalierungsfunktionalität"/>
+          <Text TextId="IDT_SCALINGFUNCCONTROL_HELP" Value="Wenn freigegeben, wird der Positionswert auf die Umdrehungs- und Gesamtauflösung skaliert"/>
+          <Text TextId="IDT_ALARMCHANCONTROL" Value="Profil-spezifische Diagnosen"/>
+          <Text TextId="IDT_ALARMCHANCONTROL_HELP" Value="Wenn freigegeben, werden profil-spezifische Diagnosen ausgelöst"/>
+          <Text TextId="IDT_COMPATIBILITYMODE" Value="Kompatibilität mit V3.1"/>
+          <Text TextId="IDT_COMPATIBILITYMODE_HELP" Value="Wenn freigegeben, verhält sich der Drehgeber kompatibel zum Drehgeber-Profil V3.1"/>
+          <Text TextId="IDT_MEASURINGUNITSPERREV" Value="Umdrehungsauflösung"/>
+          <Text TextId="IDT_MEASURINGUNITSPERREV_HELP" Value="Anzahl der abzubildenden Schritte innerhalb einer Umdrehung"/>
+          <Text TextId="IDT_TOTALMEASURINGRANGE" Value="Gesamtauflösung"/>
+          <Text TextId="IDT_TOTALMEASURINGRANGE_HELP" Value="Anzahl der Schritte des gesamten abzubildenden Messbereichs"/>
+          <Text TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE" Value="Max. Master Sign-Of-Life Fehler"/>
+          <Text TextId="IDT_MAXMASTERSIGNOFLIFEFAILURE_HELP" Value="Maximale Anzahl an tolerierten Fehlern des Master Sign-Of-Life"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT" Value="Geschwindigkeitseinheit"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_HELP" Value="Einheit des Geschwindigkeitswert in NIST_A und NIST_B"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPERSEC" Value="Schritte/s"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPER100MS" Value="Schritte/100ms"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_STEPSPER10MS" Value="Schritte/10ms"/>
+          <Text TextId="IDT_VELOCITYMEASURINGUNIT_REVOLUTIONSPERMINUTE" Value="U/min"/>
+          <Text TextId="IDT_HYSTERESISPOSITION" Value="Positionswert-Hysterese"/>
+          <Text TextId="IDT_HYSTERESISPOSITION_HELP" Value="Hysterese des Positionswerts"/>
+          <Text TextId="IDT_WATCHDOGTIME" Value="Watchdog Zeit"/>
+          <Text TextId="IDT_WATCHDOGTIME_HELP" Value="Watchdog Zeit"/>
+          <Text TextId="IDT_EXTRAPOLATIONPOSITION" Value="Positionswert-Extrapolation"/>
+          <Text TextId="IDT_EXTRAPOLATIONPOSITION_HELP" Value="Länge der Extrapolation des Positionswerts"/>
+          <Text TextId="IDT_FILTERMAXRPM" Value="Geschwindigkeitsfilter max. Drehzahl"/>
+          <Text TextId="IDT_FILTERMAXRPM_HELP" Value="Maximale Drehzahl, bis zu der der Geschwindigkeitsfilter aktiv ist"/>
+          <Text TextId="IDT_FILTERPOSITION" Value="Positionswertfilter"/>
+          <Text TextId="IDT_FILTERPOSITION_HELP" Value="Länge des Positionswertfilters"/>
+          <Text TextId="IDT_FILTERSPEED" Value="Geschwindigkeitsfilter"/>
+          <Text TextId="IDT_FILTERSPEED_HELP" Value="Länge des Geschwindigkeitsfilters"/>
+        </Language>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

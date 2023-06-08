@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--GSDML-Datei für Winkelcodierer der T-Serie mit Profisafe/Profinet-Schnittstelle-->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-v2.3.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x0159" DeviceID="0x6300">
+      <InfoText TextId="TOK_DevIdent_InfoText" />
+      <VendorName Value="TWK-ELEKTRONIK GmbH" />
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Encoders" ProductFamily="TWK T-Series" />
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem ID="DAP 1" PhysicalSlots="0..1" ModuleIdentNumber="0x00000001" MinDeviceInterval="8" ImplementationType="TPS-1" DNS_CompatibleName="TRTS3-1" ExtendedAddressAssignmentSupported="false" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.3" MaxSupportedRecordSize="4068" PowerOnToCommReady="699" PNIO_Version="V2.2" MultipleWriteSupported="false" NameOfStationNotTransferable="true">
+          <ModuleInfo CategoryRef="ID_TRTS">
+            <Name TextId="TOK_ModInfo_NameId_TRTS" />
+            <InfoText TextId="TOK_ModInfo_InfoTextId" />
+            <VendorName Value="TWK-ELEKTRONIK GmbH" />
+            <OrderNumber Value="TRTx-xxxx4096S3xTx" />
+            <HardwareRelease Value="1" />
+            <SoftwareRelease Value="V1.2.4" />
+          </ModuleInfo>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="TOK_Subslot_8000" />
+            <SubslotItem SubslotNumber="32769" TextId="TOK_Subslot_8001" />
+            <SubslotItem SubslotNumber="32770" TextId="TOK_Subslot_8002" />
+          </SubslotList>
+          <IOConfigData MaxInputLength="256" MaxOutputLength="256" />
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_TRTS_C2_1212" AllowedInSlots="1"></ModuleItemRef>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_TRTS_C2_1212_W" AllowedInSlots="1"></ModuleItemRef>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_TRTS_C2_1312" AllowedInSlots="1"></ModuleItemRef>
+            <ModuleItemRef ModuleItemTarget="ID_Mod_TRTS_C2_1312_W" AllowedInSlots="1" />
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 1" SubmoduleIdentNumber="0x0001">
+              <IOData IOPS_Length="1" IOCS_Length="1"></IOData>
+              <ModuleInfo>
+                <Name TextId="TOK_ModInfo_NameId_TRTS"></Name>
+                <InfoText TextId="TOK_ModInfo_InfoTextId" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_2I" SubslotNumber="32768" SubmoduleIdentNumber="0x000a" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_InterfaceModule" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="false">
+              <RT_Class3Properties MaxBridgeDelay="3860" MaxNumberIR_FrameData="128" ForwardingMode="Relative" />
+              <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="10" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+              <ApplicationRelations NumberOfAR="1" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+                <TimingProperties SendClock="8 16 32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                <RT_Class3TimingProperties SendClock="8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128" ReductionRatio="1" ReductionRatioPow2="2 4 8 16 32 64 128" />
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client" />
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_3P1" SubslotNumber="32769" SubmoduleIdentNumber="0x000b" MAUType="100BASETXFD" TextId="TOK_Port1" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" />
+            <PortSubmoduleItem ID="IDS_3P2" SubslotNumber="32770" SubmoduleIdentNumber="0x000c" MAUType="100BASETXFD" TextId="TOK_Port2" MaxPortRxDelay="173" MaxPortTxDelay="74" PortDeactivationSupported="false" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" />
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1" />
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <!--Class2, 24 Bit mit Geschwindigkeit, safe-->
+        <ModuleItem ID="ID_Mod_TRTS_C2_1212" ModuleIdentNumber="0x1050">
+          <ModuleInfo>
+            <Name TextId="TOK_TextId_Module_TRTS_C2_1212" />
+            <InfoText TextId="TOK_InfoTextId_Module_TRTS_C2_1212" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_SubMod_50S" SubmoduleIdentNumber="0x150" PROFIsafeSupported="true" API="0" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1" F_IO_StructureDescVersion="1" F_IO_StructureDescCRC="53233">
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Input_DataItem_11S" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11V"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_IN" />
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Output_DataItem_11C" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_OUT" />
+                </Output>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="4096" Length="11" TransferSequence="0">
+                  <Name TextId="TOK_MOD01_Param_Name" />
+                  <Ref ValueItemTarget="CodeSequence" DataType="Bit" ByteOffset="0" BitOffset="0" DefaultValue="0" TextId="TOK_MOD01_Param_CodeSequence" />
+                  <Ref ValueItemTarget="ScalingControl" DataType="Bit" ByteOffset="0" BitOffset="3" DefaultValue="1" TextId="TOK_MOD01_Param_ScalingControl" />
+                  <Ref DataType="Unsigned32" ByteOffset="1" DefaultValue="4096" AllowedValues="1..4096" TextId="TOK_MOD01_Param_Steps" />
+                  <Ref DataType="Unsigned32" ByteOffset="5" DefaultValue="16777216" AllowedValues="1..16777216" TextId="TOK_MOD01_Param_TotalSteps" />
+                  <Ref DataType="Unsigned16" ByteOffset="9" DefaultValue="10" AllowedValues="10..10000" TextId="TOK_MOD01_Param_GatingTime" />
+                </ParameterRecordDataItem>
+                <F_ParameterRecordDataItem Index="100" F_ParamDescCRC="31177">
+                  <F_Check_iPar DefaultValue="NoCheck" Visible="false" Changeable="false" />
+                  <F_SIL DefaultValue="SIL2" AllowedValues="SIL2" Visible="true" Changeable="false" />
+                  <F_CRC_Length DefaultValue="3-Byte-CRC" Visible="true" Changeable="false" />
+                  <F_Block_ID DefaultValue="1" Visible="true" Changeable="false" />
+                  <F_Par_Version />
+                  <F_Source_Add />
+                  <F_Dest_Add AllowedValues="1..65000" DefaultValue="1" />
+                  <F_WD_Time DefaultValue="120" AllowedValues="1..10000" />
+                  <F_Par_CRC DefaultValue="55596" />
+                  <F_iPar_CRC DefaultValue="7100" />
+                </F_ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TextId_SubModule_21S" />
+                <InfoText TextId="TOK_TextId_SubModule_21S" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <!--Class2, 24 Bit mit Geschwindigkeit, safe, Multi- und Singletourteil in getrennten Worten-->
+        <ModuleItem ID="ID_Mod_TRTS_C2_1212_W" ModuleIdentNumber="0x1052">
+          <ModuleInfo>
+            <Name TextId="TOK_TextId_Module_TRTS_C2_1212_W" />
+            <InfoText TextId="TOK_InfoTextId_Module_TRTS_C2_1212_W" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_SubMod_52" SubmoduleIdentNumber="0x152" PROFIsafeSupported="true" API="0" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1" F_IO_StructureDescVersion="1" F_IO_StructureDescCRC="53233">
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Input_DataItem_11S" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11V"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_IN" />
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Output_DataItem_11C" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_OUT" />
+                </Output>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="4096" Length="11" TransferSequence="0">
+                  <Name TextId="TOK_MOD01_Param_Name" />
+                  <Ref ValueItemTarget="CodeSequence" DataType="Bit" ByteOffset="0" BitOffset="0" DefaultValue="0" TextId="TOK_MOD01_Param_CodeSequence" />
+                  <Ref ValueItemTarget="ScalingControl" DataType="Bit" ByteOffset="0" BitOffset="3" DefaultValue="1" TextId="TOK_MOD01_Param_ScalingControl" />
+                  <Ref DataType="Unsigned32" ByteOffset="1" DefaultValue="4096" AllowedValues="4096" TextId="TOK_MOD01_Param_Steps" />
+                  <Ref DataType="Unsigned32" ByteOffset="5" DefaultValue="16777216" AllowedValues="1..16777216" TextId="TOK_MOD01_Param_TotalSteps" />
+                  <Ref DataType="Unsigned16" ByteOffset="9" DefaultValue="10" AllowedValues="10..10000" TextId="TOK_MOD01_Param_GatingTime" />
+                </ParameterRecordDataItem>
+                <F_ParameterRecordDataItem Index="100" F_ParamDescCRC="31177">
+                  <F_Check_iPar DefaultValue="NoCheck" Visible="false" Changeable="false" />
+                  <F_SIL DefaultValue="SIL2" AllowedValues="SIL2" Visible="true" Changeable="false" />
+                  <F_CRC_Length DefaultValue="3-Byte-CRC" Visible="true" Changeable="false" />
+                  <F_Block_ID DefaultValue="1" Visible="true" Changeable="false" />
+                  <F_Par_Version />
+                  <F_Source_Add />
+                  <F_Dest_Add AllowedValues="1..65000" DefaultValue="1" />
+                  <F_WD_Time DefaultValue="120" AllowedValues="1..10000" />
+                  <F_Par_CRC DefaultValue="55596" />
+                  <F_iPar_CRC DefaultValue="7100" />
+                </F_ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TextId_SubModule_21S" />
+                <InfoText TextId="TOK_TextId_SubModule_21S" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <!--Class2, 25 Bit mit Geschwindigkeit, safe-->
+        <ModuleItem ID="ID_Mod_TRTS_C2_1312" ModuleIdentNumber="0x1051">
+          <ModuleInfo>
+            <Name TextId="TOK_TextId_Module_TRTS_C2_1312" />
+            <InfoText TextId="TOK_InfoTextId_Module_TRTS_C2_1312" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_SubMod_51S" SubmoduleIdentNumber="0x151" PROFIsafeSupported="true" API="0" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1" F_IO_StructureDescVersion="1" F_IO_StructureDescCRC="53233">
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Input_DataItem_11S" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11V"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_IN" />
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Output_DataItem_11C" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_OUT" />
+                </Output>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="4096" Length="11" TransferSequence="0">
+                  <Name TextId="TOK_MOD01_Param_Name" />
+                  <Ref ValueItemTarget="CodeSequence" DataType="Bit" ByteOffset="0" BitOffset="0" DefaultValue="0" TextId="TOK_MOD01_Param_CodeSequence" />
+                  <Ref ValueItemTarget="ScalingControl" DataType="Bit" ByteOffset="0" BitOffset="3" DefaultValue="1" TextId="TOK_MOD01_Param_ScalingControl" />
+                  <Ref DataType="Unsigned32" ByteOffset="1" DefaultValue="8192" AllowedValues="1..8192" TextId="TOK_MOD01_Param_Steps" />
+                  <Ref DataType="Unsigned32" ByteOffset="5" DefaultValue="33554432" AllowedValues="1..33554432" TextId="TOK_MOD01_Param_TotalSteps" />
+                  <Ref DataType="Unsigned16" ByteOffset="9" DefaultValue="10" AllowedValues="10..10000" TextId="TOK_MOD01_Param_GatingTime" />
+                </ParameterRecordDataItem>
+                <F_ParameterRecordDataItem Index="100" F_ParamDescCRC="23054">
+                  <F_Check_iPar DefaultValue="NoCheck" Visible="false" Changeable="false" />
+                  <F_SIL DefaultValue="SIL2" AllowedValues="SIL2" Visible="true" Changeable="false" />
+                  <F_CRC_Length DefaultValue="3-Byte-CRC" Visible="true" Changeable="false" />
+                  <F_Block_ID DefaultValue="1" Visible="true" Changeable="false" />
+                  <F_Par_Version />
+                  <F_Source_Add />
+                  <F_Dest_Add AllowedValues="1..65000" DefaultValue="1" />
+                  <F_WD_Time DefaultValue="120" AllowedValues="1..10000" />
+                  <F_Par_CRC DefaultValue="64291" />
+                  <F_iPar_CRC DefaultValue="42007" />
+                </F_ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TextId_SubModule_22S" />
+                <InfoText TextId="TOK_TextId_SubModule_22S" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <!--Class2, 25 Bit mit Geschwindigkeit, safe, Multi- und Singletourteil in getrennten Worten-->
+        <ModuleItem ID="ID_Mod_TRTS_C2_1312_W" ModuleIdentNumber="0x1053">
+          <ModuleInfo>
+            <Name TextId="TOK_TextId_Module_TRTS_C2_1312_W" />
+            <InfoText TextId="TOK_InfoTextId_Module_TRTS_C2_1312_W" />
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="ID_SubMod_53" SubmoduleIdentNumber="0x153" PROFIsafeSupported="true" API="0" FixedInSubslots="1">
+              <IOData IOPS_Length="1" IOCS_Length="1" F_IO_StructureDescVersion="1" F_IO_StructureDescCRC="53233">
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Input_DataItem_11S" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Input_DataItem_11V"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_IN" />
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="TOK_Output_DataItem_11C" UseAsBits="true"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="Integer16" TextId="TOK_Output_DataItem_11"></DataItem>
+                  <DataItem DataType="F_MessageTrailer4Byte" TextId="IDT_DATAITEM_PS_Safety_OUT" />
+                </Output>
+              </IOData>
+              <RecordDataList>
+                <ParameterRecordDataItem Index="4096" Length="11" TransferSequence="0">
+                  <Name TextId="TOK_MOD01_Param_Name" />
+                  <Ref ValueItemTarget="CodeSequence" DataType="Bit" ByteOffset="0" BitOffset="0" DefaultValue="0" TextId="TOK_MOD01_Param_CodeSequence" />
+                  <Ref ValueItemTarget="ScalingControl" DataType="Bit" ByteOffset="0" BitOffset="3" DefaultValue="1" TextId="TOK_MOD01_Param_ScalingControl" />
+                  <Ref DataType="Unsigned32" ByteOffset="1" DefaultValue="8192" AllowedValues="8192" TextId="TOK_MOD01_Param_Steps" />
+                  <Ref DataType="Unsigned32" ByteOffset="5" DefaultValue="33554432" AllowedValues="1..33554432" TextId="TOK_MOD01_Param_TotalSteps" />
+                  <Ref DataType="Unsigned16" ByteOffset="9" DefaultValue="10" AllowedValues="10..10000" TextId="TOK_MOD01_Param_GatingTime" />
+                </ParameterRecordDataItem>
+                <F_ParameterRecordDataItem Index="100" F_ParamDescCRC="23054">
+                  <F_Check_iPar DefaultValue="NoCheck" Visible="false" Changeable="false" />
+                  <F_SIL DefaultValue="SIL2" AllowedValues="SIL2" Visible="true" Changeable="false" />
+                  <F_CRC_Length DefaultValue="3-Byte-CRC" Visible="true" Changeable="false" />
+                  <F_Block_ID DefaultValue="1" Visible="true" Changeable="false" />
+                  <F_Par_Version />
+                  <F_Source_Add />
+                  <F_Dest_Add AllowedValues="1..65000" DefaultValue="1" />
+                  <F_WD_Time DefaultValue="120" AllowedValues="1..10000" />
+                  <F_Par_CRC DefaultValue="64291" />
+                  <F_iPar_CRC DefaultValue="42007" />
+                </F_ParameterRecordDataItem>
+              </RecordDataList>
+              <ModuleInfo>
+                <Name TextId="TOK_TextId_SubModule_21S" />
+                <InfoText TextId="TOK_TextId_SubModule_21S" />
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <ValueList>
+        <ValueItem ID="CodeSequence">
+          <Help TextId="TOK_ValueItem_CodeSequence_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_CodeSequence_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_CodeSequence_1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="FwDownload">
+          <Help TextId="TOK_ValueItem_FwDownload_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_FwDownload_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_FwDownload_1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="Class4Functionality">
+          <Help TextId="TOK_ValueItem_Class4Functionality_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_Class4Functionality_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_Class4Functionality_1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="PresetControl">
+          <Help TextId="TOK_ValueItem_PresetControl_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_PresetControl_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_PresetControl_1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="ScalingControl">
+          <Help TextId="TOK_ValueItem_ScalingControl_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_ScalingControl_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_ScalingControl_1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="AlarmChannelControl">
+          <Help TextId="TOK_ValueItem_AlarmChannelControl_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_AlarmChannelControl_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_AlarmChannelControl_1" />
+          </Assignments>
+        </ValueItem>
+        <ValueItem ID="VelocityMeasuringUnit">
+          <Help TextId="TOK_ValueItem_VelocityMeasuringUnit_Help" />
+          <Assignments>
+            <Assign Content="0" TextId="TOK_ValueItem_VelocityMeasuringUnit_0" />
+            <Assign Content="1" TextId="TOK_ValueItem_VelocityMeasuringUnit_1" />
+            <Assign Content="2" TextId="TOK_ValueItem_VelocityMeasuringUnit_2" />
+            <Assign Content="3" TextId="TOK_ValueItem_VelocityMeasuringUnit_3" />
+          </Assignments>
+        </ValueItem>
+      </ValueList>
+      <ChannelDiagList>
+        <!--Profisafe-->
+        <ChannelDiagItem ErrorType="64" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x40, F-ParamError64-->
+          <Name TextId="TOK_Name_F-ParamError64" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="65" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x41, F-ParamError65-->
+          <Name TextId="TOK_Name_F-ParamError65" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="66" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x42, F-ParamError66-->
+          <Name TextId="TOK_Name_F-ParamError66" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="67" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x43, F-ParamError67-->
+          <Name TextId="TOK_Name_F-ParamError67" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="68" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x44, F-ParamError68-->
+          <Name TextId="TOK_Name_F-ParamError68" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="69" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x45, F-ParamError69-->
+          <Name TextId="TOK_Name_F-ParamError69" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="70" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x46, F-ParamError70-->
+          <Name TextId="TOK_Name_F-ParamError70" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="71" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x47, F-ParamError71-->
+          <Name TextId="TOK_Name_F-ParamError71" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="72" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x48, F-ParamError72-->
+          <Name TextId="TOK_Name_F-ParamError72" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="73" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x49, F-ParamError73-->
+          <Name TextId="TOK_Name_F-ParamError73" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="74" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x4A, F-ParamError74-->
+          <Name TextId="TOK_Name_F-ParamError74" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="75" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x4B, F-ParamError75-->
+          <Name TextId="TOK_Name_F-ParamError75" />
+        </ChannelDiagItem>
+        <!--Class2-->
+        <ChannelDiagItem ErrorType="4096" MaintenanceAlarmState="MR">
+          <!--Fehlernummer 0x1000, CRC0-Error-->
+          <Name TextId="TOK_Name_ErrorCRC0" />
+          <Help TextId="TOK_HelpName_ErrorCRC0" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4097" MaintenanceAlarmState="MR">
+          <!--Fehlernummer 0x1001, CRC1 Error-->
+          <Name TextId="TOK_Name_ErrorCRC1" />
+          <Help TextId="TOK_HelpName_ErrorCRC1" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4098" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1002, Parameter Error-->
+          <Name TextId="TOK_Name_ErrorPar" />
+          <Help TextId="TOK_HelpName_ErrorPar" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4099" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1003, Scaling Error-->
+          <Name TextId="TOK_Name_ErrorScal" />
+          <Help TextId="TOK_HelpName_ErrorScal" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4101" MaintenanceAlarmState="MR">
+          <!--Fehlernummer 0x1005, Internal Error-->
+          <Name TextId="TOK_Name_ErrorInt" />
+          <Help TextId="TOK_HelpName_ErrorInt" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4102" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1006, Preset Error-->
+          <Name TextId="TOK_Name_ErrorPre" />
+          <Help TextId="TOK_HelpName_ErrorPre" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4103" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1007, Velocity Error-->
+          <Name TextId="TOK_Name_ErrorVel" />
+          <Help TextId="TOK_HelpName_ErrorVel" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4104" MaintenanceAlarmState="MR">
+          <!--Fehlernummer 0x1008, Flash Error-->
+          <Name TextId="TOK_Name_ErrorFlash" />
+          <Help TextId="TOK_HelpName_ErrorFlash" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4105" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1009, Modul Error-->
+          <Name TextId="TOK_Name_ErrorModul" />
+          <Help TextId="TOK_HelpName_ErrorModul" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4352" MaintenanceAlarmState="MR">
+          <!--Fehlernummer 0x1100, Geräte-Fehler-->
+          <Name TextId="TOK_Name_ErrorSensor" />
+          <Help TextId="TOK_HelpName_ErrorSensor" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4368" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1110, Preset-Fehler bei F-Drehgebern-->
+          <Name TextId="TOK_Name_Error_F-Preset" />
+          <Help TextId="TOK_HelpName_Error_F-Preset" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4384" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1120, Geschwindigkeitsüberlauf-->
+          <Name TextId="TOK_Name_ErrorVel" />
+          <Help TextId="TOK_HelpName_ErrorVel" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4416" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1140, Parameter-Fehler-->
+          <Name TextId="TOK_Name_ErrorPar" />
+          <Help TextId="TOK_HelpName_ErrorPar" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="4432" MaintenanceAlarmState="D">
+          <!--Fehlernummer 0x1150, Fehler Versorgungsspannung-->
+          <Name TextId="TOK_Name_ErrorVoltage" />
+          <Help TextId="TOK_HelpName_ErrorVoltage" />
+        </ChannelDiagItem>
+        <ChannelDiagItem ErrorType="26" MaintenanceAlarmState="MR">
+          <!--Fehlernummer 0x001A, Interner Kommunikationsfehler (TPS-1)-->
+          <Name TextId="TOK_Name_ErrorComTPS1" />
+          <Help TextId="TOK_HelpName_ErrorComTPS1" />
+        </ChannelDiagItem>
+      </ChannelDiagList>
+      <GraphicsList>
+        <GraphicItem ID="ID_Graph_1" GraphicFile="GSDML-0159-6300-TWK_TRTS" />
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem ID="ID_TRTS" TextId="TOK_Category_TRTS" />
+      </CategoryList>
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <!--english-->
+          <Text TextId="TOK_DevIdent_InfoText" Value="Linear and rotary transducers" />
+          <Text TextId="TWK-ELEKTRONIK" Value="TWK-ELEKTRONIK" />
+          <!--DAP-->
+          <Text TextId="TOK_Category_CRTS" Value="CRT/S"></Text>
+          <Text TextId="TOK_Category_TRT" Value="TRT" />
+          <Text TextId="TOK_Category_TRTS" Value="TRT/S" />
+          <Text TextId="TOK_ModInfo_NameId" Value="CRT"></Text>
+          <Text TextId="TOK_ModInfo_NameId_TRTS" Value="TRT/S3"></Text>
+          <Text TextId="TOK_ModInfo_NameId_CRTS" Value="CRT/S1"></Text>
+          <Text TextId="TOK_ModInfo_NameId_TRTSFW" Value="TRT/S3-FW"></Text>
+          <Text TextId="TOK_ModInfo_NameId_TRT" Value="TRT"></Text>
+          <Text TextId="TOK_ModInfo_InfoTextId" Value="Absolut multiturn encoder with PROFIsafe on PROFINET interface"></Text>
+          <Text TextId="TOK_ModInfo_InfoTextId_TRT" Value="Absolut multiturn encoder with PROFINET interface"></Text>
+          <!--port name-->
+          <Text TextId="TOK_Subslot_1" Value="Parameter" />
+          <Text TextId="TOK_Subslot_8000" Value="X1"></Text>
+          <Text TextId="TOK_Subslot_8001" Value="P1" />
+          <Text TextId="TOK_Subslot_8002" Value="P2" />
+          <Text TextId="TOK_DAP_InterfaceModule" Value="Interface" />
+          <Text TextId="TOK_Port1" Value="Port 1" />
+          <Text TextId="TOK_Port2" Value="Port 2" />
+          <!--module name-->
+          <Text TextId="TOK_TextId_Module_1" Value="Standard Telegramm 81" />
+          <Text TextId="TOK_TextId_Module_C2A" Value="Class2, 24 Bit"></Text>
+          <Text TextId="TOK_TextId_Module_C2AVS" Value="CRTxx-4096R4096S1M01"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1212" Value="TRTx-xxx4096R4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1212_W" Value="TRTx-xxx4096W4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_C2B" Value="Class2, 25 Bit" />
+          <Text TextId="TOK_TextId_Module_C2BVS" Value="CRTxx-8192R4096S1M01"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1312" Value="TRTx-xxx8192R4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1312_W" Value="TRTx-xxx8192W4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRT_C2_1212" Value="TRTx-xx4096R4096C4xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRT_C2_1312" Value="TRTx-xx8192R4096C4xTx"></Text>
+          <!--module info name-->
+          <Text TextId="TOK_InfoTextId_Module_1" Value="Position (4 Byte), Control- and Status Word, ModuleIdentNumber:0x1000 - SubmoduleIdentNumber:0x0001"></Text>
+          <Text TextId="TOK_InfoTextId_Module_C2A" Value="4-Byte Position, 4-Byte Preset, ModuleIdentNumber:0x1010 - SubmoduleIdentNumber:0x0001" />
+          <Text TextId="TOK_InfoTextId_Module_C2AVS" Value="4-Byte Safe Position, 2-Byte Safe Velocity - ModuleIdentNumber:0x1030 - SubmoduleIdentNumber:0x0130"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1212" Value="2-Byte Status, 4-Byte Safe Position, 2-Byte Safe Velocity,  - ModuleIdentNumber:0x1050 - SubmoduleIdentNumber:0x0150"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1212_W" Value="2-Byte Status, 4-Byte Safe Position (word wise separated multi- and  singleturn) , 2-Byte Safe Velocity,  - ModuleIdentNumber:0x1052 - SubmoduleIdentNumber:0x0152"></Text>
+          <Text TextId="TOK_InfoTextId_Module_C2B" Value="4-Byte Position, 4-Byte Preset, ModuleIdentNumber:0x1011 - SubmoduleIdentNumber:0x0001" />
+          <Text TextId="TOK_InfoTextId_Module_C2BVS" Value="4-Byte Safe Position, 2-Byte Safe Velocity - ModuleIdentNumber:0x1031 - SubmoduleIdentNumber:0x131"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1312" Value="2-Byte Status, 4-Byte Safe Position, 2-Byte Safe Velocity, - ModuleIdentNumber:0x1051 - SubmoduleIdentNumber:0x151"></Text>
+          <Text TextId="IDT_DATAITEM_PS_Safety_IN" Value="Input 4 bytes Safety"></Text>
+          <Text TextId="IDT_DATAITEM_PS_Safety_OUT" Value="Output 4 bytes Safety" />
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1312_W" Value="2-Byte Status, 4-Byte Safe Position (word wise separated multi- and  singleturn) , 2-Byte Safe Velocity,  - ModuleIdentNumber:0x1053 - SubmoduleIdentNumber:0x0153"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRT_C2_1212" Value="4-Byte Position, 2-Byte Velocity - ModuleIdentNumber:0x1040 - SubmoduleIdentNumber:0x0140 - API:0x3D00"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRT_C2_1312" Value="4-Byte Position, 2-Byte Geschwindigkeit - ModuleIdentNummer:0x1041 - SubmoduleIdentNummer:0x141 - API:0x0"></Text>
+          <!--module parameter-->
+          <Text TextId="TOK_MOD01_Param_Name" Value="Common Parameters" />
+          <Text TextId="TOK_MOD01_Param_FwDownload" Value="Firmware Download Mode" />
+          <Text TextId="TOK_MOD01_Param_CodeSequence" Value="Code Sequence" />
+          <Text TextId="TOK_MOD01_Param_Class4Func" Value="Class 4 Functionality" />
+          <Text TextId="TOK_MOD01_Param_PresetControl" Value="Preset Function" />
+          <Text TextId="TOK_MOD01_Param_ScalingControl" Value="Scaling Function" />
+          <Text TextId="TOK_MOD01_Param_AlarmChannelControl" Value="Channel related diagnosis" />
+          <Text TextId="TOK_MOD01_Param_Steps" Value="Resolution [steps/turn]" />
+          <Text TextId="TOK_MOD01_Param_TotalSteps" Value="Total Measuring Range [steps]" />
+          <Text TextId="TOK_MOD01_Param_MaxTolFailures" Value="Maximum tolerated failures of Master Sign-Of-Life" />
+          <Text TextId="TOK_MOD01_Param_GatingTime" Value="Velocity measuring gating time" />
+          <Text TextId="TOK_MOD01_Param_VelocityMeasuringUnit" Value="Velocity Measuring Unit" />
+          <Text TextId="TOK_MOD01_Param_Reserve" Value="Reserved" />
+          <!--Submodul name-->
+          <Text TextId="TOK_TextId_SubModule_1" Value="Parameter Access Point" />
+          <Text TextId="TOK_TextId_SubModule_2" Value="Standard Telegramm 81" />
+          <Text TextId="TOK_TextId_SubModule_11" Value="Class2, 24 Bit"></Text>
+          <Text TextId="TOK_TextId_SubModule_21S" Value="Class2, safe position (24 Bit) + safe velocity"></Text>
+          <Text TextId="TOK_TextId_SubModule_12" Value="Class2, 25 Bit"></Text>
+          <Text TextId="TOK_TextId_SubModule_22S" Value="Class2, safe position (25 Bit) + safe velocity"></Text>
+          <Text TextId="TOK_TextId_SubModule_22" Value="Class2, position (25 Bit) + velocity"></Text>
+          <Text TextId="TOK_TextId_SubModule_21" Value="Class2, position (24 Bit) + velocity"></Text>
+          <!--value list-->
+          <Text TextId="TOK_ValueItem_FwDownload_Help" Value="On = Start encoder in firmware download mode , Off = Start encoder in normal operation mode"></Text>
+          <Text TextId="TOK_ValueItem_FwDownload_0" Value="Off" />
+          <Text TextId="TOK_ValueItem_FwDownload_1" Value="On" />
+          <Text TextId="TOK_ValueItem_CodeSequence_Help" Value="CW = Clockwise, CCW = Counter Clockwise" />
+          <Text TextId="TOK_ValueItem_CodeSequence_0" Value="CW" />
+          <Text TextId="TOK_ValueItem_CodeSequence_1" Value="CCW" />
+          <Text TextId="TOK_ValueItem_Class4Functionality_Help" Value="Enables/Disables the measuring task functions Scaling, Preset and Code sequence." />
+          <Text TextId="TOK_ValueItem_Class4Functionality_0" Value="off" />
+          <Text TextId="TOK_ValueItem_Class4Functionality_1" Value="on" />
+          <Text TextId="TOK_ValueItem_PresetControl_Help" Value="Enables/disables preset control for XIST1. If off preset does not affect XIST1." />
+          <Text TextId="TOK_ValueItem_PresetControl_0" Value="on" />
+          <Text TextId="TOK_ValueItem_PresetControl_1" Value="off" />
+          <Text TextId="TOK_ValueItem_ScalingControl_Help" Value="Enables/disables scaling. Turn on to change resolution or measuring range or to enable preset setting." />
+          <Text TextId="TOK_ValueItem_ScalingControl_0" Value="off" />
+          <Text TextId="TOK_ValueItem_ScalingControl_1" Value="on" />
+          <Text TextId="TOK_ValueItem_AlarmChannelControl_Help" Value="Switches on/off the channel related diagnosis" />
+          <Text TextId="TOK_ValueItem_AlarmChannelControl_0" Value="off" />
+          <Text TextId="TOK_ValueItem_AlarmChannelControl_1" Value="on"></Text>
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_Help" Value="Defines the unit of the velocity measurement." />
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_0" Value="steps/s" />
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_1" Value="steps/100ms" />
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_2" Value="steps/10ms" />
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_3" Value="RPM" />
+          <!--dataitem name-->
+          <Text TextId="TOK_Input_DataItem_1" Value="Position and Status Words (12 Byte)" />
+          <Text TextId="TOK_Output_DataItem_1" Value="Control Words (4 Byte)" />
+          <Text TextId="TOK_Input_DataItem_11" Value="Position 4 Byte" />
+          <Text TextId="TOK_Input_DataItem_11V" Value="Velocity 2 Byte"></Text>
+          <Text TextId="TOK_Input_DataItem_11S" Value="Status 2 Byte" />
+          <Text TextId="TOK_Output_DataItem_11" Value="Preset 4 Byte"></Text>
+          <Text TextId="TOK_Output_DataItem_11C" Value="Control 2 Byte" />
+          <!--errortype name-->
+          <!--F-Fehler-->
+          <Text TextId="TOK_Name_F-ParamError64" Value="Mismatch of safety destination address (F_Dest_Add)" />
+          <Text TextId="TOK_Name_F-ParamError65" Value="Safety destination address not valid (F_Dest_Add)" />
+          <Text TextId="TOK_Name_F-ParamError66" Value="Safety source address not valid (F_Source_Add)" />
+          <Text TextId="TOK_Name_F-ParamError67" Value="Safety watchdog time value is 0 ms (F_WD_Time)" />
+          <Text TextId="TOK_Name_F-ParamError68" Value="Parameter &quot;F_SIL&quot; exceeds SIL from specific device application" />
+          <Text TextId="TOK_Name_F-ParamError69" Value="Parameter &quot;F_CRC_Length&quot; does not match the generated values" />
+          <Text TextId="TOK_Name_F-ParamError70" Value="Version of F-Parameter set incorrect" />
+          <Text TextId="TOK_Name_F-ParamError71" Value="CRC1-Fault" />
+          <Text TextId="TOK_Name_F-ParamError72" Value="General F-Parameter Error" />
+          <Text TextId="TOK_Name_F-ParamError73" Value="Save iParameter watchdog exceeded" />
+          <Text TextId="TOK_Name_F-ParamError74" Value="Restore iParameter watchdog time exceeded" />
+          <Text TextId="TOK_Name_F-ParamError75" Value="Inconsistent iParameters (iParCRC error)" />
+          <!--Geräte-Fehler-->
+          <Text TextId="TOK_Name_ErrorCRC0" Value="CRC0 error"></Text>
+          <Text TextId="TOK_Name_ErrorCRC1" Value="CRC1 error" />
+          <Text TextId="TOK_Name_ErrorPar" Value="Parameter error" />
+          <Text TextId="TOK_Name_ErrorScal" Value="Scaling error" />
+          <Text TextId="TOK_Name_ErrorInt" Value="Internal error" />
+          <Text TextId="TOK_Name_ErrorPre" Value="Preset error" />
+          <Text TextId="TOK_Name_ErrorVel" Value="Velocity overflow" />
+          <Text TextId="TOK_Name_ErrorFlash" Value="Flash memory error" />
+          <Text TextId="TOK_Name_ErrorModul" Value="Wrong module"></Text>
+          <Text TextId="TOK_Name_ErrorSensor" Value="Device error"></Text>
+          <Text TextId="TOK_Name_Error_F-Preset" Value="Preset error"></Text>
+          <Text TextId="TOK_Name_ErrorVoltage" Value="Error power supply limits exceeded"></Text>
+          <Text TextId="TOK_Name_ErrorComTPS1" Value="Internal communication error (TPS-1)" />
+          <!--errortype helptext-->
+          <Text TextId="TOK_HelpName_ErrorCRC0" Value="Restart Encoder or Change Device" />
+          <Text TextId="TOK_HelpName_ErrorCRC1" Value="Restart Encoder or Change Device" />
+          <Text TextId="TOK_HelpName_ErrorPar" Value="The value for the total measuring range must be in the range of: single turn resolution ... (single turn resolution x max. number of turns (4096))." />
+          <Text TextId="TOK_HelpName_ErrorScal" Value="Please enable scaling function before setting the preset or changing the values for resolution or total measuring range!" />
+          <Text TextId="TOK_HelpName_ErrorInt" Value="Please send new parameter data or restart the device." />
+          <Text TextId="TOK_HelpName_ErrorPre" Value="Please enter a preset value between 1 ... (total measuring range -1)!" />
+          <Text TextId="TOK_HelpName_ErrorVel" Value="Velocity range exceeded. Please reduce speed or the value for the gating time." />
+          <Text TextId="TOK_HelpName_ErrorFlash" Value="Please try to perform a new parameterization or restart the device. Change the device when possible." />
+          <Text TextId="TOK_HelpName_ErrorModul" Value="Module not supported. Please choose a different module in your hardware configuration."></Text>
+          <Text TextId="TOK_HelpName_ErrorSensor" Value="Please switch power off/on or change the device."></Text>
+          <Text TextId="TOK_HelpName_Error_F-Preset" Value="- Please enter a preset value between 1 ... (total measuring range -1). &#xD;&#xA;- Preset can only be set when axe is standing still.&#xD;&#xA;- Scaling function must be switched on."></Text>
+          <Text TextId="TOK_HelpName_ErrorVoltage" Value="Please check power supply and switch encoder off/on."></Text>
+          <Text TextId="TOK_HelpName_ErrorComTPS1" Value="Please change the device." />
+        </PrimaryLanguage>
+        <Language xml:lang="de">
+          <!--deutsch-->
+          <Text TextId="TOK_DevIdent_InfoText" Value="Winkel- und Wegaufnehmer" />
+          <Text TextId="TWK-ELEKTRONIK" Value="TWK-ELEKTRONIK" />
+          <!--DAP-->
+          <Text TextId="TOK_Category_CRTS" Value="CRT/S"></Text>
+          <Text TextId="TOK_Category_TRT" Value="TRT" />
+          <Text TextId="TOK_Category_TRTS" Value="TRT/S"></Text>
+          <Text TextId="TOK_ModInfo_NameId_TRTS" Value="TRT/S3"></Text>
+          <Text TextId="TOK_ModInfo_NameId" Value="CRT"></Text>
+          <Text TextId="TOK_ModInfo_NameId_CRTS" Value="CRT/S"></Text>
+          <Text TextId="TOK_ModInfo_NameId_TRTSFW" Value="TRT/S3-FW"></Text>
+          <Text TextId="TOK_ModInfo_NameId_TRT" Value="TRT"></Text>
+          <Text TextId="TOK_ModInfo_InfoTextId" Value="Absoluter multiturn Drehgeber mit PROFIsafe/PROFINET-Schnittstelle"></Text>
+          <Text TextId="TOK_ModInfo_InfoTextId_TRT" Value="Absoluter multiturn Drehgeber mit PROFINET Schnittstelle"></Text>
+          <!--port name-->
+          <Text TextId="TOK_Subslot_1" Value="Parameter" />
+          <Text TextId="TOK_Subslot_8000" Value="X1"></Text>
+          <Text TextId="TOK_Subslot_8001" Value="P1" />
+          <Text TextId="TOK_Subslot_8002" Value="P2" />
+          <Text TextId="TOK_DAP_InterfaceModule" Value="Interface" />
+          <Text TextId="TOK_Port1" Value="Port 1" />
+          <Text TextId="TOK_Port2" Value="Port 2" />
+          <!--module name-->
+          <Text TextId="TOK_TextId_Module_1" Value="Standard Telegramm 81" />
+          <Text TextId="TOK_TextId_Module_C2A" Value="Class2, 24 Bit"></Text>
+          <Text TextId="TOK_TextId_Module_C2AVS" Value="CRTxx-4096R4096S1M01"></Text>
+          <Text TextId="TOK_TextId_Module_C2B" Value="Class2, 25 Bit"></Text>
+          <Text TextId="TOK_TextId_Module_C2BVS" Value="CRTxx-8192R4096S1M01"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1212" Value="TRTx-xxx4096R4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1212_W" Value="TRTx-xxx4096W4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1312" Value="TRTx-xxx8192R4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRTS_C2_1312_W" Value="TRTx-xxx8192W4096S3xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRT_C2_1212" Value="TRTx-xx4096R4096C4xTx"></Text>
+          <Text TextId="TOK_TextId_Module_TRT_C2_1312" Value="TRTx-xx8192R4096C4xTx"></Text>
+          <!--module info name-->
+          <Text TextId="TOK_InfoTextId_Module_1" Value="Position (4 Byte), Control- und Status Word, ModuleIdentNumber:0x1000 - SubmoduleIdentNumber:0x0001"></Text>
+          <Text TextId="TOK_InfoTextId_Module_C2A" Value="4-Byte Position, 4-Byte Preset, ModuleIdentNumber:0x1010 - SubmoduleIdentNumber:0x0001"></Text>
+          <Text TextId="TOK_InfoTextId_Module_C2AVS" Value="4-Byte sichere Position, 2-Byte sichere Geschwindigkeit - ModuleIdentNumber:0x1030 - SubmoduleIdentNumber:0x130" />
+          <Text TextId="TOK_InfoTextId_Module_C2B" Value="4-Byte Position, 4-Byte Preset, ModuleIdentNumber:0x1011 - SubmoduleIdentNumber:0x0001"></Text>
+          <Text TextId="TOK_InfoTextId_Module_C2BVS" Value="4-Byte sichere Position, 2-Byte sichere Geschwindigkeit - ModuleIdentNumber:0x1031 - SubmoduleIdentNumber:0x131"></Text>
+          <Text TextId="IDT_DATAITEM_PS_Safety_IN" Value="Eingang 4 bytes Safety"></Text>
+          <Text TextId="IDT_DATAITEM_PS_Safety_OUT" Value="Ausgang 4 bytes Safety"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1212" Value="2-Byte Status, 4-Byte Sichere Position, 2-Byte Sichere Geschwindigkeit, - ModuleIdentNumber:0x1050 - SubmoduleIdentNumber:0x0150"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1212_W" Value="2-Byte Status, 4-Byte Sichere Position (wortweise getrennte Mono- und Multitourdaten), 2-Byte Sichere Geschwindigkeit,  - ModuleIdentNummer:0x1052 - SubmoduleIdentNummer:0x0152"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1312" Value="2-Byte Status, 4-Byte Sichere Position, 2-Byte Sichere Geschwindigkeit, - ModuleIdentNumber:0x1051 - SubmoduleIdentNumber:0x151"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRTS_C2_1312_W" Value="2-Byte Status, 4-Byte Sichere Position (wortweise getrennte Mono- und Multitourdaten), 2-Byte Sichere Geschwindigkeit,  - ModuleIdentNummer:0x1053 - SubmoduleIdentNummer:0x0153"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRT_C2_1212" Value="4-Byte Position, 2-Byte Geschwindigkeit - ModuleIdentNummer:0x1040 - SubmoduleIdentNummer:0x0140 - API:0x0"></Text>
+          <Text TextId="TOK_InfoTextId_Module_TRT_C2_1312" Value="4-Byte Position, 2-Byte Geschwindigkeit - ModuleIdentNummer:0x1041 - SubmoduleIdentNummer:0x141 - API:0x0"></Text>
+          <!--module parameter-->
+          <Text TextId="TOK_MOD01_Param_Name" Value="Parameter" />
+          <Text TextId="TOK_MOD01_Param_FwDownload" Value="Firmware Download Modus" />
+          <Text TextId="TOK_MOD01_Param_CodeSequence" Value="Codeverlauf" />
+          <Text TextId="TOK_MOD01_Param_Class4Func" Value="Class 4 Funktionalität" />
+          <Text TextId="TOK_MOD01_Param_PresetControl" Value="Preset Funktion" />
+          <Text TextId="TOK_MOD01_Param_ScalingControl" Value="Skalierungs Funktion" />
+          <Text TextId="TOK_MOD01_Param_AlarmChannelControl" Value="Kanaldiagnose" />
+          <Text TextId="TOK_MOD01_Param_Steps" Value="Auflösung [Schritte/Umdrehung]" />
+          <Text TextId="TOK_MOD01_Param_TotalSteps" Value="Gesamtschrittzahl [Schritte]" />
+          <Text TextId="TOK_MOD01_Param_MaxTolFailures" Value="Maximum tolerated failures of Master Sign-Of-Life" />
+          <Text TextId="TOK_MOD01_Param_GatingTime" Value="Torzeit der Geschwindigkeitsmessung"></Text>
+          <Text TextId="TOK_MOD01_Param_VelocityMeasuringUnit" Value="Einheit der Geschwindigkeit" />
+          <Text TextId="TOK_MOD01_Param_Reserve" Value="Reserve" />
+          <!--Submodul name-->
+          <Text TextId="TOK_TextId_SubModule_1" Value="Parameter Access Point" />
+          <Text TextId="TOK_TextId_SubModule_2" Value="Standard Telegramm 81" />
+          <Text TextId="TOK_TextId_SubModule_11" Value="Class2, 24 Bit"></Text>
+          <Text TextId="TOK_TextId_SubModule_12" Value="Class2, 25 Bit"></Text>
+          <Text TextId="TOK_TextId_SubModule_21S" Value="Class2, sichere Position (24 Bit) + sichere Geschwindigkeit"></Text>
+          <Text TextId="TOK_TextId_SubModule_22S" Value="Class2, sichere Position (25 Bit) + sichere Geschwindigkeit"></Text>
+          <Text TextId="TOK_TextId_SubModule_22" Value="Class2, Position (25 Bit) + Geschwindigkeit"></Text>
+          <Text TextId="TOK_TextId_SubModule_21" Value="Class2, Position (24 Bit) + Geschwindigkeit"></Text>
+          <!--value list-->
+          <Text TextId="TOK_ValueItem_FwDownload_Help" Value="Ein = Starte Drehgeber im Firmware Download Modus , Aus = Starte Drehgeber im normalen Betriebsmodus"></Text>
+          <Text TextId="TOK_ValueItem_FwDownload_0" Value="Aus" />
+          <Text TextId="TOK_ValueItem_FwDownload_1" Value="Ein" />
+          <Text TextId="TOK_ValueItem_CodeSequence_Help" Value="CW = Im Uhrzeigersinn (clockwise), CCW = Im Gegenuhrzeigersinn (counterclockwise)" />
+          <Text TextId="TOK_ValueItem_CodeSequence_0" Value="CW" />
+          <Text TextId="TOK_ValueItem_CodeSequence_1" Value="CCW" />
+          <Text TextId="TOK_ValueItem_Class4Functionality_Help" Value="Freigeben/Sperren der Funktionen Skalierung, Preset und Code sequence." />
+          <Text TextId="TOK_ValueItem_Class4Functionality_0" Value="aus" />
+          <Text TextId="TOK_ValueItem_Class4Functionality_1" Value="ein" />
+          <Text TextId="TOK_ValueItem_PresetControl_Help" Value="Enables/disables preset control for XIST1. If &quot;off&quot; preset does not affect XIST1." />
+          <Text TextId="TOK_ValueItem_PresetControl_0" Value="ein" />
+          <Text TextId="TOK_ValueItem_PresetControl_1" Value="aus" />
+          <Text TextId="TOK_ValueItem_ScalingControl_Help" Value="Freigeben/Sperren der Skalierungsfunktion. Muss zum Ändern von Auflösung oder Gesamtschrittzahl oder zum Setzen des Presetwertes eingeschaltet sein." />
+          <Text TextId="TOK_ValueItem_ScalingControl_0" Value="aus"></Text>
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_Help" Value="Bestimmt die Einheit der Geschwindigkeitsmessung" />
+          <Text TextId="TOK_ValueItem_ScalingControl_1" Value="ein" />
+          <Text TextId="TOK_ValueItem_AlarmChannelControl_Help" Value="Ein-/Ausschalten der Kanaldiagnose" />
+          <Text TextId="TOK_ValueItem_AlarmChannelControl_0" Value="aus" />
+          <Text TextId="TOK_ValueItem_AlarmChannelControl_1" Value="ein"></Text>
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_0" Value="Schritte/s"></Text>
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_1" Value="Schritte/100ms"></Text>
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_2" Value="Schritte/10ms"></Text>
+          <Text TextId="TOK_ValueItem_VelocityMeasuringUnit_3" Value="Umdrehungen pro Minute" />
+          <!--dataitem name-->
+          <Text TextId="TOK_Input_DataItem_1" Value="Position und Status (12 Byte)" />
+          <Text TextId="TOK_Output_DataItem_1" Value="Steuerworte (4 Byte)" />
+          <Text TextId="TOK_Input_DataItem_11" Value="Position 4 Byte"></Text>
+          <Text TextId="TOK_Input_DataItem_11V" Value="Geschwindigkeit 2 Byte" />
+          <Text TextId="TOK_Output_DataItem_11" Value="Preset 4 Byte"></Text>
+          <Text TextId="TOK_Input_DataItem_11S" Value="Status 2 Byte"></Text>
+          <Text TextId="TOK_Output_DataItem_11C" Value="Steuerwort 2 Byte" />
+          <!--errortype name-->
+          <!--F-Fehler-->
+          <Text TextId="TOK_Name_F-ParamError64" Value="Die Profisafe-Adresse des Gebers stimmt nicht mit der Projektierung überein (F_Dest_Add)" />
+          <Text TextId="TOK_Name_F-ParamError65" Value="Profisafe-Adresse des Gebers ungültig (F_Dest_Add)"></Text>
+          <Text TextId="TOK_Name_F-ParamError66" Value="Profisafe-Adresse des Masters ungültig (F_Source_Add)" />
+          <Text TextId="TOK_Name_F-ParamError67" Value="Profisafe-Überwachungszeit F_WD_Time ist 0 (F_WD_Time)" />
+          <Text TextId="TOK_Name_F-ParamError68" Value="Eingestellter &quot;F-SIL&quot; ist höher als der maximale SIL des Gebers" />
+          <Text TextId="TOK_Name_F-ParamError69" Value="Der Parameter &quot;F_CRC_Length&quot; stimmt nicht mit dem generierten Wert überein" />
+          <Text TextId="TOK_Name_F-ParamError70" Value="Version des F-Parameter-Satzes falsch (F_Par_Version)" />
+          <Text TextId="TOK_Name_F-ParamError71" Value="F-Parameter CRC-Fehler" />
+          <Text TextId="TOK_Name_F-ParamError72" Value="Allgemeiner F-Parameter Fehler" />
+          <Text TextId="TOK_Name_F-ParamError73" Value="Save iParameter watchdog exceeded" />
+          <Text TextId="TOK_Name_F-ParamError74" Value="Restore iParameter watchdog time exceeded" />
+          <Text TextId="TOK_Name_F-ParamError75" Value="Inkonsistente iParameter (iParCRC Fehler)" />
+          <!--GeräteFehler-->
+          <Text TextId="TOK_Name_ErrorCRC0" Value="CRC0-Fehler" />
+          <Text TextId="TOK_Name_ErrorCRC1" Value="CRC1-Fehler" />
+          <Text TextId="TOK_Name_ErrorPar" Value="Parameter-Fehler" />
+          <Text TextId="TOK_Name_ErrorScal" Value="Skalierungs-Fehler" />
+          <Text TextId="TOK_Name_ErrorInt" Value="Interner-Fehler"></Text>
+          <Text TextId="TOK_Name_ErrorPre" Value="Preset-Fehler" />
+          <Text TextId="TOK_Name_ErrorVel" Value="Geschwindigkeitsmessbereich überschritten" />
+          <Text TextId="TOK_Name_ErrorFlash" Value="Flash Speicher-Fehler"></Text>
+          <Text TextId="TOK_Name_ErrorModul" Value="Falsches Modul"></Text>
+          <Text TextId="TOK_Name_ErrorSensor" Value="Geräte-Fehler"></Text>
+          <Text TextId="TOK_Name_Error_F-Preset" Value="Preset-Fehler"></Text>
+          <Text TextId="TOK_Name_ErrorVoltage" Value="Fehler Versorgungsspannung über-/unterschritten"></Text>
+          <Text TextId="TOK_Name_ErrorComTPS1" Value="Interner Kommunikationsfehler (TPS-1)" />
+          <!--errortype helptext-->
+          <Text TextId="TOK_HelpName_ErrorCRC0" Value="Schalten Sie zum Neustart des Drehgebers die Spannung aus/ein oder wechseln Sie den Drehgeber." />
+          <Text TextId="TOK_HelpName_ErrorCRC1" Value="Schalten Sie zum Neustart des Drehgebers die Spannung aus/ein oder wechseln Sie den Drehgeber." />
+          <Text TextId="TOK_HelpName_ErrorPar" Value="Der Wert für die Gesamtschrittzahl muss im Bereich Auflösung ... (Auflösung x Max. Anzahl Umdrehungen (4096)) liegen" />
+          <Text TextId="TOK_HelpName_ErrorScal" Value="Bitte schalten Sie die Skalierungsfunktion ein, bevor Sie den Preset setzen oder die Werte für Auflösung und Gesamtschrittzahl ändern." />
+          <Text TextId="TOK_HelpName_ErrorInt" Value="Bitte wiederholen Sie die Übertragung der Parameterwerte oder schalten Sie zum Neustart des Drehgebers die Spannung aus/ein" />
+          <Text TextId="TOK_HelpName_ErrorPre" Value="Der Presetwert muss im Bereich 0 ... (Gesamtschrittzahl -1) liegen!"></Text>
+          <Text TextId="TOK_HelpName_ErrorVel" Value="Bitte reduzieren Sie die Geschwindigkeit oder verringern Sie den Wert für die Torzeit." />
+          <Text TextId="TOK_HelpName_ErrorFlash" Value="Bitte wiederholen Sie die Übertragung der Parameterwerte oder schalten Sie zum Neustart des Drehgebers die Spannung aus/ein. Wechseln Sie sobald wie möglich das Gerät."></Text>
+          <Text TextId="TOK_HelpName_ErrorModul" Value="Gewähltes Modul wird nicht unterstützt. Bitte wählen Sie ein anderes Modul in Ihrer Hardware-Konfiguration."></Text>
+          <Text TextId="TOK_HelpName_ErrorSensor" Value="Bitte schalten Sie die Spannung aus/ein oder tauschen Sie das Gerät."></Text>
+          <Text TextId="TOK_HelpName_Error_F-Preset" Value="- Der Presetwert muss im Bereich 0 ... (Gesamtschrittzahl -1) liegen.&#xD;&#xA;- Der Presetwert läßt sich nur bei Stillstand der Welle setzen.&#xD;&#xA;- Die Skalierungs-Funktion muss eingeschaltet sein."></Text>
+          <Text TextId="TOK_HelpName_ErrorVoltage" Value="Bitte überprüfen Sie die Versorgungsspannung und schalten Sie die Spannung aus/ein."></Text>
+          <Text TextId="TOK_HelpName_ErrorComTPS1" Value="Bitte tauschen Sie das Gerät." />
+        </Language>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>

@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-v2.3.xsd">
+
+    <ProfileHeader>
+        <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+        <ProfileRevision>1.00</ProfileRevision>
+        <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+        <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+        <ProfileClassID>Device</ProfileClassID>
+        <ISO15745Reference>
+            <ISO15745Part>4</ISO15745Part>
+            <ISO15745Edition>1</ISO15745Edition>
+            <ProfileTechnology>GSDML</ProfileTechnology>
+        </ISO15745Reference>
+    </ProfileHeader>
+
+    <ProfileBody>
+        <DeviceIdentity VendorID="0x0153" DeviceID="0x0102">
+            <InfoText TextId="IDT_INFO_FamilyDescription" />
+            <VendorName Value="TR-Electronic GmbH" />
+        </DeviceIdentity>
+
+        <DeviceFunction>
+            <Family MainFamily="Encoders" ProductFamily="TR Rotative" />
+        </DeviceFunction>
+
+        <ApplicationProcess>
+            <DeviceAccessPointList>
+                <!-- DAP 2: C__65_-EPN V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP2" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP2" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP2" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 416 051" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP2" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP2" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP2" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 4 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_5" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP2" SubmoduleIdentNumber="0x00000004">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 13 Bytes bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="13">
+                                    <Name TextId="IDT_RECORD_NAME_DAP2" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_DrehrichtungName" ValueItemTarget="IDV_Drehrichtung" ByteOffset="0"               BitOffset="0" DefaultValue="0"    AllowedValues="0..1"    Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_CodeName"         ValueItemTarget="IDV_Code"         ByteOffset="0"               BitOffset="1" DefaultValue="0"    AllowedValues="0..1"    Visible="false" Changeable="false" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_TannenbaumName"   ValueItemTarget="IDV_Tannenbaum"   ByteOffset="0"               BitOffset="2" DefaultValue="0"    AllowedValues="0..1"    Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea"    TextId="IDT_REF_DeviceTypeName"   ValueItemTarget="IDV_DeviceType"   ByteOffset="0" BitLength="3" BitOffset="5" DefaultValue="1"    AllowedValues="1"       Visible="false" Changeable="false" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_AufloesungName"                                      ByteOffset="2"                             DefaultValue="4096" AllowedValues="1..4096" Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_UmdrehungenName"                                     ByteOffset="4"                             DefaultValue="4096" AllowedValues="1..8192" Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP2" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP2" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP2_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP2" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP2_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP2_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_1_65" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+
+                <!-- DAP 3: L_66-EPN V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP3" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP3" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP3" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 416 051" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP3" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP3" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP3" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 4 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_6" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP3" SubmoduleIdentNumber="0x00000005">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 13 Byte bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="13">
+                                    <Name TextId="IDT_RECORD_NAME_DAP3" />
+                                    <Ref DataType="Bit"     TextId="IDT_REF_InterpolName"       ValueItemTarget="IDV_Interpolation"  ByteOffset="0"               BitOffset="0" DefaultValue="0" AllowedValues="0..1" Visible="true"  Changeable="true" />
+                                    <Ref DataType="BitArea" TextId="IDT_REF_DeviceTypeName"     ValueItemTarget="IDV_DeviceType"     ByteOffset="0" BitLength="3" BitOffset="5" DefaultValue="2" AllowedValues="2"    Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea" TextId="IDT_REF_AufloesungLA66Name" ValueItemTarget="IDV_AufloesungLA66" ByteOffset="1" BitLength="2" BitOffset="0" DefaultValue="0" AllowedValues="0..2" Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP3" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP3" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP3_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP3" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP3_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP3" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP3_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP3" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_1_66" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+
+                <!-- DAP 4: C__65_-EPN TR-Spezial V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP4" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP4" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP4" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 416 051" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP4" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP4" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP4" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 4 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_5" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP4" SubmoduleIdentNumber="0x00000004">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 13 Bytes bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="13">
+                                    <Name TextId="IDT_RECORD_NAME_DAP4" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_DrehrichtungName"  ValueItemTarget="IDV_Drehrichtung" ByteOffset="0"                BitOffset="0" DefaultValue="0"        AllowedValues="0..1"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_CodeName"          ValueItemTarget="IDV_Code"         ByteOffset="0"                BitOffset="1" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_TannenbaumName"    ValueItemTarget="IDV_Tannenbaum"   ByteOffset="0"                BitOffset="2" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea"    TextId="IDT_REF_DeviceTypeName"    ValueItemTarget="IDV_DeviceType"   ByteOffset="0"  BitLength="3" BitOffset="5" DefaultValue="3"        AllowedValues="3"              Visible="false" Changeable="false" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_MesslaengeName"                                       ByteOffset="2"                              DefaultValue="16777216" AllowedValues="16..1073741824" Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_UmdrehZaehlerName"                                    ByteOffset="6"                              DefaultValue="4096"     AllowedValues="1..256000"      Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_UmdrehNennerName"                                     ByteOffset="10"                             DefaultValue="1"        AllowedValues="1..16384"       Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP4" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP4" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP4_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP4" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP4_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP4" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP4_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP4" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_2_65" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+
+                <!-- DAP 5: C__58_-EPN V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP5" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP5" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP5" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 905 011" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP5" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP5" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP5" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 4 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_5" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP5" SubmoduleIdentNumber="0x00000004">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 13 Bytes bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="13">
+                                    <Name TextId="IDT_RECORD_NAME_DAP5" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_DrehrichtungName"  ValueItemTarget="IDV_Drehrichtung" ByteOffset="0"                BitOffset="0" DefaultValue="0"        AllowedValues="0..1"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_CodeName"          ValueItemTarget="IDV_Code"         ByteOffset="0"                BitOffset="1" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_TannenbaumName"    ValueItemTarget="IDV_Tannenbaum"   ByteOffset="0"                BitOffset="2" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea"    TextId="IDT_REF_DeviceTypeName"    ValueItemTarget="IDV_DeviceType"   ByteOffset="0"  BitLength="3" BitOffset="5" DefaultValue="4"        AllowedValues="4"              Visible="false" Changeable="false" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_MesslaengeName"                                       ByteOffset="2"                              DefaultValue="16777216" AllowedValues="16..1073741824" Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_UmdrehZaehlerName"                                    ByteOffset="6"                              DefaultValue="4096"     AllowedValues="1..256000"      Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_UmdrehNennerName"                                     ByteOffset="10"                             DefaultValue="1"        AllowedValues="1..16384"       Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP5" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP5" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP5_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP5" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP5_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP5" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP5_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP5" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_1_58" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+
+                <!-- DAP 6: C__58_-EPN + Geschw. V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP6" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP6" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP6" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 905 011" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP6" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP6" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP6" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 6 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_7" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP6" SubmoduleIdentNumber="0x00000006">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 15 Bytes bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="15">
+                                    <Name TextId="IDT_RECORD_NAME_DAP6" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_DrehrichtungName"  ValueItemTarget="IDV_Drehrichtung" ByteOffset="0"                BitOffset="0" DefaultValue="0"        AllowedValues="0..1"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_CodeName"          ValueItemTarget="IDV_Code"         ByteOffset="0"                BitOffset="1" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_TannenbaumName"    ValueItemTarget="IDV_Tannenbaum"   ByteOffset="0"                BitOffset="2" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea"    TextId="IDT_REF_DeviceTypeName"    ValueItemTarget="IDV_DeviceType"   ByteOffset="0"  BitLength="3" BitOffset="5" DefaultValue="5"        AllowedValues="5"              Visible="false" Changeable="false" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_MesslaengeName"                                       ByteOffset="2"                              DefaultValue="16777216" AllowedValues="16..1073741824" Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_UmdrehZaehlerName"                                    ByteOffset="6"                              DefaultValue="4096"     AllowedValues="1..256000"      Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_UmdrehNennerName"                                     ByteOffset="10"                             DefaultValue="1"        AllowedValues="1..16384"       Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned8"  TextId="IDT_REF_GeschwFormatName"  ValueItemTarget="IDV_GeschwFormat" ByteOffset="12"                             DefaultValue="1"        AllowedValues="1..17"          Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned8"  TextId="IDT_REF_GeschwFaktorName"                                     ByteOffset="13"                             DefaultValue="1"        AllowedValues="1..100"         Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP6" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP6" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP6_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP6" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP6_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP6" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP6_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP6" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_2_58" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+
+                <!-- DAP 7: CEV65M-EPN + Nocken V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP7" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP7" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP7" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 416 051" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP7" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP7" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP7" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 4 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_5" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP7" SubmoduleIdentNumber="0x00000007">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 181 Bytes bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="181">
+                                    <Name TextId="IDT_RECORD_NAME_DAP7" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_DrehrichtungName"   ValueItemTarget="IDV_Drehrichtung" ByteOffset="0"                 BitOffset="0" DefaultValue="0"        AllowedValues="0..1"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_CodeName"           ValueItemTarget="IDV_Code"         ByteOffset="0"                 BitOffset="1" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_TannenbaumName"     ValueItemTarget="IDV_Tannenbaum"   ByteOffset="0"                 BitOffset="2" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea"    TextId="IDT_REF_DeviceTypeName"     ValueItemTarget="IDV_DeviceType"   ByteOffset="0"   BitLength="3" BitOffset="5" DefaultValue="6"        AllowedValues="6"              Visible="false" Changeable="false" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_MesslaengeName"                                        ByteOffset="2"                               DefaultValue="16777216" AllowedValues="16..1073741824" Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_UmdrehZaehlerName"                                     ByteOffset="6"                               DefaultValue="4096"     AllowedValues="1..256000"      Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_UmdrehNennerName"                                      ByteOffset="10"                              DefaultValue="1"        AllowedValues="1..16384"       Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_HW_Preset1Name"                                        ByteOffset="172"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_HW_Preset2Name"                                        ByteOffset="176"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken1Start"                                    ByteOffset="12"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken1Stop"                                     ByteOffset="16"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken2Start"                                    ByteOffset="20"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken2Stop"                                     ByteOffset="24"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken3Start"                                    ByteOffset="28"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken3Stop"                                     ByteOffset="32"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken4Start"                                    ByteOffset="36"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken4Stop"                                     ByteOffset="40"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken5Start"                                    ByteOffset="44"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg1_Nocken5Stop"                                     ByteOffset="48"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken1Start"                                    ByteOffset="52"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken1Stop"                                     ByteOffset="56"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken2Start"                                    ByteOffset="60"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken2Stop"                                     ByteOffset="64"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken3Start"                                    ByteOffset="68"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken3Stop"                                     ByteOffset="72"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken4Start"                                    ByteOffset="76"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken4Stop"                                     ByteOffset="80"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken5Start"                                    ByteOffset="84"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg2_Nocken5Stop"                                     ByteOffset="88"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken1Start"                                    ByteOffset="92"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken1Stop"                                     ByteOffset="96"                              DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken2Start"                                    ByteOffset="100"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken2Stop"                                     ByteOffset="104"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken3Start"                                    ByteOffset="108"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken3Stop"                                     ByteOffset="112"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken4Start"                                    ByteOffset="116"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken4Stop"                                     ByteOffset="120"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken5Start"                                    ByteOffset="124"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg3_Nocken5Stop"                                     ByteOffset="128"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken1Start"                                    ByteOffset="132"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken1Stop"                                     ByteOffset="136"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken2Start"                                    ByteOffset="140"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken2Stop"                                     ByteOffset="144"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken3Start"                                    ByteOffset="148"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken3Stop"                                     ByteOffset="152"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken4Start"                                    ByteOffset="156"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken4Stop"                                     ByteOffset="160"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken5Start"                                    ByteOffset="164"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_Ausg4_Nocken5Stop"                                     ByteOffset="168"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP7" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP7" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP7_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP7" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP7_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP7" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP7_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP7" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_3_65" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+
+                <!-- DAP 8: C__65_-EPN + SSI Ausgang V2.3 -->
+                <DeviceAccessPointItem ID="IDD_DAP8" PhysicalSlots="0..1" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC200" DNS_CompatibleName="PNHaube001" NameOfStationNotTransferable="true" ExtendedAddressAssignmentSupported="true" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="true" RequiredSchemaVersion="V2.2" PNIO_Version="V2.2">
+                    <ModuleInfo CategoryRef="ID_CategoryRotative_1">
+                        <Name TextId="IDT_MODULE_NAME_DAP8" />
+                        <InfoText TextId="IDT_MODULE_INFO_DAP8" />
+                        <VendorName Value="TR-Electronic GmbH" />
+                        <OrderNumber Value="85 416 051" />
+                        <HardwareRelease Value="1" />
+                        <SoftwareRelease Value="V6.6.0" />
+                    </ModuleInfo>
+
+                    <SubslotList>
+                        <SubslotItem SubslotNumber="32768" TextId="IDT_SUBSLOT_8000_DAP8" />
+                        <SubslotItem SubslotNumber="32769" TextId="IDT_SUBSLOT_8001_DAP8" />
+                        <SubslotItem SubslotNumber="32770" TextId="IDT_SUBSLOT_8002_DAP8" />
+                    </SubslotList>
+
+                    <IOConfigData MaxInputLength="100" MaxOutputLength="100" />
+
+                    <UseableModules>
+                        <!-- 4 Byte Input -->
+                        <ModuleItemRef ModuleItemTarget="IDM_5" FixedInSlots="1" />
+                    </UseableModules>
+
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_DAP8" SubmoduleIdentNumber="0x00000008">
+                            <IOData IOPS_Length="1" IOCS_Length="1" />
+                            <RecordDataList>
+                            <!-- Ein Daten-Objekt aus 13 Bytes bei Index 1 -->
+                                <ParameterRecordDataItem Index="1" Length="24">
+                                    <Name TextId="IDT_RECORD_NAME_DAP8" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_DrehrichtungName"  ValueItemTarget="IDV_Drehrichtung" ByteOffset="0"                BitOffset="0" DefaultValue="0"        AllowedValues="0..1"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_TannenbaumName"    ValueItemTarget="IDV_Tannenbaum"   ByteOffset="0"                BitOffset="2" DefaultValue="0"        AllowedValues="0..1"           Visible="false" Changeable="false" />
+                                    <Ref DataType="BitArea"    TextId="IDT_REF_DeviceTypeName"    ValueItemTarget="IDV_DeviceType"   ByteOffset="0"  BitLength="3" BitOffset="5" DefaultValue="7"        AllowedValues="7"              Visible="false" Changeable="false" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_MesslaengeName"                                       ByteOffset="2"                              DefaultValue="16777216" AllowedValues="16..1073741824" Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_UmdrehZaehlerName"                                    ByteOffset="6"                              DefaultValue="4096"     AllowedValues="1..256000"      Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned16" TextId="IDT_REF_UmdrehNennerName"                                     ByteOffset="10"                             DefaultValue="1"        AllowedValues="1..16384"       Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned8"  TextId="IDT_REF_SSIFormatName"     ValueItemTarget="IDV_Format"       ByteOffset="12"                             DefaultValue="0"        AllowedValues="0..11"          Visible="true"  Changeable="true" />
+                                    <Ref DataType="Bit"        TextId="IDT_REF_SSICodeName"       ValueItemTarget="IDV_Code"         ByteOffset="0"                BitOffset="1" DefaultValue="0"        AllowedValues="0..1"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned8"  TextId="IDT_REF_SSIDatalaengeName"                                    ByteOffset="13"                             DefaultValue="25"       AllowedValues="8..28"          Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned8"  TextId="IDT_REF_SSIMonozeitName"   ValueItemTarget="IDV_Monozeit"     ByteOffset="14"                             DefaultValue="0"        AllowedValues="0..3"           Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_HW_Preset1Name"                                       ByteOffset="15"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                    <Ref DataType="Unsigned32" TextId="IDT_REF_HW_Preset2Name"                                       ByteOffset="19"                             DefaultValue="0"        AllowedValues="0..1073741823"  Visible="true"  Changeable="true" />
+                                </ParameterRecordDataItem>
+                            </RecordDataList>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_DAP8" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_DAP8" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+
+                    <SystemDefinedSubmoduleList>
+                        <InterfaceSubmoduleItem ID="IDS_DAP8_I" SubslotNumber="32768" SubmoduleIdentNumber="0x00000002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_2;RT_CLASS_3" TextId="IDT_SUBMODULEITEM_Interface_DAP8" SupportedProtocols="SNMP;LLDP" SupportedMibs="MIB2" NetworkComponentDiagnosisSupported="true">
+                            <RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="400" />
+                            <SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP" />
+                            <ApplicationRelations NumberOfAR="2" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+                                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+                                <RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16" />
+                            </ApplicationRelations>
+                        </InterfaceSubmoduleItem>
+                        <PortSubmoduleItem ID="IDS_DAP8_P1" SubslotNumber="32769" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port1_DAP8" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                        <PortSubmoduleItem ID="IDS_DAP8_P2" SubslotNumber="32770" SubmoduleIdentNumber="0x00000003" MAUTypes="16" TextId="IDT_SUBMODULEITEM_Port2_DAP8" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" />
+                    </SystemDefinedSubmoduleList>
+
+                    <Graphics>
+                        <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="IDG_Graph_4_65" />
+                    </Graphics>
+                </DeviceAccessPointItem>
+            </DeviceAccessPointList>
+
+            <ModuleList>
+                <ModuleItem ID="IDM_5" ModuleIdentNumber="0x00000024">
+                    <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_Module5" />
+                        <InfoText TextId="IDT_MODULE_INFO_Module5" />
+                    </ModuleInfo>
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_M5S1" SubmoduleIdentNumber="0x00000001" API="0">
+                            <IOData IOPS_Length="1" IOCS_Length="1">
+                                <Input Consistency="All items consistency">
+                                    <DataItem DataType="OctetString" TextId="IDT_DATAITEM_I_Module5" Length="4" UseAsBits="true" />
+                                </Input>
+                            </IOData>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_M5S1" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_M5S1" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+                </ModuleItem>
+
+                <ModuleItem ID="IDM_6" ModuleIdentNumber="0x00000025">
+                    <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_Module6" />
+                        <InfoText TextId="IDT_MODULE_INFO_Module6" />
+                    </ModuleInfo>
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_M6S1" SubmoduleIdentNumber="0x00000001" API="0">
+                            <IOData IOPS_Length="1" IOCS_Length="1">
+                                <Input Consistency="All items consistency">
+                                    <DataItem DataType="OctetString" TextId="IDT_DATAITEM_I_Module6" Length="4" UseAsBits="true" />
+                                </Input>
+                            </IOData>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_M6S1" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_M6S1" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+                </ModuleItem>
+
+                <ModuleItem ID="IDM_7" ModuleIdentNumber="0x00000026">
+                    <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_Module7" />
+                        <InfoText TextId="IDT_MODULE_INFO_Module7" />
+                    </ModuleInfo>
+                    <VirtualSubmoduleList>
+                        <VirtualSubmoduleItem ID="IDS_M7S1" SubmoduleIdentNumber="0x00000001" API="0">
+                            <IOData IOPS_Length="1" IOCS_Length="1">
+                                <Input Consistency="All items consistency">
+                                    <DataItem DataType="OctetString" TextId="IDT_DATAITEM_I_Module7" Length="6" UseAsBits="true" />
+                                </Input>
+                            </IOData>
+                            <ModuleInfo>
+                                <Name TextId="IDT_SUBMODULE_NAME_M7S1" />
+                                <InfoText TextId="IDT_SUBMODULE_INFO_M7S1" />
+                            </ModuleInfo>
+                        </VirtualSubmoduleItem>
+                    </VirtualSubmoduleList>
+                </ModuleItem>
+            </ModuleList>
+
+            <ValueList>
+                <ValueItem ID="IDV_Interpolation">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_Aus" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_Ein" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_Drehrichtung">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_Uhr" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_gegenUhr" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_Code">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_Binaer" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_Gray" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_Tannenbaum">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_Aus" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_Ein" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_DeviceType">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_TypUnbekannt" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_TypC__65_" />
+                        <Assign Content="2" TextId="IDT_VALUEITEM_TypL_66" />
+                        <Assign Content="3" TextId="IDT_VALUEITEM_TypC__65_TR-Spezial" />
+                        <Assign Content="4" TextId="IDT_VALUEITEM_TypC__58_" />
+                        <Assign Content="5" TextId="IDT_VALUEITEM_TypC__58_Geschw" />
+                        <Assign Content="6" TextId="IDT_VALUEITEM_TypC__65_Nocken" />
+                        <Assign Content="7" TextId="IDT_VALUEITEM_TypC__65_SSI" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_AufloesungLA66">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_5micrometer" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_10micrometer" />
+                        <Assign Content="2" TextId="IDT_VALUEITEM_100micrometer" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID= "IDV_GeschwFormat">
+                    <Assignments>
+                        <Assign Content="1"  TextId="IDT_VALUEITEM_GeschwU_min_F" />
+                        <Assign Content="2"  TextId="IDT_VALUEITEM_GeschwU_sec_F" />
+                        <Assign Content="3"  TextId="IDT_VALUEITEM_GeschwSchr_ms_8Bit" />
+                        <Assign Content="4"  TextId="IDT_VALUEITEM_GeschwSchr_ms_9Bit" />
+                        <Assign Content="5"  TextId="IDT_VALUEITEM_GeschwSchr_ms_10Bit" />
+                        <Assign Content="6"  TextId="IDT_VALUEITEM_GeschwSchr_ms_11Bit" />
+                        <Assign Content="7"  TextId="IDT_VALUEITEM_GeschwSchr_ms_12Bit" />
+                        <Assign Content="8"  TextId="IDT_VALUEITEM_GeschwSchr_ms_13Bit" />
+                        <Assign Content="9"  TextId="IDT_VALUEITEM_GeschwSchr_ms_14Bit" />
+                        <Assign Content="10" TextId="IDT_VALUEITEM_GeschwSchr_ms_15Bit" />
+                        <Assign Content="11" TextId="IDT_VALUEITEM_GeschwSchr_ms_16Bit" />
+                        <Assign Content="12" TextId="IDT_VALUEITEM_GeschwSchr_ms_17Bit" />
+                        <Assign Content="13" TextId="IDT_VALUEITEM_GeschwSchr_ms_18Bit" />
+                        <Assign Content="14" TextId="IDT_VALUEITEM_GeschwSchr_ms_skal" />
+                        <Assign Content="15" TextId="IDT_VALUEITEM_GeschwSchr_10ms_skal" />
+                        <Assign Content="16" TextId="IDT_VALUEITEM_GeschwSchr_100ms_skal" />
+                        <Assign Content="17" TextId="IDT_VALUEITEM_GeschwSchr_sec_skal" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_Format">
+                    <Assignments>
+                        <Assign Content="0"  TextId="IDT_VALUEITEM_KeinSonderf" />
+                        <Assign Content="1"  TextId="IDT_VALUEITEM_ParityGerade" />
+                        <Assign Content="2"  TextId="IDT_VALUEITEM_ParityUngerade" />
+                        <Assign Content="3"  TextId="IDT_VALUEITEM_Togglebit" />
+                        <Assign Content="4"  TextId="IDT_VALUEITEM_Summe_28Databits" />
+                        <Assign Content="5"  TextId="IDT_VALUEITEM_Summe_27Databits" />
+                        <Assign Content="6"  TextId="IDT_VALUEITEM_Summe_26Databits" />
+                        <Assign Content="7"  TextId="IDT_VALUEITEM_Summe_25Databits" />
+                        <Assign Content="8"  TextId="IDT_VALUEITEM_Summe_24Databits" />
+                        <Assign Content="9"  TextId="IDT_VALUEITEM_Summe_23Databits" />
+                        <Assign Content="10" TextId="IDT_VALUEITEM_Summe_22Databits" />
+                        <Assign Content="11" TextId="IDT_VALUEITEM_Summe_21Databits" />
+                    </Assignments>
+                </ValueItem>
+                <ValueItem ID="IDV_Monozeit">
+                    <Assignments>
+                        <Assign Content="0" TextId="IDT_VALUEITEM_20usec" />
+                        <Assign Content="1" TextId="IDT_VALUEITEM_15usec" />
+                        <Assign Content="2" TextId="IDT_VALUEITEM_50usec" />
+                        <Assign Content="3" TextId="IDT_VALUEITEM_500usec" />
+                    </Assignments>
+                </ValueItem>
+            </ValueList>
+
+            <ChannelDiagList>
+                <ChannelDiagItem ErrorType="112">
+                    <Name TextId="IDT_DIAG_NAME_ErrorType112" />
+                    <Help TextId="IDT_DIAG_HELP_ErrorType112" />
+                </ChannelDiagItem>
+            </ChannelDiagList>
+
+            <GraphicsList>
+                <GraphicItem ID="IDG_Graph_1_66" GraphicFile="GSDML-0153-0102-L_66-EPN" />
+                <GraphicItem ID="IDG_Graph_1_58" GraphicFile="GSDML-0153-0102-C__58_-EPN_1" />
+                <GraphicItem ID="IDG_Graph_2_58" GraphicFile="GSDML-0153-0102-C__58_-EPN_2" />
+                <GraphicItem ID="IDG_Graph_1_65" GraphicFile="GSDML-0153-0102-C__65_-EPN_1" />
+                <GraphicItem ID="IDG_Graph_2_65" GraphicFile="GSDML-0153-0102-C__65_-EPN_2" />
+                <GraphicItem ID="IDG_Graph_3_65" GraphicFile="GSDML-0153-0102-C__65_-EPN_3" />
+                <GraphicItem ID="IDG_Graph_4_65" GraphicFile="GSDML-0153-0102-C__65_-EPN_4" />
+            </GraphicsList>
+
+            <CategoryList>
+                <CategoryItem ID="ID_CategoryRotative_1" TextId="IDT_CATEGORY_ROTATIVE">
+                    <InfoText TextId="IDT_CATEGORY_INFO_ROTATIVE" />
+                </CategoryItem>
+            </CategoryList>
+
+            <ExternalTextList>
+                <PrimaryLanguage>
+                    <!--english-->
+                    <!-- path description -->
+                    <Text TextId="IDT_INFO_FamilyDescription" Value="Rotative Encoder" />
+                    <Text TextId="IDT_CATEGORY_ROTATIVE" Value="TR PROFINET Rotative" />
+                    <Text TextId="IDT_CATEGORY_INFO_ROTATIVE" Value="Rotative Encoder" />
+                    <!-- DAP description -->
+                    <Text TextId="IDT_MODULE_NAME_DAP2" Value="C__65_-EPN" />
+                    <Text TextId="IDT_MODULE_INFO_DAP2" Value="Rotative encoder C__65_-EPN" />
+                    <Text TextId="IDT_MODULE_NAME_DAP3" Value="L_66-EPN" />
+                    <Text TextId="IDT_MODULE_INFO_DAP3" Value="Linear encoder L_66-EPN" />
+                    <Text TextId="IDT_MODULE_NAME_DAP4" Value="C__65_-EPN TR-Special" />
+                    <Text TextId="IDT_MODULE_INFO_DAP4" Value="Rotative encoder C__65_-EPN with TR-Special parameters" />
+                    <Text TextId="IDT_MODULE_NAME_DAP5" Value="C__58_-EPN" />
+                    <Text TextId="IDT_MODULE_INFO_DAP5" Value="Rotative encoder C__58_-EPN" />
+                    <Text TextId="IDT_MODULE_NAME_DAP6" Value="C__58_-EPN + Velocity" />
+                    <Text TextId="IDT_MODULE_INFO_DAP6" Value="Rotative encoder C__58_-EPN with velocity" />
+                    <Text TextId="IDT_MODULE_NAME_DAP7" Value="C__65_-EPN + Cam" />
+                    <Text TextId="IDT_MODULE_INFO_DAP7" Value="Rotative encoder C__65_-EPN with cam" />
+                    <Text TextId="IDT_MODULE_NAME_DAP8" Value="C__65_-EPN + SSI" />
+                    <Text TextId="IDT_MODULE_INFO_DAP8" Value="Rotative encoder C__65_-EPN with SSI output" />
+                    <!-- System subslot description -->
+                    <Text TextId="IDT_SUBSLOT_8000_DAP2" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP2" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP2" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP3" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP3" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP3" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP4" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP4" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP4" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP5" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP5" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP5" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP6" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP6" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP6" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP7" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP7" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP7" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP8" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP8" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP8" Value="X1 P2" />
+                    <!-- System submodule description -->
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP2" Value="Submodule DAP2" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP2" Value="Submodule DAP2" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP2" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP2" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP2" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP3" Value="Submodule DAP3" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP3" Value="Submodule DAP3" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP3" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP3" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP3" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP4" Value="Submodule DAP4" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP4" Value="Submodule DAP4" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP4" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP4" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP4" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP5" Value="Submodule DAP5" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP5" Value="Submodule DAP5" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP5" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP5" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP5" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP6" Value="Submodule DAP6" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP6" Value="Submodule DAP6" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP6" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP6" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP6" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP7" Value="Submodule DAP7" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP7" Value="Submodule DAP7" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP7" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP7" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP7" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP8" Value="Submodule DAP8" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP8" Value="Submodule DAP8" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP8" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP8" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP8" Value="Port 2" />
+                    <!-- Module description -->
+                    <Text TextId="IDT_MODULE_NAME_Module5" Value="encoder data 4 byte I" />
+                    <Text TextId="IDT_MODULE_INFO_Module5" Value="4 byte position - ModuleIdentNumber:0x24 - SubmoduleIdentNumber:0x0001 - API:0x00" />
+                    <Text TextId="IDT_DATAITEM_I_Module5" Value="Input 4 byte" />
+                    <Text TextId="IDT_MODULE_NAME_Module6" Value="encoder data 4 byte I" />
+                    <Text TextId="IDT_MODULE_INFO_Module6" Value="4 byte position - ModuleIdentNumber:0x25 - SubmoduleIdentNumber:0x0001 - API:0x00" />
+                    <Text TextId="IDT_DATAITEM_I_Module6" Value="Input 4 byte" />
+                    <Text TextId="IDT_MODULE_NAME_Module7" Value="encoder data 6 byte I" />
+                    <Text TextId="IDT_MODULE_INFO_Module7" Value="4 Byte position - 2 Byte velocity - ModuleIdentNumber:0x26 - SubmoduleIdentNumber:0x0001 - API:0x00" />
+                    <Text TextId="IDT_DATAITEM_I_Module7" Value="Input 6 byte" />
+                    <!-- Submodule description -->
+                    <Text TextId="IDT_SUBMODULE_NAME_M5S1" Value="Module5/Submodule1" />
+                    <Text TextId="IDT_SUBMODULE_INFO_M5S1" Value="Module5/Submodule1" />
+                    <Text TextId="IDT_SUBMODULE_NAME_M6S1" Value="Module6/Submodule1" />
+                    <Text TextId="IDT_SUBMODULE_INFO_M6S1" Value="Module6/Submodule1" />
+                    <Text TextId="IDT_SUBMODULE_NAME_M7S1" Value="Module7/Submodule1" />
+                    <Text TextId="IDT_SUBMODULE_INFO_M7S1" Value="Module7/Submodule1" />
+                    <!-- Diagnose error description -->
+                    <Text TextId="IDT_DIAG_NAME_ErrorType112" Value="internal communication error" />
+                    <Text TextId="IDT_DIAG_HELP_ErrorType112" Value="internal communication error" />
+                    <!-- Parameter record description -->
+                    <Text TextId="IDT_RECORD_NAME_DAP2" Value="General parameters C__65_-EPN" />
+                    <Text TextId="IDT_RECORD_NAME_DAP3" Value="General parameters L_66-EPN" />
+                    <Text TextId="IDT_RECORD_NAME_DAP4" Value="General parameters C__65_-EPN TR-Special" />
+                    <Text TextId="IDT_RECORD_NAME_DAP5" Value="General parameters C__58_-EPN" />
+                    <Text TextId="IDT_RECORD_NAME_DAP6" Value="General parameters C__58_-EPN + velocity" />
+                    <Text TextId="IDT_RECORD_NAME_DAP7" Value="General parameters C__65_-EPN + cam" />
+                    <Text TextId="IDT_RECORD_NAME_DAP8" Value="General parameters C__65_-EPN + SSI output" />
+                    <!-- Parameter description -->
+                    <Text TextId="IDT_REF_InterpolName" Value="interpolation" />
+                    <Text TextId="IDT_REF_AufloesungLA66Name" Value="resolution" />
+                    <Text TextId="IDT_REF_DrehrichtungName" Value="rotational direction" />
+                    <Text TextId="IDT_REF_CodeName" Value="code" />
+                    <Text TextId="IDT_REF_TannenbaumName" Value="fir tree" />
+                    <Text TextId="IDT_REF_DeviceTypeName" Value="device type" />
+                    <Text TextId="IDT_REF_AufloesungName" Value="resolution" />
+                    <Text TextId="IDT_REF_UmdrehungenName" Value="revolutions" />
+                    <Text TextId="IDT_REF_MesslaengeName" Value="measuring range" />
+                    <Text TextId="IDT_REF_UmdrehZaehlerName" Value="revolutions numerator" />
+                    <Text TextId="IDT_REF_UmdrehNennerName" Value="revolutions denominator" />
+                    <Text TextId="IDT_REF_GeschwFormatName" Value="velocity format" />
+                    <Text TextId="IDT_REF_GeschwFaktorName" Value="velocity factor" />
+                    <Text TextId="IDT_REF_HW_Preset1Name" Value="preset value 1" />
+                    <Text TextId="IDT_REF_HW_Preset2Name" Value="preset value 2" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken1Start" Value="output 1, cam 1, start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken1Stop"  Value="output 1, cam 1, stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken2Start" Value="output 1, cam 2, start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken2Stop"  Value="output 1, cam 2, stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken3Start" Value="output 1, cam 3, start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken3Stop"  Value="output 1, cam 3, stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken4Start" Value="output 1, cam 4, start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken4Stop"  Value="output 1, cam 4, stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken5Start" Value="output 1, cam 5, start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken5Stop"  Value="output 1, cam 5, stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken1Start" Value="output 2, cam 1, start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken1Stop"  Value="output 2, cam 1, stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken2Start" Value="output 2, cam 2, start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken2Stop"  Value="output 2, cam 2, stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken3Start" Value="output 2, cam 3, start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken3Stop"  Value="output 2, cam 3, stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken4Start" Value="output 2, cam 4, start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken4Stop"  Value="output 2, cam 4, stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken5Start" Value="output 2, cam 5, start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken5Stop"  Value="output 2, cam 5, stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken1Start" Value="output 3, cam 1, start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken1Stop"  Value="output 3, cam 1, stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken2Start" Value="output 3, cam 2, start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken2Stop"  Value="output 3, cam 2, stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken3Start" Value="output 3, cam 3, start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken3Stop"  Value="output 3, cam 3, stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken4Start" Value="output 3, cam 4, start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken4Stop"  Value="output 3, cam 4, stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken5Start" Value="output 3, cam 5, start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken5Stop"  Value="output 3, cam 5, stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken1Start" Value="output 4, cam 1, start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken1Stop"  Value="output 4, cam 1, stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken2Start" Value="output 4, cam 2, start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken2Stop"  Value="output 4, cam 2, stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken3Start" Value="output 4, cam 3, start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken3Stop"  Value="output 4, cam 3, stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken4Start" Value="output 4, cam 4, start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken4Stop"  Value="output 4, cam 4, stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken5Start" Value="output 4, cam 5, start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken5Stop"  Value="output 4, cam 5, stop" />
+                    <Text TextId="IDT_REF_SSIFormatName" Value="format SSI-interface" />
+                    <Text TextId="IDT_REF_SSICodeName" Value="code SSI-interface" />
+                    <Text TextId="IDT_REF_SSIDatalaengeName" Value="data bits SSI-interface" />
+                    <Text TextId="IDT_REF_SSIMonozeitName" Value="mono time SSI-interface" />
+                    <!-- Parameter values description -->
+                    <Text TextId="IDT_VALUEITEM_Uhr" Value="clockwise" />
+                    <Text TextId="IDT_VALUEITEM_gegenUhr" Value="counter-clockwise" />
+                    <Text TextId="IDT_VALUEITEM_Binaer" Value="binary code" />
+                    <Text TextId="IDT_VALUEITEM_Gray" Value="gray code" />
+                    <Text TextId="IDT_VALUEITEM_Aus" Value="off" />
+                    <Text TextId="IDT_VALUEITEM_Ein" Value="on" />
+                    <Text TextId="IDT_VALUEITEM_TypUnbekannt" Value="unknown" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_" Value="C__65_" />
+                    <Text TextId="IDT_VALUEITEM_TypL_66" Value="L_66" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_TR-Spezial" Value="C__65_ TR-special" />
+                    <Text TextId="IDT_VALUEITEM_TypC__58_" Value="C__58_" />
+                    <Text TextId="IDT_VALUEITEM_TypC__58_Geschw" Value="C__58_ + velocity" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_Nocken" Value="C__65_ + cam" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_SSI" Value="C__65_ + SSI" />
+                    <Text TextId="IDT_VALUEITEM_5micrometer" Value="5 µm" />
+                    <Text TextId="IDT_VALUEITEM_10micrometer" Value="10 µm" />
+                    <Text TextId="IDT_VALUEITEM_100micrometer" Value="100 µm" />
+                    <Text TextId="IDT_VALUEITEM_GeschwU_min_F" Value="rev/min * factor" />
+                    <Text TextId="IDT_VALUEITEM_GeschwU_sec_F" Value="rev/sec * factor" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_8Bit" Value="steps/msec 8 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_9Bit" Value="steps/msec 9 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_10Bit" Value="steps/msec 10 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_11Bit" Value="steps/msec 11 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_12Bit" Value="steps/msec 12 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_13Bit" Value="steps/msec 13 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_14Bit" Value="steps/msec 14 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_15Bit" Value="steps/msec 15 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_16Bit" Value="steps/msec 16 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_17Bit" Value="steps/msec 17 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_18Bit" Value="steps/msec 18 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_skal" Value="steps/1msec scaled" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_10ms_skal" Value="steps/10msec scaled" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_100ms_skal" Value="steps/100msec scaled" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_sec_skal" Value="steps/1sec scaled" />
+                    <Text TextId="IDT_VALUEITEM_KeinSonderf" Value="no special format" />
+                    <Text TextId="IDT_VALUEITEM_ParityGerade" Value="parity even" />
+                    <Text TextId="IDT_VALUEITEM_ParityUngerade" Value="parity odd" />
+                    <Text TextId="IDT_VALUEITEM_Togglebit" Value="toggle bit" />
+                    <Text TextId="IDT_VALUEITEM_Summe_28Databits" Value="checksum 28 after 28 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_27Databits" Value="checksum 28 after 27 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_26Databits" Value="checksum 28 after 26 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_25Databits" Value="checksum 28 after 25 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_24Databits" Value="checksum 28 after 24 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_23Databits" Value="checksum 28 after 23 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_22Databits" Value="checksum 28 after 22 data bits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_21Databits" Value="checksum 28 after 21 data bits" />
+                    <Text TextId="IDT_VALUEITEM_20usec" Value="20 µsec" />
+                    <Text TextId="IDT_VALUEITEM_15usec" Value="15 µsec" />
+                    <Text TextId="IDT_VALUEITEM_50usec" Value="50 µsec" />
+                    <Text TextId="IDT_VALUEITEM_500usec" Value="500 µsec" />
+                </PrimaryLanguage>
+
+                <Language xml:lang="de">
+                    <!--german-->
+                    <!-- Pfad Beschreibung -->
+                    <Text TextId="IDT_INFO_FamilyDescription" Value="Rotativ Encoder" />
+                    <Text TextId="IDT_CATEGORY_ROTATIVE" Value="TR PROFINET Rotativ" />
+                    <Text TextId="IDT_CATEGORY_INFO_ROTATIVE" Value="Rotativ Encoder" />
+                    <!-- DAP Beschreibung -->
+                    <Text TextId="IDT_MODULE_NAME_DAP2" Value="C__65_-EPN" />
+                    <Text TextId="IDT_MODULE_INFO_DAP2" Value="Rotativ Encoder C__65_-EPN" />
+                    <Text TextId="IDT_MODULE_NAME_DAP3" Value="L_66-EPN" />
+                    <Text TextId="IDT_MODULE_INFO_DAP3" Value="Linear Encoder L_66-EPN" />
+                    <Text TextId="IDT_MODULE_NAME_DAP4" Value="C__65_-EPN TR-Special" />
+                    <Text TextId="IDT_MODULE_INFO_DAP4" Value="Rotativ Encoder C__65_-EPN mit TR-Special Parameter" />
+                    <Text TextId="IDT_MODULE_NAME_DAP5" Value="C__58_-EPN" />
+                    <Text TextId="IDT_MODULE_INFO_DAP5" Value="Rotativ Encoder C__58_-EPN" />
+                    <Text TextId="IDT_MODULE_NAME_DAP6" Value="C__58_-EPN + Geschw." />
+                    <Text TextId="IDT_MODULE_INFO_DAP6" Value="Rotativ Encoder C__58_-EPN mit Geschw." />
+                    <Text TextId="IDT_MODULE_NAME_DAP7" Value="C__65_-EPN + Nocken" />
+                    <Text TextId="IDT_MODULE_INFO_DAP7" Value="Rotativ Encoder C__65_-EPN mit Nocken" />
+                    <Text TextId="IDT_MODULE_NAME_DAP8" Value="C__65_-EPN + SSI" />
+                    <Text TextId="IDT_MODULE_INFO_DAP8" Value="Rotativ Encoder C__65_-EPN mit SSI Ausgang" />
+                    <!-- System Subslot Beschreibung -->
+                    <Text TextId="IDT_SUBSLOT_8000_DAP2" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP2" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP2" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP3" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP3" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP3" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP4" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP4" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP4" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP5" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP5" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP5" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP6" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP6" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP6" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP7" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP7" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP7" Value="X1 P2" />
+                    <Text TextId="IDT_SUBSLOT_8000_DAP8" Value="X1" />
+                    <Text TextId="IDT_SUBSLOT_8001_DAP8" Value="X1 P1" />
+                    <Text TextId="IDT_SUBSLOT_8002_DAP8" Value="X1 P2" />
+                    <!-- System Submodule Beschreibung -->
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP2" Value="Submodule DAP2" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP2" Value="Submodule DAP2" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP2" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP2" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP2" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP3" Value="Submodule DAP3" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP3" Value="Submodule DAP3" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP3" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP3" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP3" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP4" Value="Submodule DAP4" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP4" Value="Submodule DAP4" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP4" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP4" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP4" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP5" Value="Submodule DAP5" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP5" Value="Submodule DAP5" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP5" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP5" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP5" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP6" Value="Submodule DAP6" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP6" Value="Submodule DAP6" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP6" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP6" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP6" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP7" Value="Submodule DAP7" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP7" Value="Submodule DAP7" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP7" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP7" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP7" Value="Port 2" />
+                    <Text TextId="IDT_SUBMODULE_NAME_DAP8" Value="Submodule DAP8" />
+                    <Text TextId="IDT_SUBMODULE_INFO_DAP8" Value="Submodule DAP8" />
+                    <Text TextId="IDT_SUBMODULEITEM_Interface_DAP8" Value="Interface" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port1_DAP8" Value="Port 1" />
+                    <Text TextId="IDT_SUBMODULEITEM_Port2_DAP8" Value="Port 2" />
+                    <!-- Module Beschreibung -->
+                    <Text TextId="IDT_MODULE_NAME_Module5" Value="Geberdaten 4 Byte E" />
+                    <Text TextId="IDT_MODULE_INFO_Module5" Value="4 Byte Position - ModuleIdentNumber:0x24 - SubmoduleIdentNumber:0x0001 - API:0x00" />
+                    <Text TextId="IDT_DATAITEM_I_Module5" Value="Input 4 byte" />
+                    <Text TextId="IDT_MODULE_NAME_Module6" Value="Geberdaten 4 Byte E" />
+                    <Text TextId="IDT_MODULE_INFO_Module6" Value="4 Byte Position - ModuleIdentNumber:0x25 - SubmoduleIdentNumber:0x0001 - API:0x00" />
+                    <Text TextId="IDT_DATAITEM_I_Module6" Value="Input 4 byte" />
+                    <Text TextId="IDT_MODULE_NAME_Module7" Value="Geberdaten 6 Byte E" />
+                    <Text TextId="IDT_MODULE_INFO_Module7" Value="4 Byte Position - 2 Byte Geschwindigkeit - ModuleIdentNumber:0x26 - SubmoduleIdentNumber:0x0001 - API:0x00" />
+                    <Text TextId="IDT_DATAITEM_I_Module7" Value="Input 6 byte" />
+                    <!-- Submodule Beschreibung -->
+                    <Text TextId="IDT_SUBMODULE_NAME_M5S1" Value="Modul5/Submodul1" />
+                    <Text TextId="IDT_SUBMODULE_INFO_M5S1" Value="Modul5/Submodul1" />
+                    <Text TextId="IDT_SUBMODULE_NAME_M6S1" Value="Modul6/Submodul1" />
+                    <Text TextId="IDT_SUBMODULE_INFO_M6S1" Value="Modul6/Submodul1" />
+                    <Text TextId="IDT_SUBMODULE_NAME_M7S1" Value="Modul7/Submodul1" />
+                    <Text TextId="IDT_SUBMODULE_INFO_M7S1" Value="Modul7/Submodul1" />
+                    <!-- Diagnose Fehler Beschreibung -->
+                    <Text TextId="IDT_DIAG_NAME_ErrorType112" Value="interner Kommunikationsfehler" />
+                    <Text TextId="IDT_DIAG_HELP_ErrorType112" Value="interner Kommunikationsfehler" />
+                    <!-- Parameter Datensatz Beschreibung -->
+                    <Text TextId="IDT_RECORD_NAME_DAP2" Value="Generelle Parameter C__65_-EPN" />
+                    <Text TextId="IDT_RECORD_NAME_DAP3" Value="Generelle Parameter L_66-EPN" />
+                    <Text TextId="IDT_RECORD_NAME_DAP4" Value="Generelle Parameter C__65_-EPN TR-Special" />
+                    <Text TextId="IDT_RECORD_NAME_DAP5" Value="Generelle Parameter C__58_-EPN" />
+                    <Text TextId="IDT_RECORD_NAME_DAP6" Value="Generelle Parameter C__58_-EPN + Geschw." />
+                    <Text TextId="IDT_RECORD_NAME_DAP7" Value="Generelle Parameter C__65_-EPN + Nocken" />
+                    <Text TextId="IDT_RECORD_NAME_DAP8" Value="Generelle Parameter C__65_-EPN + SSI Ausgang" />
+                    <!-- Parameter Beschreibung -->
+                    <Text TextId="IDT_REF_InterpolName" Value="Interpolation" />
+                    <Text TextId="IDT_REF_AufloesungLA66Name" Value="Auflösung" />
+                    <Text TextId="IDT_REF_DrehrichtungName" Value="Drehrichtung" />
+                    <Text TextId="IDT_REF_CodeName" Value="Ausgabe-Code" />
+                    <Text TextId="IDT_REF_TannenbaumName" Value="Tannenbaum" />
+                    <Text TextId="IDT_REF_DeviceTypeName" Value="Gerätetyp" />
+                    <Text TextId="IDT_REF_AufloesungName" Value="Geber-Auflösung" />
+                    <Text TextId="IDT_REF_UmdrehungenName" Value="Anzahl Umdrehungen" />
+                    <Text TextId="IDT_REF_MesslaengeName" Value="Messlänge" />
+                    <Text TextId="IDT_REF_UmdrehZaehlerName" Value="Umdrehungen Zähler" />
+                    <Text TextId="IDT_REF_UmdrehNennerName" Value="Umdrehungen Nenner" />
+                    <Text TextId="IDT_REF_GeschwFormatName" Value="Geschwindigkeit Format" />
+                    <Text TextId="IDT_REF_GeschwFaktorName" Value="Geschwindigkeit Faktor" />
+                    <Text TextId="IDT_REF_HW_Preset1Name" Value="Preset Wert 1" />
+                    <Text TextId="IDT_REF_HW_Preset2Name" Value="Preset Wert 2" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken1Start" Value="Ausgang 1, Nocken 1, Start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken1Stop"  Value="Ausgang 1, Nocken 1, Stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken2Start" Value="Ausgang 1, Nocken 2, Start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken2Stop"  Value="Ausgang 1, Nocken 2, Stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken3Start" Value="Ausgang 1, Nocken 3, Start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken3Stop"  Value="Ausgang 1, Nocken 3, Stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken4Start" Value="Ausgang 1, Nocken 4, Start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken4Stop"  Value="Ausgang 1, Nocken 4, Stop" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken5Start" Value="Ausgang 1, Nocken 5, Start" />
+                    <Text TextId="IDT_REF_Ausg1_Nocken5Stop"  Value="Ausgang 1, Nocken 5, Stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken1Start" Value="Ausgang 2, Nocken 1, Start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken1Stop"  Value="Ausgang 2, Nocken 1, Stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken2Start" Value="Ausgang 2, Nocken 2, Start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken2Stop"  Value="Ausgang 2, Nocken 2, Stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken3Start" Value="Ausgang 2, Nocken 3, Start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken3Stop"  Value="Ausgang 2, Nocken 3, Stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken4Start" Value="Ausgang 2, Nocken 4, Start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken4Stop"  Value="Ausgang 2, Nocken 4, Stop" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken5Start" Value="Ausgang 2, Nocken 5, Start" />
+                    <Text TextId="IDT_REF_Ausg2_Nocken5Stop"  Value="Ausgang 2, Nocken 5, Stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken1Start" Value="Ausgang 3, Nocken 1, Start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken1Stop"  Value="Ausgang 3, Nocken 1, Stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken2Start" Value="Ausgang 3, Nocken 2, Start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken2Stop"  Value="Ausgang 3, Nocken 2, Stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken3Start" Value="Ausgang 3, Nocken 3, Start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken3Stop"  Value="Ausgang 3, Nocken 3, Stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken4Start" Value="Ausgang 3, Nocken 4, Start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken4Stop"  Value="Ausgang 3, Nocken 4, Stop" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken5Start" Value="Ausgang 3, Nocken 5, Start" />
+                    <Text TextId="IDT_REF_Ausg3_Nocken5Stop"  Value="Ausgang 3, Nocken 5, Stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken1Start" Value="Ausgang 4, Nocken 1, Start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken1Stop"  Value="Ausgang 4, Nocken 1, Stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken2Start" Value="Ausgang 4, Nocken 2, Start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken2Stop"  Value="Ausgang 4, Nocken 2, Stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken3Start" Value="Ausgang 4, Nocken 3, Start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken3Stop"  Value="Ausgang 4, Nocken 3, Stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken4Start" Value="Ausgang 4, Nocken 4, Start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken4Stop"  Value="Ausgang 4, Nocken 4, Stop" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken5Start" Value="Ausgang 4, Nocken 5, Start" />
+                    <Text TextId="IDT_REF_Ausg4_Nocken5Stop"  Value="Ausgang 4, Nocken 5, Stop" />
+                    <Text TextId="IDT_REF_SSIFormatName" Value="Format SSI-Interface" />
+                    <Text TextId="IDT_REF_SSICodeName" Value="Code SSI-Interface" />
+                    <Text TextId="IDT_REF_SSIDatalaengeName" Value="Datenbits SSI-Interface" />
+                    <Text TextId="IDT_REF_SSIMonozeitName" Value="Monozeit SSI-Interface" />
+                    <!-- Parameter Werte Beschreibung -->
+                    <Text TextId="IDT_VALUEITEM_Uhr" Value="Uhrzeigersinn" />
+                    <Text TextId="IDT_VALUEITEM_gegenUhr" Value="gegen den Uhrzeigersinn" />
+                    <Text TextId="IDT_VALUEITEM_Binaer" Value="Binär-Code" />
+                    <Text TextId="IDT_VALUEITEM_Gray" Value="Gray-Code" />
+                    <Text TextId="IDT_VALUEITEM_Aus" Value="aus" />
+                    <Text TextId="IDT_VALUEITEM_Ein" Value="ein" />
+                    <Text TextId="IDT_VALUEITEM_TypUnbekannt" Value="unbekannt" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_" Value="C__65_" />
+                    <Text TextId="IDT_VALUEITEM_TypL_66" Value="L_66" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_TR-Spezial" Value="C__65_ TR-Special" />
+                    <Text TextId="IDT_VALUEITEM_TypC__58_" Value="C__58_" />
+                    <Text TextId="IDT_VALUEITEM_TypC__58_Geschw" Value="C__58_ + Geschw." />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_Nocken" Value="C__65_ + Nocken" />
+                    <Text TextId="IDT_VALUEITEM_TypC__65_SSI" Value="C__65_ + SSI" />
+                    <Text TextId="IDT_VALUEITEM_5micrometer" Value="5 µm" />
+                    <Text TextId="IDT_VALUEITEM_10micrometer" Value="10 µm" />
+                    <Text TextId="IDT_VALUEITEM_100micrometer" Value="100 µm" />
+                    <Text TextId="IDT_VALUEITEM_GeschwU_min_F" Value="U/min * Faktor" />
+                    <Text TextId="IDT_VALUEITEM_GeschwU_sec_F" Value="U/sec * Faktor" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_8Bit" Value="Schritte/msec 8 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_9Bit" Value="Schritte/msec 9 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_10Bit" Value="Schritte/msec 10 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_11Bit" Value="Schritte/msec 11 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_12Bit" Value="Schritte/msec 12 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_13Bit" Value="Schritte/msec 13 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_14Bit" Value="Schritte/msec 14 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_15Bit" Value="Schritte/msec 15 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_16Bit" Value="Schritte/msec 16 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_17Bit" Value="Schritte/msec 17 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_18Bit" Value="Schritte/msec 18 bit" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_ms_skal" Value="Schritte/1msec skaliert" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_10ms_skal" Value="Schritte/10msec skaliert" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_100ms_skal" Value="Schritte/100msec skaliert" />
+                    <Text TextId="IDT_VALUEITEM_GeschwSchr_sec_skal" Value="Schritte/1sec skaliert" />
+                    <Text TextId="IDT_VALUEITEM_KeinSonderf" Value="Kein Sonderformat" />
+                    <Text TextId="IDT_VALUEITEM_ParityGerade" Value="Parity gerade" />
+                    <Text TextId="IDT_VALUEITEM_ParityUngerade" Value="Parity ungerade" />
+                    <Text TextId="IDT_VALUEITEM_Togglebit" Value="Togglebit" />
+                    <Text TextId="IDT_VALUEITEM_Summe_28Databits" Value="Prüfsumme 28 nach 28 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_27Databits" Value="Prüfsumme 28 nach 27 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_26Databits" Value="Prüfsumme 28 nach 26 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_25Databits" Value="Prüfsumme 28 nach 25 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_24Databits" Value="Prüfsumme 28 nach 24 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_23Databits" Value="Prüfsumme 28 nach 23 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_22Databits" Value="Prüfsumme 28 nach 22 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_Summe_21Databits" Value="Prüfsumme 28 nach 21 Datenbits" />
+                    <Text TextId="IDT_VALUEITEM_20usec" Value="20 µsec" />
+                    <Text TextId="IDT_VALUEITEM_15usec" Value="15 µsec" />
+                    <Text TextId="IDT_VALUEITEM_50usec" Value="50 µsec" />
+                    <Text TextId="IDT_VALUEITEM_500usec" Value="500 µsec" />
+                </Language>
+
+            </ExternalTextList>
+        </ApplicationProcess>
+    </ProfileBody>
+</ISO15745Profile>
